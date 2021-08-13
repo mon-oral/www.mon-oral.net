@@ -1,7 +1,7 @@
 ---
 name: Bugs
 about: Déclarer un bug
-title: 'xxx'
+title: ''
 labels: 'bug'
 assignees: ''
 
