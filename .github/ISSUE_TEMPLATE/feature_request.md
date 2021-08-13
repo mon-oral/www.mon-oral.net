@@ -1,6 +1,6 @@
 ---
 name: Fonctionnalités
-about: Suggest an idea for this project
+about: Proposer une nouvelle fonctionnalité
 title: ''
 labels: ''
 assignees: ''
