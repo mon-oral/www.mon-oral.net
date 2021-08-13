@@ -2,7 +2,7 @@
 name: Fonctionnalités
 about: Proposer une nouvelle fonctionnalité
 title: ''
-labels: ''
+labels: 'fonctionnalité'
 assignees: ''
 
 ---
