@@ -202,8 +202,8 @@ Route::get('/admin/compte_refuser/{user_id}', 'AdminController@compte_refuser');
 // ============================================================================
 // == FORMULAIRE
 // ============================================================================
-Route::get('/formulaire_contact', 'SiteController@formulaire_get')->name('formulaire-get');;
-Route::post('/formulaire_contact', 'SiteController@formulaire_post')->name('formulaire-post');;
+Route::get('/formulaire_contact', 'SiteController@formulaire_get')->name('formulaire-get');
+Route::post('/formulaire_contact', 'SiteController@formulaire_post')->name('formulaire-post');
 
 
 // ============================================================================
