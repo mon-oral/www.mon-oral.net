@@ -1,6 +1,6 @@
 ---
-name: Questions
-about: Poser une question
+name: Questions techniques
+about: Poser une question technique
 title: ''
 labels: 'question'
 assignees: ''
