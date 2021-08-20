@@ -1,6 +1,6 @@
 ---
 name: Bugs
-about: Déclarer un bug
+about: Signaler un bug
 title: ''
 labels: 'bug'
 assignees: ''
