@@ -1,10 +1,30 @@
-# Ignore everything
-*
-
-# But not these files...
-!.gitignore
-!.README.md
-
-# ... and folders
-!*/routes/*
-!*/views/*
+/.git
+/.github
+/app
+/bootstrap
+/config
+/database
+/node_modules
+/public/*
+!/public/css
+!/public/img
+/resources/*
+!/resources/lang
+!/resources/views
+/storage
+/tests
+/vendor
+.editorconfig
+.env
+.env.example
+.gitattributes
+.gitignore
+.styleci.yml
+artisan
+composer.json
+composer.lock
+package-lock.json
+package.json
+phpunit.xml
+server.php
+webpack.mix.js
