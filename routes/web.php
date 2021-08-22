@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // AUTH ROUTES
-Auth::routes(['verify' => true]); 
+Auth::routes(['verify' => true]);
 
 // Home
 Route::get('/', function () {
@@ -67,12 +67,29 @@ Route::get('telecharger-commentaire/{filename}', function ($filename) {
 });
 
 
+// ==========================
+// == CLEAR COOKIE
+// ==========================
+
+Route::get('/direct-inscription', function(){
+    Cookie::queue(Cookie::forget(strtolower(str_replace(['-','.'], ['_',''], config('app.name'))) . '_session'));
+    return redirect('/inscription');
+});
+
+Route::get('/direct-connexion', function(){
+    Cookie::queue(Cookie::forget(strtolower(str_replace(['-','.'], ['_',''], config('app.name'))) . '_session'));
+    return redirect('/connexion');
+});
+
+Route::get('/direct-welcome', function(){
+    Cookie::queue(Cookie::forget(strtolower(str_replace(['-','.'], ['_',''], config('app.name'))) . '_session'));
+    return redirect('/');
+});
 
 
-
-// ============================================================================
+// ==========================
 // == CAPSULES ELEVES
-// ============================================================================
+// ==========================
 
 // capsule-enregistrement
 Route::any('/capsule', 'CapsuleController@enregistrement')->name('capsule-enregistrement');
@@ -93,9 +110,10 @@ Route::any('/capsule-quitter', 'CapsuleController@quitter')->name('capsule-quitt
 // capsule-refaire (suppression de l'enregistrement pour nouvel enregistrement)
 Route::get('/capsule-refaire', 'CapsuleController@refaire')->name('capsule-refaire');
 
-// ============================================================================
+
+// ==========================
 // == COMMENTAIRES
-// ============================================================================
+// ==========================
 
 // commentaires-liste
 Route::any('/console/commentaires', 'ConsoleController@commentaires_liste')->name('commentaires-liste');
@@ -170,9 +188,9 @@ Route::get('/console/commentaires/dossier-supprimer/{dossier_id}', 'CommentaireC
 Route::get('/console/commentaires/dossier-supprimer', 'CommentaireController@redirect');
 
 
-// ============================================================================
+// ==========================
 // == GRAND ORAL
-// ============================================================================
+// ==========================
 
 // grandoral-creer
 Route::get('/console/grandoral-creer', 'ConsoleController@grandoral_creer_get')->name('grandoral-creer-get');
@@ -189,9 +207,9 @@ Route::get('/grandoral', 'GrandoralController@etape1')->name('grandoral-etape1')
 //Route::post('/grandoral', 'GrandoralController@etape1Post');
 
 
-// ============================================================================
+// ==========================
 // == VALIDATION COMPTES
-// ============================================================================
+// ==========================
 
 // accepter
 Route::get('/admin/compte_accepter/{user_id}', 'AdminController@compte_accepter');
@@ -199,16 +217,18 @@ Route::get('/admin/compte_accepter/{user_id}', 'AdminController@compte_accepter'
 // refuser
 Route::get('/admin/compte_refuser/{user_id}', 'AdminController@compte_refuser');
 
-// ============================================================================
+
+// ==========================
 // == FORMULAIRE
-// ============================================================================
+// ==========================
+
 Route::get('/formulaire_contact', 'SiteController@formulaire_get')->name('formulaire-get');;
 Route::post('/formulaire_contact', 'SiteController@formulaire_post')->name('formulaire-post');;
 
 
-// ============================================================================
+// ==========================
 // == ACTIVITES - CONSOLE
-// ============================================================================
+// ==========================
 
 // activites-liste
 Route::any('/console/activites', 'ConsoleController@activites_liste')->name('activites-liste');
@@ -235,9 +255,9 @@ Route::get('/console/activite-correction-supprimer/{correction_id}', 'ConsoleCon
 Route::get('/console/activite-correction-supprimer', 'CommentaireController@redirect');
 
 
-// ============================================================================
+// ==========================
 // == ACTIVITES - ELEVES
-// ============================================================================
+// ==========================
 
 // activite-identifier
 Route::get('/activite', 'ActiviteController@identifier_get')->name('activite-etape-identifier-get');
@@ -290,9 +310,9 @@ Route::get('/console/activites-archives', function(){
 });
 
 
-// ============================================================================
+// ==========================
 // == ENTRAINEMENTS - CONSOLE
-// ============================================================================
+// ==========================
 
 // entrainement-liste
 Route::any('/console/entrainements', 'ConsoleController@entrainements_liste')->name('entrainements-liste');
@@ -339,9 +359,9 @@ Route::post('/console/entrainement-correction-creer', 'ConsoleController@entrain
 Route::get('/console/entrainement-correction-supprimer/{correction_id}', 'ConsoleController@entrainement_correction_supprimer')->name('entrainement-correction-supprimer');
 Route::get('/console/entrainement-correction-supprimer', 'CommentaireController@redirect');
 
-// ============================================================================
+// ==========================
 // == ENTRAINEMENTS - ELEVES
-// ============================================================================
+// ==========================
 
 // entrainement-etape1 - prenom, nom, code
 Route::get('/entrainement', 'EntrainementController@etape1')->name('entrainement-etape1');
@@ -383,9 +403,9 @@ Route::any('/entrainement-lecteur', 'EntrainementController@lecteur')->name('ent
 
 
 
-// ============================================================================
+// ==========================
 // == TESTS AUDIO
-// ============================================================================
+// ==========================
 
 // test mp3
 Route::post('/test-mp3', 'TestaudioController@mp3');
@@ -397,9 +417,9 @@ Route::any('/test-lecteur', 'TestaudioController@redirect');
 
 
 
-// ============================================================================
+// ==========================
 // == CONSOLE
-// ============================================================================
+// ==========================
 
 // Console
 Route::post('/console', 'ConsoleController@post');
@@ -427,6 +447,3 @@ Route::any('/console/lecteur-activite', 'ConsoleController@redirect');
 
 // Entrainement - ecoute
 Route::any('/entrainement/{code_audio}', 'ConsoleController@entrainementecoute')->name('entrainementecoute');
-
-
-
