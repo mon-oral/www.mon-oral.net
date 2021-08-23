@@ -16,10 +16,10 @@ use Illuminate\Support\Facades\Route;
 // AUTH ROUTES
 Auth::routes(['verify' => true]);
 
-// Home
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+Route::view('/inscription-intro', 'auth/register-intro')->name('register-intro');
+
+// Index
+Route::view('/', 'welcome')->name('welcome');
 
 // Bac à  sable
 Route::get('/bac-a-sable', function () {

@@ -1,10 +1,19 @@
-@extends('layouts.app')
+@include('inc-top')
+<!doctype html>
+<html lang="fr">
+<head>
+	@include('inc-meta')
+	<title>Se connecter</title>
+</head>
+<body>
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card mt-5" style="background:none;border:none;">
+    @include('inc-nav')
+
+    <div class="container mb-5">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+
+                <h1>SE CONNECTER</h1>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -52,9 +61,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
+                                <button type="submit" class="btn btn-primary pl-4 pr-4"><i class="fas fa-check"></i></button>
 
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
@@ -65,8 +72,10 @@
                         </div>
                     </form>
                 </div>
+
             </div>
-        </div>
-    </div>
-</div>
-@endsection
+        </div><!-- /row -->
+    </div><!-- /container -->
+
+</body>
+</html>

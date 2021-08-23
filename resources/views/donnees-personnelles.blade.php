@@ -1,63 +1,21 @@
 @include('inc-top')
 <!doctype html>
 <html lang="fr">
-	<head>
+<head>
+	@include('inc-meta')
+	<title>Politique de protection des données</title>
+</head>
 
-		@include('inc-meta')	
-	
-		<title>Mon Oral</title>
+<body>
 
-	</head>
-		
-	<body>
-		<div id="app" class="mb-5">
-		
-			<nav class="navbar navbar-expand-md navbar-light">
-				<div class="container">
-					<div>
-						<div><a class="navbar-brand" href="{{ url('/') }}"><img src="{{ asset('img/mon-oral.png') }}" width="60" /></a></div>
-						<div class="text-monospace" style="font-size:60%;color:silver;margin-top:-6px;">mon-oral.net</div>
-						<div class="text-monospace small text-danger" style="padding-left:70px;margin-top:-70px;">bêta</div>
-					</div>
-					
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-						<span class="navbar-toggler-icon"></span>
-					</button>
+	@include('inc-nav')
 
-					<div class="collapse navbar-collapse" id="navbarSupportedContent">
-						<!-- Left Side Of Navbar -->
-						<ul class="navbar-nav mr-auto">
+	<div class="container mb-5">
 
-						</ul>
+		<div class="row">
 
-						<!-- Right Side Of Navbar -->
-						<ul class="navbar-nav ml-auto">
-							@if (Route::has('login'))				
-								<li class="nav-item dropdown">
-									<a class="nav-link dropdown-toggle text-muted" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-lock"></i></a>
-									<div class="dropdown-menu m-0 p-0" aria-labelledby="navbarDropdownMenuLink">
-										<div class="text-center small p-2" style="color:#227dc7;"><b>accès enseignants</b></div>
-										@auth
-											<a class="dropdown-item" href="{{ url('/console') }}">console</a>
-										@else
-											<a class="dropdown-item" href="{{ route('login') }}">se connecter</a>
-											@if (Route::has('register'))
-												<a class="dropdown-item" href="{{ route('register') }}">s'inscrire</a>
-											@endif
-										@endauth
-									</div>
-								</li>						
-							@endif				
-						</ul>
-					</div>
-				</div>
-			</nav>
-			
-			<div class="container mt-5 pt-5">
-			
-				<div class="row">
+			<div class="col-md-8 offset-md-2 text-justify">
 
-					<div class="col-md-8 offset-md-2 text-justify">			
 <h1>Politique de protection des données</h1>
 <p>Le RGPD impose une information complète et précise. Les modalités de fourniture et de présentation de cette information doivent être adaptées au contexte.</p>
 La transparence permet aux personnes concernées :
@@ -86,7 +44,7 @@ La transparence permet aux personnes concernées :
 <p>Ces données ne seront jamais cédées à un tiers ni utilisées à d’autres fins que celles détaillées ci-dessus.</p>
 
 <h2>Hébergement des données à caractère personnel</h2>
-Les données à caractère personnel collectées et traitées sont hébergées en France sur le serveur de mon-oral.net. Les données à caractère personnel collectées par mon-oral.net ne sont transmises à aucun tier. Elles sont conservées sur le serveur de mon-oral.net jusqu'à expiration (voir "Durée de conservation"). 
+Les données à caractère personnel collectées et traitées sont hébergées en France sur le serveur de mon-oral.net. Les données à caractère personnel collectées par mon-oral.net ne sont transmises à aucun tier. Elles sont conservées sur le serveur de mon-oral.net jusqu'à expiration (voir "Durée de conservation").
 
 <h2>Durée de conservation</h2>
 <p>Les enregistrements des élèves sont convervés trois mois maximum. Les données des comptes des enseignants sont conservées durant une durée maximale de 2 ans. Elles peuvent être supprimées à tout moment par l'utilisateur en cliquant, dans son espace enseignant, sur "supprimer le compte".</p>
@@ -117,11 +75,11 @@ A l'attention du délégué à la protection des données (DPO)<br />
 TSA 80715<br />
 75334 PARIS CEDEX 07</li>
 
-				</div>
-			</div><!-- /container -->
-		</div><!-- /app -->
-		
-		@include('inc-bottom')	
-		
-	</body>
+			</div>
+		</div><!-- /row -->
+	</div><!-- /container -->
+
+	@include('inc-bottom')
+
+</body>
 </html>
