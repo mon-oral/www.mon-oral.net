@@ -26,7 +26,7 @@
 	<span style="font-size:90%"><i class="fas fa-bug" style="float:left;margin:4px 8px 5px 0px;"></i> signalement de bogues <span style="opacity:0.6;font-size:90%;">&</span> questions techniques</span>
 </a>
 
-<a href="https://github.com/mon-oral/www.mon-oral.net/issues/new/choose" target="_blank" role="button"  class="mt-1 btn btn-light text-left btn-sm text-muted text-monospace" style="width:100%;opacity:0.8;">
+<a href="https://twitter.com/mon_oral" target="_blank" role="button"  class="mt-1 btn btn-light text-left btn-sm text-muted text-monospace" style="width:100%;opacity:0.8;">
 	<span style="font-size:90%"><i class="fab fa-twitter" style="float:left;margin:4px 8px 5px 0px;"></i> @mon_oral</span>
 </a>
 
