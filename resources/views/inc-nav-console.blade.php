@@ -1,10 +1,10 @@
-<nav class="navbar navbar-expand-md navbar-light">
+<nav class="navbar navbar-expand-md navbar-light mb-4">
 	<div class="container">
 		<div>
 			<div><a class="navbar-brand" href="{{ url('/console/') }}"><img src="{{ asset('img/mon-oral.png') }}" width="40" /></a></div>
 			<div class="text-monospace small" style="color:#c5c7c9;margin-top:-2px;">console</div>
 		</div>
-		
+
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
 			<span class="navbar-toggler-icon"></span>
 		</button>
@@ -34,23 +34,23 @@
 						</a>
 
 						<div class="dropdown-menu dropdown-menu-right p-2" aria-labelledby="navbarDropdown">
-							
+
 							<table class="mr-2 mb-2 text-monospace small text-muted">
 								<tr>
 									<td class="text-center pr-2 align-top pt-1"><i class="fas fa-building"></i></td>
-									<td class="pt-1">{{ $user->etablissement }}</td>
+									<td class="pt-1">{{ Auth::user()->etablissement }}</td>
 								</tr>
 								<tr>
 									<td class="text-center pr-2 align-top pt-1"><i class="fas fa-bookmark"></i></td>
-									<td class="pt-1">{{ $user->matiere }}</td>
-								</tr>	
+									<td class="pt-1">{{ Auth::user()->matiere }}</td>
+								</tr>
 								<tr>
 									<td class="text-center pr-2 align-top pt-1"><i class="fas fa-at"></i></td>
-									<td class="pt-1">{{ $user->email }}</td>
-								</tr>								
-							</table>	
+									<td class="pt-1">{{ Auth::user()->email }}</td>
+								</tr>
+							</table>
 
-							<a class="dropdown-item btn btn-light text-center" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><span class="small">{{ __('Logout') }}</span></a>							
+							<a class="dropdown-item btn btn-light text-center" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><span class="small">{{ __('Logout') }}</span></a>
 
 							<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
 								@csrf
