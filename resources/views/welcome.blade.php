@@ -148,7 +148,7 @@
 		<div class="row pt-5">
 			<div class="col-md-8 offset-md-2">
 				<p class="text-center text-muted text-monospace small">tutoriel vidéo réalisé par <a href="https://twitter.com/JohannNallet" target="_blank">Johann Nallet</a></p>
-				<p class="text-center text-monospace small" style="color:silver;font-size:80%">attention : le site évoluant régulièrement, l'interface peut avoir légèrement changé sur certaines page</p>
+				<p class="text-center text-monospace small" style="color:silver;font-size:80%">attention : le site évoluant régulièrement, l'interface peut avoir légèrement changé sur certaines pages</p>
 				<div class="embed-responsive embed-responsive-16by9" style="border-radius:5px;">
   					<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/UCGT1POExrg?rel=0" allowfullscreen></iframe>
 				</div>
