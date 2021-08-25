@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-light mb-4">
 	<div class="container">
 		<div>
-			<div><a class="navbar-brand" href="{{ url('/console/') }}"><img src="{{ asset('img/mon-oral.png') }}" width="40" /></a></div>
+			<div style="padding-left:4px;"><a class="navbar-brand" href="{{ url('/console/') }}"><img src="{{ asset('img/mon-oral.svg') }}" width="40" /></a></div>
 			<div class="text-monospace small" style="color:#c5c7c9;margin-top:-2px;">console</div>
 		</div>
 

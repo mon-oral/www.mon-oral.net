@@ -23,6 +23,10 @@ a:hover {
     text-decoration: none;
 }
 
+.text-success {
+    color: #5FB57D !important;
+}
+
 
 
 .table th, .table td {
