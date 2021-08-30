@@ -71,7 +71,7 @@
             <table class="table table-bordered mt-2">
                 <?php
                 foreach ($enregistrements as $enregistrement) {
-                    if ($enregistrement->correction_id OR $enregistrement->cr_texte) {
+                    if ($enregistrement->cr_audio OR $enregistrement->cr_texte) {
                         ?>
                         <tr>
                             <td class="p-2"><h1><span class="badge badge-light text-monospace">{{ $enregistrement->nom }}</span></h1></td>
@@ -84,13 +84,13 @@
                 }
                 ?>
             </table>
-            <p class="text-monospace text-center mt-4 small text-muted">fiches individuelles ci-dessous</p>
+            <p class="text-monospace text-center mt-4 small text-muted">comptes rendus individuelles ci-dessous</p>
 
             <div style="page-break-after: always;">&nbsp;</div>
 
             <?php
             foreach ($enregistrements as $enregistrement) {
-                if ($enregistrement->correction_id OR $enregistrement->cr_texte) {
+                if ($enregistrement->cr_audio OR $enregistrement->cr_texte) {
                     ?>
                     <div class="card">
                         <div class="card-body">
@@ -117,7 +117,7 @@
                                     <p id="correction_ecrit_texte_{{$enregistrement->id }}_print">{{ $enregistrement->cr_texte }}</p>
                                 </div>
                             </div>
-                            @if ($enregistrement->correction_id)
+                            @if ($enregistrement->cr_audio)
                             <p>Ecouter : <span class="text-monospace">{{ url('') }}/acr/{{ base64_encode(str_pad($enregistrement->id, 6, "0", STR_PAD_LEFT)) }}</span></p>
                             @endif
 
@@ -141,6 +141,6 @@
     ?>
 
 	@include('inc-bottom-js')
-    
+
 </body>
 </html>
