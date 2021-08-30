@@ -59,12 +59,16 @@ a:hover {
     border-color: #f1c40f;
 }
 
+
+/* BOUTON SUCCESS */
 .btn-success {
     color: #fff;
     background-color: #5fb57d;
     border-color: #5fb57d;
 }
+/* /BOUTON SUCCESS */
 
+/* BOUTON LIGHT */
 .btn-light {
     color: #34495e;
     background-color: #e2e6ea;
@@ -76,6 +80,55 @@ a:hover {
     background-color: #dae0e5;
     border-color: #dae0e5;
 }
+/* /BOUTON LIGHT */
+
+
+
+/* BOUTON CR */
+.btn-cr {
+  color: #ffffff;
+  background-color: #8cd5a6;
+  border-color: #8cd5a6;
+}
+
+.btn-cr:hover {
+  color: #ffffff;
+  background-color: #82ca9c;
+  border-color: #afd0ba;
+}
+
+.btn-cr:focus,
+.btn-cr.focus {
+  color: #ffffff;
+  background-color: #82ca9c;
+  border-color: #afd0ba;
+  box-shadow: 0 0 0 0.2rem rgba(174, 208, 186, 0.5);
+}
+
+.btn-cr.disabled,
+.btn-cr:disabled {
+  color: #ffffff;
+  background-color: #dff0e5;
+  border-color: #dff0e5;
+  opacity:1;
+}
+
+.btn-cr:not(:disabled):not(.disabled):active,
+.btn-cr:not(:disabled):not(.disabled).active,
+.show > .btn-cr.dropdown-toggle {
+  color: #ffffff;
+  background-color: #afd0ba;
+  border-color: #bfe1cb;
+}
+
+.btn-cr:not(:disabled):not(.disabled):active:focus,
+.btn-cr:not(:disabled):not(.disabled).active:focus,
+.show > .btn-cr.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(174, 208, 186, 0.5);
+}
+/* /BOUTON CR */
+
+
 
 .alert-success {
     color: #fff;

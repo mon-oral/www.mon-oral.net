@@ -171,28 +171,18 @@
 												<td>
 													<a style="display:block;font-size:120%;height:40px;line-height:40px;background-color:#f1f3f4;border-radius:4px;" href="/telecharger-activite/{{$enregistrement->code_audio}}" class="text-dark" style="verticla-align:middle;"><i class="fas fa-download ml-3 mr-3 text-muted" data-toggle="tooltip" data-placement="top" title="télécharger le fichier mp3"></i></a>
 												</td>
-												<td>
-													<?php
-													$display_pen_active = ($enregistrement->cr_texte) ? 'none':'block';
-													$display_pen_inactive = ($enregistrement->cr_texte) ? 'block':'none';
-													?>
-
-													<div id='pen_inactive_{{ $enregistrement->id }}' class='btn btn-success btn-sm' style='display:{{ $display_pen_inactive }};font-size:16px;height:40px;padding:7px 12px 0px 12px;cursor:not-allowed;opacity:0.2'><i class='fas fa-pen-alt' style='opacity:0.8'></i></div>
-
-													<a id='pen_active_{{ $enregistrement->id }}' class='btn btn-success btn-sm' style='display:{{ $display_pen_active }};font-size:16px;height:40px;padding:7px 12px 0px 12px;opacity:0.4;' data-toggle='collapse' href='#cr_texte_{{ $enregistrement->id }}' role='button' aria-expanded='false' aria-controls='cr_texte_{{ $enregistrement->id }}' onclick='switch_pen_status({{ $enregistrement->id }})'><i class='fas fa-pen-alt'></i></a>
+												<td class="pl-1">
+													<button id="cr_texte_button_{{ $enregistrement->id }}" class='btn btn-cr btn-sm' type="button" style='font-size:16px;height:40px;padding:1px 12px 0px 12px;{{ ($enregistrement->cr_texte) ? 'cursor:not-allowed;':'' }}' onclick='cr_texte_button_action({{ $enregistrement->id }})' {{ ($enregistrement->cr_texte) ? 'disabled':'' }}><i class='fas fa-pen-alt' ></i></button>
 
 												</td>
-												<td>
-													@if($enregistrement->cr_audio)
-														<div class='btn btn-success btn-sm btn-block' style='font-size:17px;height:40px;padding:7px 14px 0px 14px;cursor:not-allowed;opacity:0.2'><i class='fas fa-microphone' style='opacity:0.8'></i></div>
-													@else
-														<form method='POST' action='{{ route('activite-cr-audio-creer-post') }}'>
-														@csrf
-														<input type='hidden' name='redirect_url' value='/console/activite-afficher/{{ $activite_id }}#card_{{ $enregistrement->id }}' />
-														<input type='hidden' name='enregistrement_id' value='{{ $enregistrement->id }}' />
-														<button type='submit' class='btn btn-success btn-sm btn-block' style='font-size:17px;height:40px;padding:2px 14px 0px 14px;opacity:0.4;'><i class='fas fa-microphone'></i></button>
-														</form>
-													@endif
+												<td class="pl-1">
+													<form method='POST' action='{{ route('activite-cr-audio-creer-post') }}'>
+													@csrf
+													<input type='hidden' name='redirect_url' value='/console/activite-afficher/{{ $activite_id }}#card_{{ $enregistrement->id }}' />
+													<input type='hidden' name='enregistrement_id' value='{{ $enregistrement->id }}' />
+													<button type='submit' class='btn btn-cr btn-sm btn-block' style='font-size:17px;height:40px;padding:2px 14px 0px 14px;{{ ($enregistrement->cr_audio) ? 'cursor:not-allowed;':'' }}' {{ ($enregistrement->cr_audio) ? 'disabled':'' }}><i class='fas fa-microphone'></i></button>
+													</form>
+
 												</td>
 											</tr>
 										</table>
@@ -231,7 +221,7 @@
 												<textarea class="form-control" id="cr_textarea_{{$enregistrement->id }}" rows="3" onkeyup="show_save({{ $enregistrement->id }})">{{ $enregistrement->cr_texte }}</textarea>
 												<div class="row">
 													<div class="col-md-6 text-left">
-														<button type="submit" id="cr_texte_submit_{{$enregistrement->id }}" class="btn btn-light btn-sm mt-1" style="opacity:1" onclick="cr_texte_sauvegarde({{ $enregistrement->id }})" data-toggle="tooltip" data-placement="right" title="sauvegarder les modifications"><i class="fas fa-save"></i></button>
+														<button type="submit" id="cr_texte_submit_{{$enregistrement->id }}" class="btn btn-light btn-sm mt-2" style="opacity:1" onclick="cr_texte_sauvegarde({{ $enregistrement->id }})" data-toggle="tooltip" data-placement="right" title="sauvegarder les modifications"><i class="fas fa-save"></i></button>
 													</div>
 													<div class="col-md-6 text-right pt-2">
 														<a tabindex="0" class="ml-2 mr-2 small text-muted" role="button" style="cursor:pointer;outline:none;" data-trigger="focus" data-container="body" data-placement="left" data-toggle="popover" data-html="true" data-content="<a class='btn btn-danger btn-sm' href='/console/activite-enregistrement-cr-texte-effacer/{{ Crypt::encryptString($enregistrement->id) }}' role='button'>confirmer</a> <a tabindex='0' class='btn btn-secondary btn-sm text-light' role='button'>annuler</a>"><i class="fas fa-trash"></i></a>
@@ -309,12 +299,10 @@
 		document.getElementById('cr_texte_submit_'+id).style.opacity="1";
 	}
 
-	function switch_pen_status(id){
-		status = document.getElementById('pen_active_'+id).style.display;
-		if (status == 'block') {
-			document.getElementById('pen_active_'+id).style.display = 'none';
-			document.getElementById('pen_inactive_'+id).style.display = 'block';
-		}
+	function cr_texte_button_action(id){
+		$('#cr_texte_button_'+id).prop("disabled",true);
+		document.getElementById('cr_texte_button_'+id).style.cursor = 'not-allowed';
+		$('#cr_texte_'+id).collapse("show");
 	}
 
 	function cr_texte_sauvegarde(id){
