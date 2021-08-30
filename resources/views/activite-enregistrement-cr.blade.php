@@ -41,7 +41,7 @@
 
                 @if($enregistrement->cr_texte)
                     <div class="mt-4" style="background-color:#f1f3f4;border-radius:4px;padding:20px;">
-                        {{ $enregistrement->cr_texte }}
+                        <?php echo nl2br($enregistrement->cr_texte) ?>
                     </div>
                 @endif
 

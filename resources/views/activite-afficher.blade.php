@@ -111,7 +111,7 @@
 											<p class="text-monospace text-uppercase mt-4 mb-0">Commentaires / correction / conseils</p>
 											<div class="card">
 												<div class="card-body">
-													<p id="cr_texte_{{$enregistrement->id }}_print">{{ $enregistrement->cr_texte }}</p>
+													<p id="cr_texte_{{$enregistrement->id }}_print"><?php echo nl2br($enregistrement->cr_texte) ?></p>
 												</div>
 											</div>
 											@if ($enregistrement->cr_audio)
@@ -228,7 +228,7 @@
 										<div class="collapse @if ($enregistrement->cr_texte) show @endif" id="cr_texte_{{$enregistrement->id }}">
 
 											<div class="mt-1 p-2" style="background-color:#dff0e5;border-radius:4px;">
-												<textarea class="form-control" id="cr_textarea_{{$enregistrement->id }}" rows="3" onkeypress="show_save({{ $enregistrement->id }})">{{ $enregistrement->cr_texte }}</textarea>
+												<textarea class="form-control" id="cr_textarea_{{$enregistrement->id }}" rows="3" onkeyup="show_save({{ $enregistrement->id }})">{{ $enregistrement->cr_texte }}</textarea>
 												<div class="row">
 													<div class="col-md-6 text-left">
 														<button type="submit" id="cr_texte_submit_{{$enregistrement->id }}" class="btn btn-light btn-sm mt-1" style="opacity:1" onclick="cr_texte_sauvegarde({{ $enregistrement->id }})" data-toggle="tooltip" data-placement="right" title="sauvegarder les modifications"><i class="fas fa-save"></i></button>
@@ -303,6 +303,7 @@
 	// SAUVEGARDE CR TEXTE
 	function show_save(id){
 		texte = document.getElementById("cr_textarea_"+id).value;
+		texte = texte.replace(/(?:\r\n|\r|\n)/g, '<br>');
 		console.log(texte);
 		document.getElementById("cr_texte_"+id+"_print").innerHTML = texte;
 		document.getElementById('cr_texte_submit_'+id).style.opacity="1";

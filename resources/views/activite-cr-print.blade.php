@@ -114,7 +114,7 @@
                             <p class="text-monospace text-uppercase mt-4 mb-0">Commentaires / correction / conseils</p>
                             <div class="card">
                                 <div class="card-body">
-                                    <p id="cr_texte_{{$enregistrement->id }}_print">{{ $enregistrement->cr_texte }}</p>
+                                    <p id="cr_texte_{{$enregistrement->id }}_print"><?php echo nl2br($enregistrement->cr_texte) ?></p>
                                 </div>
                             </div>
                             @if ($enregistrement->cr_audio)
