@@ -219,7 +219,7 @@ audio:hover, audio:focus, audio:active {
 }
 
 .popover {
-	width:500px;
+	max-width:500px;
 }
 
 .popover img {

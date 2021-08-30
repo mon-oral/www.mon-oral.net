@@ -8,7 +8,7 @@
     <body>
         <div class="container">
             <div class="row mt-5">
-                <div class="col text-center"><img src="img/mon-oral.svg" width="200" /></div>
+                <div class="col text-center"><img src="{{ url('/')}}/img/mon-oral.svg" width="200" /></div>
             </div>
             <div class="row mt-3">
                 <div class="col text-center text-uppercase" style="font-size:150%;color:#a0aec0">@yield('code') | @yield('message')</div>

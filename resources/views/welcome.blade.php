@@ -111,10 +111,10 @@
 			<div class="row pt-5">
 
 				<div class="col-md-1 text-center">
-					<img src="{{ asset('img/icon-activites.png') }}" alt="Activités" class="mr-4 mb-5" />
-					<img src="{{ asset('img/icon-commentaires.png') }}" alt="Commentaires" class="mr-4 mb-5" />
-					<img src="{{ asset('img/icon-entrainements.png') }}" alt="Entraînements" class="mr-4 mb-5" />
-					<img src="{{ asset('img/icon-lecture.png') }}" alt="Lecture" class="mr-4 mb-5" />
+					<img src="{{ asset('img/icon-activites.png') }}" alt="Activités" width="48" class="mr-4 mb-5" />
+					<img src="{{ asset('img/icon-commentaires.png') }}" alt="Commentaires" width="48" class="mr-4 mb-5" />
+					<img src="{{ asset('img/icon-entrainements.png') }}" alt="Entraînements" width="48" class="mr-4 mb-5" />
+					<img src="{{ asset('img/icon-lecture.png') }}" alt="Lecture" width="48" class="mr-4 mb-5" />
 				</div>
 
 				<div class="col-md-5 mb-5">

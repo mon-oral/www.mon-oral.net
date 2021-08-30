@@ -246,13 +246,63 @@ Route::post('/console/activite-modifier', 'ConsoleController@activite_modifier_p
 Route::any('/console/activite-afficher/{activite_id}', 'ConsoleController@activite_afficher_any')->name('activite-afficher-any');
 Route::any('/console/activite-afficher', 'ConsoleController@redirect');
 
-// activite-correction-creer
-Route::get('/console/activite-correction-creer', 'ConsoleController@redirect');
-Route::post('/console/activite-correction-creer', 'ConsoleController@activite_correction_creer_post')->name('activite-correction-creer-post');
+// activite-cr-audio-creer
+Route::get('/console/activite-cr-audio-creer', 'ConsoleController@redirect');
+Route::post('/console/activite-cr-audio-creer', 'ConsoleController@activite_cr_audio_creer_post')->name('activite-cr-audio-creer-post');
 
-// activite-correction-supprimer
-Route::get('/console/activite-correction-supprimer/{correction_id}', 'ConsoleController@activite_correction_supprimer')->name('activite-correction-supprimer');
-Route::get('/console/activite-correction-supprimer', 'CommentaireController@redirect');
+// activite-cr-audio-supprimer
+Route::get('/console/activite-cr-audio-supprimer/{cr_audio_id}', 'ConsoleController@activite_cr_audio_supprimer')->name('activite-cr-audio-supprimer');
+Route::get('/console/activite-cr-audio-supprimer', 'CommentaireController@redirect');
+
+// activite-cr-texte-effacer
+Route::get('/console/activite-enregistrement-cr-texte-effacer/{enregistrement_id}', 'ConsoleController@activite_enregistrement_cr_texte_effacer')->name('activite-enregistrement-cr-texte-effacer');
+Route::get('/console/activite-enregistrement-cr-texte-effacer', 'CommentaireController@redirect');
+
+// activite-status
+Route::any('/console/activite-statut/{activite_id}', 'ConsoleController@activite_statut')->name('activite-statut');
+Route::any('/console/activite-statut', 'ActiviteController@redirect');
+
+// activite-enregistrement-status : vu / non vu
+Route::post('/console/activite-enregistrement-statut/{enregistrement_id}', 'ConsoleController@activite_enregistrement_statut')->name('activite-enregistrement-status');
+Route::any('/console/activite-enregistrement-statut', 'ConsoleController@redirect');
+
+// activite-archiver
+Route::any('/console/activite-archiver/{activite_id}', 'ConsoleController@activite_archiver')->name('activite-archiver');
+Route::any('/console/activite-archiver', 'ActiviteController@redirect');
+
+// activites-archives
+Route::get('/console/activites-archives', function(){
+	return view('activites')->with('is_archive', 1);
+});
+
+// activite-enregistrement-cr-texte-sauvegarde
+Route::post('/console/activite-enregistrement-cr-texte-sauvegarde', 'ConsoleController@activite_enregistrement_cr_texte_sauvegarde')->name('activite-enregistrement-cr-texte-sauvegarde');
+Route::get('/console/activite-enregistrement-cr-texte-sauvegarde', 'ConsoleController@redirect');
+
+
+// ==========================
+// == COMPTES RENDUS
+// ==========================
+
+// activite-enregistrement-cr
+Route::get('/acr/{code}', function($code) {
+    return view("activite-enregistrement-cr", ["code"=>$code]);
+})->name('activite-enregistrement-cr');
+
+// activite-cr-print
+Route::get('/activite-cr/{activite_id}', function($activite_id) {
+    return view("activite-cr-print", ["activite_id"=>$activite_id]);
+})->name('activite-cr-print')->middleware('auth');
+
+// entrainement-enregistrement-cr
+Route::get('/ecr/{code}', function($code) {
+    return view("entrainement-enregistrement-cr", ["code"=>$code]);
+})->name('entrainement-enregistrement-cr');
+
+// entrainement-cr-print
+Route::get('/entrainement-cr/{entrainement_id}', function($entrainement_id) {
+    return view("entrainement-cr-print", ["entrainement_id"=>$entrainement_id]);
+})->name('entrainement-cr-print')->middleware('auth');
 
 
 // ==========================
@@ -291,23 +341,6 @@ Route::get('/activite-etape-quitter', 'ActiviteController@quitter')->name('activ
 
 // activite-refaire (suppression de l'enregistrement pour nouvel enregistrement)
 Route::get('/activite-etape-refaire', 'ActiviteController@refaire')->name('activite-etape-refaire');
-
-// activite-status
-Route::any('/console/activite-statut/{activite_id}', 'ActiviteController@activite_statut')->name('activite-statut');
-Route::any('/console/activite-statut', 'ActiviteController@redirect');
-
-// activite-enregistrement-status : vu / non vu
-Route::post('/console/activite-enregistrement-statut/{enregistrement_id}', 'ActiviteController@enregistrement_statut')->name('activite-enregistrement-status');
-Route::any('/console/activite-enregistrement-statut', 'ActiviteController@redirect');
-
-// activite-archiver
-Route::any('/console/activite-archiver/{activite_id}', 'ActiviteController@activite_archiver')->name('activite-archiver');
-Route::any('/console/activite-archiver', 'ActiviteController@redirect');
-
-// activites-archives
-Route::get('/console/activites-archives', function(){
-	return view('activites')->with('is_archive', 1);
-});
 
 
 // ==========================
