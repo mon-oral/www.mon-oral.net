@@ -21,13 +21,13 @@
 			<div class="col-md-6 offset-md-1">
                 <h2 class="text-center">COMMENTAIRES / CORRECTION / CONSEILS</h2>
 
-                @if($enregistrement->correction_id)
+                @if($enregistrement->cr_audio)
                     <table class="mt-4">
     					<tr style="line-height:10px">
     						<td style="width:100%">
-    							<audio controls style="width:100%"><source src="/s/{{App\Commentaire::find($enregistrement->correction_id)->code_audio}}" type="audio/mpeg"></audio>
+    							<audio controls style="width:100%"><source src="/s/{{App\Commentaire::find($enregistrement->cr_audio)->code_audio}}" type="audio/mpeg"></audio>
     						</td>
-    						<td><a style="display:block;font-size:120%;height:40px;line-height:40px;background-color:#f1f3f4;border-radius:4px;" href="/telecharger-commentaire/{{App\Commentaire::find($enregistrement->correction_id)->code_audio}}" class="text-dark" style="verticla-align:middle;"><i class="fas fa-download ml-3 mr-3 text-muted" data-toggle="tooltip" data-placement="top" title="télécharger le fichier mp3"></i></a>
+    						<td><a style="display:block;font-size:120%;height:40px;line-height:40px;background-color:#f1f3f4;border-radius:4px;" href="/telecharger-commentaire/{{App\Commentaire::find($enregistrement->cr_audio)->code_audio}}" class="text-dark" style="verticla-align:middle;"><i class="fas fa-download ml-3 mr-3 text-muted" data-toggle="tooltip" data-placement="top" title="télécharger le fichier mp3"></i></a>
     						</td>
     					</tr>
     					<tr>
