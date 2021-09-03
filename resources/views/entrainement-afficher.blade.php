@@ -2,8 +2,8 @@
 <!doctype html>
 <html lang="fr">
 <head>
-@include('inc-meta')
-<title>Console | Entraînement</title>
+	@include('inc-meta')
+	<title>Console | Entraînement</title>
 </head>
 
 <body>
@@ -22,25 +22,25 @@
 
 			<div class="col-md-10 pt-5">
 
-				@if (session('status'))
-					<div class="alert alert-success" role="alert">
-						{{ session('status') }}
-					</div>
-				@endif
-
 				<?php
-				$user = Auth::user();
-				$entrainement = App\Entrainement::where([['user_id', $user->id],['id', $entrainement_id]])->first();
+				$entrainement = App\Entrainement::where([['user_id', Auth::user()->id],['id', $entrainement_id]])->first();
 
 				if ($entrainement === null){
 					?>
-					<div class="text-danger text-monospace text-center">Cet entraînement n'existe pas !</div>
+					<div class="text-danger text-monospace text-center">cet entraînement n'existe pas !</div>
 					<?php
 				} else {
 					?>
+
+					@if (session('status'))
+						<div class="alert alert-success" role="alert">
+							{{ session('status') }}
+						</div>
+					@endif
+
 					<h1 class="mb-0">{{ $entrainement->titre }}</h1>
 					<?php if ($entrainement->soustitre != '') echo '<p style="color:#84a9c7;font-style:italic;margin:-4px 0px 0px 0px;">' . $entrainement->soustitre . '</p>';?>
-					<p class="mb-2 small" style="color:#bdc3c7;margin-top:-4px;">{{ date("d-m-Y", strtotime($entrainement->created_at)) }}</p>
+					<p class="mb-2 small text-monospace" style="color:#bdc3c7;margin-top:-4px;">{{ date("d-m-Y", strtotime($entrainement->created_at)) }}</p>
 
 
 					<div class="small text-muted pb-1">

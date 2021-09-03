@@ -27,7 +27,7 @@
 
 				if ($activite === null){
 					?>
-					<div class="text-danger text-monospace text-center">Cette activité n'existe pas !</div>
+					<div class="text-danger text-monospace text-center">cette activité n'existe pas !</div>
 					<?php
 				} else {
 					?>
