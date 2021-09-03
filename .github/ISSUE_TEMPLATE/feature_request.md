@@ -1,6 +1,6 @@
 ---
 name: Fonctionnalité
-about: Proposer une nouvelle fonctionnalité
+about: Proposer une nouvelle fonctionnalité.
 title: ''
 labels: 'fonctionnalité'
 assignees: ''

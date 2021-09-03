@@ -1,6 +1,6 @@
 ---
 name: Bogues
-about: Signaler un bogue
+about: Signaler un bogue.
 title: ''
 labels: 'bogue'
 assignees: ''
