@@ -119,7 +119,7 @@
 											@endif
 
 											<div class="text-center mt-2">
-												<div>- consuter en ligne -</div>
+												<div>- consulter en ligne -</div>
 												<div class="text-monospace text-muted"><a href="{{ url('') }}/acr/{{ base64_encode(str_pad($enregistrement->id, 6, "0", STR_PAD_LEFT)) }}" target="_blank">{{ url('') }}/acr/{{ base64_encode(str_pad($enregistrement->id, 6, "0", STR_PAD_LEFT)) }}</a></div>
 												<div class="p-2"><img src="https://api.qrserver.com/v1/create-qr-code/?data={{ urlencode(url('').'/acr/' . base64_encode(str_pad($enregistrement->id, 6, "0", STR_PAD_LEFT))) }}&amp;size=100x100" /></div>
 											</div>
