@@ -28,7 +28,7 @@
 					@csrf
 
 					<div class="form-group">
-						<label for="code-entrainement" style="line-height:1em">Choisir un identifiant <sup style="color:red">*</sup><br /><span class="text-monospace" style="font-size:70%;color:silver">entre 4 et 6 lettres</span></label>
+						<label for="code-entrainement" style="line-height:1em">Choisir un identifiant <sup style="color:red">*</sup><br /><span class="text-monospace" style="font-size:70%;color:silver">entre 4 et 6 lettres/chiffres</span></label>
 						<input id="nom" class="form-control @error('nom') is-invalid d-block @enderror" type="text" name="nom" value="{{ old('nom') }}"  />
 						@error('nom')
 							<span class="invalid-feedback d-block" role="alert">
@@ -49,7 +49,7 @@
 
 					<br />
 
-					<div class="alert alert-warning text-justify" role="alert"><b style="font-weight:700">CONSEILS</b><br />
+					<div class="alert alert-warning text-justify pr-5" role="alert"><b style="font-weight:600">CONSEILS</b><br />
 						<ul>
 							<li>Préparez votre environnement de travail (feuilles, stylo, position confortable...)</li>
 							<li>Assurez-vous de ne pas être dérangé et de rester seul dans un endroit silencieux</li>
