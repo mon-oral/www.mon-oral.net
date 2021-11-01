@@ -121,10 +121,10 @@
 					<p class="text-success">ENSEIGNANTS</p>
 					<div class="text-monospace small mb-1">ACTIVITÉS</div>
 					<div class="text-justify small text-muted">Tout type d'activité orale à proposer aux élèves du secondaire ou du primaire : récitation, lecture expressive, explication linéaire, description d'image / schéma / graphique, exposé, podcast... Récupération automatique des enregistrements. Possibilité de correction / commentaires / conseils oraux ou écrits à partager avec les élèves (lien, QR code...).</div>
-					<div class="text-monospace small mt-3 mb-1">COMMENTAIRES</div>
-					<div class="text-justify small text-muted">Création de capsules audio pour les élèves : correction orale de copies, cours, consignes, explications... Différents moyens de distribution: lien, QR code, code unique, intégration dans un site ou une plateforme de partage...</div>
 					<div class="text-monospace small mt-3 mb-1">ENTRAÎNEMENTS</div>
 					<div class="text-justify small text-muted">Entraînements aux épreuves orales de collège et de lycée avec temps de préparation, tirage au sort de sujets et chronométrage. Récupération automatique des enregistrements. Possibilité de correction / commentaires / conseils oraux ou écrits à partager avec les élèves (lien, QR code...).<br />EAF, Grand Oral, langues, brevet...</div>
+					<div class="text-monospace small mt-3 mb-1">COMMENTAIRES</div>
+					<div class="text-justify small text-muted">Création de capsules audio pour les élèves : correction orale de copies, cours, consignes, explications... Différents moyens de distribution: lien, QR code, code unique, intégration dans un site ou une plateforme de partage...</div>
 				</div>
 
 				<div class="col-md-3 mb-5">
