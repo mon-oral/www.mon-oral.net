@@ -39,16 +39,11 @@
 
 				<div class="row mb-5">
 					<div class="col-md-6 offset-md-3 text-muted text-justify">
+						<br />
 						<h2>Activités</h2>
 						<p>
 							Activités orales à proposer aux élèves : récitation, lecture expressive, description d'image / schéma / graphique...<br />
 							<a href="{{route('activite-creer')}}" data-toggle="tooltip" data-placement="right" title="créer une activité"><i class="fas fa-plus-square" style="color:silver"></i></a>
-						</p>
-						<br />
-						<h2>Commentaires</h2>
-						<p>
-							Création de capsules audio pour les élèves : correction orale de copies, consignes, explications...<br />
-							<a href="{{route('commentaire-creer')}}" data-toggle="tooltip" data-placement="right" title="créer un commentaire"><i class="fas fa-plus-square" style="color:silver"></i></a>
 						</p>
 						<br />
 						<h2>Entraînements</h2>
@@ -56,7 +51,12 @@
 							Entraînements aux épreuves orales de collège et de lycée avec temps de préparation, tirage au sort de sujets et chronométrage.<br />
 							<a href="{{route('entrainement-creer')}}" data-toggle="tooltip" data-placement="right" title="créer un entraînement"><i class="fas fa-plus-square" style="color:silver"></i></a>
 						</p>
-
+						<br />
+						<h2>Commentaires</h2>
+						<p>
+							Création de capsules audio pour les élèves : correction orale de copies, consignes, explications...<br />
+							<a href="{{route('commentaire-creer')}}" data-toggle="tooltip" data-placement="right" title="créer un commentaire"><i class="fas fa-plus-square" style="color:silver"></i></a>
+						</p>
 					</div>
 				</div>
 
