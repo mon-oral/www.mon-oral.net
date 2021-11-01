@@ -73,19 +73,8 @@
 			</div>
 
 			<div class="col-md-5" style="background-color:#f2f4f6;border-radius:5px;padding:10px 22px 14px 22px;">
-				<div class="pb-2 small text-monospace text-center" style="color:silver">entraînements et activités proposés par les enseignants</div>
+				<div class="pb-2 small text-monospace text-center" style="color:silver">activités et entraînements proposés par les enseignants</div>
 				<div class="card-deck">
-
-					<div class="card" style="margin-left:7px;margin-right:7px;">
-						<div class="text-center pt-4"><img src="{{ asset('img/logo-entrainements.png') }}" width="140" alt="Entraînements" /></div>
-						<div class="card-body pt-0">
-							<p class="card-text">
-								<h2 class="text-center">Entraînements</h2>
-								<h3>français, langues, grand oral,<br />brevet...</h3>
-							</p>
-							<div class="text-center mt-2"><a class="btn btn-primary btn-sm" href="/entrainement" role="button"><i class="fas fa-check pl-2 pr-2"></i></a></div>
-						</div>
-					</div>
 
 					<div class="card" style="margin-left:7px;margin-right:7px;">
 						<div class="text-center pt-4"><img src="{{ asset('img/logo-activites.png') }}" width="140" alt="Activités" /></div>
@@ -95,6 +84,17 @@
 								<h3>récitation, lecture expressive, explications orales...</h3>
 							</p>
 							<div class="text-center mt-2"><a class="btn btn-primary btn-sm" href="/activite" role="button"><i class="fas fa-check pl-2 pr-2"></i></a></div>
+						</div>
+					</div>
+
+					<div class="card" style="margin-left:7px;margin-right:7px;">
+						<div class="text-center pt-4"><img src="{{ asset('img/logo-entrainements.png') }}" width="140" alt="Entraînements" /></div>
+						<div class="card-body pt-0">
+							<p class="card-text">
+								<h2 class="text-center">Entraînements</h2>
+								<h3>français, langues, grand oral,<br />brevet...</h3>
+							</p>
+							<div class="text-center mt-2"><a class="btn btn-primary btn-sm" href="/entrainement" role="button"><i class="fas fa-check pl-2 pr-2"></i></a></div>
 						</div>
 					</div>
 
