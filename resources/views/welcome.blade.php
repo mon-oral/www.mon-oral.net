@@ -92,7 +92,7 @@
 						<div class="card-body pt-0">
 							<p class="card-text">
 								<h2 class="text-center">Entraînements</h2>
-								<h3>français, langues, grand oral,<br />brevet...</h3>
+								<h3>épreuves de français, langues,<br />grand oral,brevet...</h3>
 							</p>
 							<div class="text-center mt-2"><a class="btn btn-primary btn-sm" href="/entrainement" role="button"><i class="fas fa-check pl-2 pr-2"></i></a></div>
 						</div>
