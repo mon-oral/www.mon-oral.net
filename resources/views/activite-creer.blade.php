@@ -154,17 +154,17 @@
 							@enderror
 
 							<?php
-							$consigne_audio = "Pour ajouter une consigne audio dans 'sujet / consignes' :";
+							$consigne_audio = "Pour ajouter un sujet ou une consigne audio dans 'sujet / consignes' :";
 							$consigne_audio .= "<ul>";
-							$consigne_audio .= "<li>Créer une consigne audio dans la section 'commentaires'</li>";
+							$consigne_audio .= "<li>Créer un sujet ou une consigne audio dans la section 'commentaires'</li>";
 							$consigne_audio .= "<li>Copier le code de la partie 'Code pour intégrer le lecteur dans une page HTML'</li>";
 							$consigne_audio .= "<li>Coller ce code dans les consignes à l'endroit où vous voulez voir apparaitre le lecteur audio</li></ul>";
 							$consigne_audio .= "</ul>Les élèves pourront ainsi lire et/ou écouter le sujet ou les consignes.";
 							?>
 							<div class="text-monospace text-muted small">
-								ajouter une consigne audio dans 'sujet/consignes'<span class="ml-1 small" style=""><i class="fas fa-question-circle" style="cursor:pointer"  data-container="body" data-html="true" data-trigger="hover"data-toggle="popover" data-placement="top" data-content="<?php echo $consigne_audio ?>"></i></span>
+								ajouter un sujet ou une consigne audio dans 'sujet/consignes'<span class="ml-1 small" style=""><i class="fas fa-question-circle" style="cursor:pointer"  data-container="body" data-html="true" data-trigger="hover"data-toggle="popover" data-placement="top" data-content="<?php echo $consigne_audio ?>"></i></span>
 							</div>
-													
+
 						</div>
 
 					</div>
