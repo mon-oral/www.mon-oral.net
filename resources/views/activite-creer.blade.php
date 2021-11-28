@@ -142,7 +142,7 @@
 
 					<div class="form-row pb-3">
 						<div class="col-3 text-secondary">
-							<div>sujet / consignes<i class="fas fa-info-circle pl-2" style="cursor:pointer" data-toggle="modal" data-target="#markdown_help""></i></div>
+							<div>sujet / consignes<i class="fas fa-info-circle pl-2" style="cursor:pointer" data-toggle="modal" data-target="#markdown_help"></i></div>
 							<div class="small" style="color:#c5c7c9;font-style:italic;margin-top:-5px;">optionnel</div>
 						</div>
 						<div class="col">
