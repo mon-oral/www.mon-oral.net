@@ -57,7 +57,7 @@
 							$activite = App\Activite::find(Session::get('activite_id'));
 							echo '<div class="font-weight-bold text-left pb-2">' . $activite['soustitre'] . '</div>';
 							if ($activite['consignes'] != ''){
-								$consignes = preg_replace('#\_{2}(.*?)\_{2}#', '<u>$1</u>', strip_tags($activite['consignes']));
+								$consignes = preg_replace('#\_{2}(.*?)\_{2}#', '<u>$1</u>', strip_tags($activite['consignes'], "<audio><source>"));
 								$consignes = \Illuminate\Mail\Markdown::parse($consignes);
 								$consignes = str_replace('<a href=', '<a target="_blank" href=', $consignes);
 

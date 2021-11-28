@@ -55,7 +55,7 @@
 					<h2>Sujet / consignes</h2>
 					<?php
 					if ($activite['consignes'] != ''){
-						$consignes = preg_replace('#\_{2}(.*?)\_{2}#', '<u>$1</u>', strip_tags($activite->consignes));
+						$consignes = preg_replace('#\_{2}(.*?)\_{2}#', '<u>$1</u>', strip_tags($activite->consignes, "<audio><source>"));
 						$consignes = \Illuminate\Mail\Markdown::parse($consignes);
 						?>
 						<div class="card"><div class="card-body"><?php echo $consignes ?></div></div>
