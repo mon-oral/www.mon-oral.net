@@ -8,8 +8,11 @@
 $sujets = App\Sujet::where('entrainement_id',$entrainement->id)->get();
 foreach ($sujets as $sujet) {
 	$sujet_texte = preg_replace('#\_{2}(.*?)\_{2}#', '<u>$1</u>', strip_tags($sujet->sujet));
-	$sujet_texte = \Illuminate\Mail\Markdown::parse($sujet_texte);
 	$sujet_texte = str_replace('<a href=', '<a target="_blank" href=', $sujet_texte);
+	$sujet_texte = str_replace('\\\\', ' \\\\\\\\', $sujet_texte);
+	$sujet_texte = str_replace('\\begin', '\\\\begin', $sujet_texte);
+	$sujet_texte = str_replace('\\end', '\\\\end', $sujet_texte);
+	$sujet_texte = \Illuminate\Mail\Markdown::parse($sujet_texte);
 	?>
 	<div class="card mb-2"><div class="card-body p-3"><?php echo $sujet_texte ?></div></div>
 	<?php

@@ -57,7 +57,12 @@
 					if ($activite['consignes'] != ''){
 						$consignes = preg_replace('#\_{2}(.*?)\_{2}#', '<u>$1</u>', strip_tags($activite->consignes, "<audio><source>"));
 						$consignes = preg_replace('#\[:audio-(.*?):\]#', '<audio controls="controls"><source src="https://www.mon-oral.net/s/$1" type="audio/mpeg"></audio>', $consignes);
-						$consignes = \Illuminate\Mail\Markdown::parse($consignes);
+						//$consignes = str_replace('\n', '<br>', $consignes);
+						$consignes = str_replace('<a href=', '<a target="_blank" href=', $consignes);
+						$consignes = str_replace('\\\\', ' \\\\\\\\', $consignes);
+						$consignes = str_replace('\\begin', '\\\\begin', $consignes);
+						$consignes = str_replace('\\end', '\\\\end', $consignes);
+						$consignes = \Illuminate\Mail\Markdown::parse($consignes);						
 						?>
 						<div class="card"><div class="card-body"><?php echo $consignes ?></div></div>
 						<?php

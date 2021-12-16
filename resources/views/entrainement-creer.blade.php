@@ -2,15 +2,15 @@
 <!doctype html>
 <html lang="fr">
 	<head>
-	
+
 		@include('inc-meta')
 
 		<title>Console | Nouvel entraînement</title>
-		
+
 	</head>
-		
-	<body>	
-		
+
+	<body>
+
 		<div id="app">
 			<nav class="navbar navbar-expand-md navbar-light">
 				<div class="container">
@@ -18,7 +18,7 @@
 						<div><a class="navbar-brand" href="{{ url('/') }}"><img src="{{ asset('img/mon-oral.png') }}" width="40" /></a></div>
 						<div class="text-monospace small" style="color:#c5c7c9;margin-top:-2px;">console</div>
 					</div>
-					
+
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
 						<span class="navbar-toggler-icon"></span>
 					</button>
@@ -32,7 +32,7 @@
 						<!-- Right Side Of Navbar -->
 						<ul class="navbar-nav ml-auto">
 							<li class="nav-item dropdown">
-							
+
 								<a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
 									{{ Auth::user()->name }} <span class="caret"></span>
 								</a>
@@ -42,13 +42,13 @@
 									   onclick="event.preventDefault();
 													 document.getElementById('logout-form').submit();">
 										{{ __('Logout') }}
-									</a>							
+									</a>
 
 									<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
 										@csrf
 									</form>
 								</div>
-								
+
 							</li>
 						</ul>
 					</div>
@@ -58,97 +58,24 @@
 			<?php
 			$user = Auth::user();
 			?>
-			
-			<!-- MODAL MARKDOWN HELP -->
-			<div class="modal fade" id="markdown_help" tabindex="-1" aria-labelledby="markdown_helpLabel" aria-hidden="true">
-				<div class="modal-dialog modal-lg">
-					<div class="modal-content">
-						<div class="modal-header">
-							<b class="modal-title" id="exampleModalLabel">Formatage du texte</b>
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-						<div class="modal-body">
-							<table class="table table-bordered table-hover small">
-								<tr>
-									<td></td>
-									<td class="p-2 text-center">SYNTAXE</td>
-									<td class="p-2 text-center">RENDU</td>
-								</tr>
-								<tr>
-									<td class="p-2">PARAGRAPHES</td>
-									<td class="p-2 text-monospace text-muted">paragraphe<br /><br />paragraphe<p class="mt-2 mb-0" style="color:silver">Laisser une ligne vide pour marquer un nouveau paragraphe.</p></td>
-									<td class="p-2" style="vertical-align:top"><p class="mb-1">paragraphe</p>paragraphe</td>
-								</tr>	
-								<tr>
-									<td class="p-2">RETOUR Á LA LIGNE</td>
-									<td class="p-2 text-monospace text-muted">ligne \<br />ligne<p class="mt-2 mb-0" style="color:silver">Ajouter un \ en bout de ligne pour forcer le retour à la ligne.</p></td>
-									<td class="p-2" style="vertical-align:top">ligne<br />ligne</td>
-								</tr>
-								<tr>
-									<td class="p-2">LISTES</td>
-									<td class="p-2 text-monospace text-muted">* point 1<br />* point 2<br /></td>
-									<td class="p-2" style="vertical-align:top"><ul style="padding-left:20px;margin-left:0;margin-bottom:0"><li>point 1</li><li>point 2</li></ul></td>
-								</tr>									
-								<tr>
-									<td class="p-2">ITALIQUE</td>
-									<td class="p-2 text-monospace text-muted">*italique*</td>
-									<td class="p-2"><em>italique</em></td>
-								</tr>
-								<tr>
-									<td class="p-2">GRAS</td>
-									<td class="p-2 text-monospace text-muted">**gras**</td>
-									<td class="p-2"><b>gras</b></td>
-								</tr>
-								<tr>
-									<td class="p-2">SOULIGNÉ</td>
-									<td class="p-2 text-monospace text-muted">__souligné__</td>
-									<td class="p-2"><u>souligné</u></td>
-								</tr>
-								<tr>
-									<td class="p-2">IMAGE</td>
-									<td class="p-2 text-monospace text-muted">
-										<p>![](url-image)</p>
-										<p class="mb-0"><i>Exemple : ![](https://www.mon-oral.net/img/mon-oral.png)<i></p>
-									</td>
-									<td class="p-2"><img src="https://www.mon-oral.net/img/mon-oral.png" width="60"/></td>
-								</tr>							
-								<tr>
-									<td class="p-2">LIEN</td>
-									<td class="p-2 text-monospace text-muted">
-										<p>[texte-cliquable](url-site)</p>
-										<p class="mb-1"><i>Exemple 1 : Un [lien](https://eduscol.education.fr) vers Eduscol.</i></p>
-										<p class="mb-0"><i>Exemple 2 : Un lien vers [Eduscol](https://eduscol.education.fr).</i></p>
-									</td>
-									<td class="p-2">
-										<p><br /></p>
-										<p class="mb-1">Un <a href="https://eduscol.education.fr">lien</a> vers Eduscol.</p>
-										<p class="mb-0">Un lien vers <a href="https://eduscol.education.fr">Eduscol</a>.</p>
-									</td>
-								</tr>
-							</table>
-						</div>
-					</div>
-				</div>
-			</div>	
-			<!-- MODAL MARKDOWN HELP -->				
+
+			@include('inc-markdown-modal-help')				
 
 			<div class="container mb-5">
 
 				<div class="row">
-				
+
 					<div class="col-md-2 pt-5">
 						<a class="btn btn-light btn-sm" href="/console/entrainements" role="button"><i class="fas fa-arrow-left"></i></a>
-					</div>					
-					
+					</div>
+
 					<div class="col-md-10 pt-5">
 
 						@if (session('status'))
 							<div class="text-success text-monospace text-center pb-4" role="alert">
 								{{ session('status') }}
 							</div>
-						@endif		
+						@endif
 
 						<?php
 						$formatage = '
@@ -158,14 +85,14 @@
 							__souligné__ <i class="fas fa-long-arrow-alt-right pl-2 pr-2"></i> <u>souligné</u></div>
 						';
 						?>
-							
+
 						<h1>Nouvel Entraînement</h1>
 						<!--<h1 style="color:red;font-size:200%">EN TRAVAUX PENDANT UNE HEURE - NE PAS UTILISER CETTE PAGE</h1>-->
-							
+
 						<form method="POST" action="{{route('entrainement-creer-post')}}">
-							
+
 							@csrf
-														
+
 							<div class="form-row pb-3 mt-4">
 								<div class="col-2 text-secondary">titre <sup style="color:red">*</sup></div>
 								<div class="col">
@@ -177,14 +104,14 @@
 									@enderror
 									<small class="form-text text-muted">visible seulement par les enseignants dans la console.</small>
 								</div>
-							</div>	
+							</div>
 
-							<div class="form-row pb-3">	
-								
-								<div class="col-2 text-secondary">type <sup style="color:red">*</sup></div>	
+							<div class="form-row pb-3">
 
-								<div class="col">	
-															
+								<div class="col-2 text-secondary">type <sup style="color:red">*</sup></div>
+
+								<div class="col">
+
 									<div class="custom-control custom-radio custom-control-inline">
 									  <input type="radio" id="type_francaislangues" name="type" value="2" class="custom-control-input" @if(old('type') == 2) checked @endif />
 									  <label class="custom-control-label text-secondary" for="type_francaislangues">français / langues</label>
@@ -193,17 +120,17 @@
 									<div class="custom-control custom-radio custom-control-inline">
 									  <input type="radio" id="type_grandoral" name="type" value="3" class="custom-control-input" @if(old('type') == 3) checked @endif />
 									  <label class="custom-control-label text-secondary" for="type_grandoral">grand oral</label>
-									</div>	
+									</div>
 
 									<div class="custom-control custom-radio custom-control-inline">
 									  <input type="radio" id="type_brevet" name="type" value="4" class="custom-control-input" @if(old('type') == 4) checked @endif />
 									  <label class="custom-control-label text-secondary" for="type_brevet">brevet</label>
-									</div>	
+									</div>
 
 									<div class="custom-control custom-radio custom-control-inline">
 									  <input type="radio" id="type_autre" name="type" value="1" class="custom-control-input" @if(old('type') == 1) checked @endif />
 									  <label class="custom-control-label text-secondary" for="type_autre">autre</label>
-									</div>	
+									</div>
 
 									@error('type')
 										<span class="invalid-feedback d-block" role="alert">
@@ -211,22 +138,22 @@
 										</span>
 									@enderror
 
-								</div>	
-								
-							</div>	
+								</div>
 
-							<div class="row" id="info_grandoral" style="display:{{(old('type') == 3) ? 'block' : 'none'}}">	
-								<div class="col-md-10 offset-md-2 text-success text-justify pb-4 small">
-									Au début de son entraînement, l'élève sera invité à saisir ses deux sujets (ou un seul sujet si les deux sujets n'ont pas encore été définis). Un  sujet sera ensuite tiré au sort. Tous les sujets saisis par les élèves seront consultables par l'enseignant. 
-								</div>	
-							</div>	
+							</div>
 
-							<div class="row" id="info_brevet" style="display:{{(old('type') == 4) ? 'block' : 'none'}}">	
+							<div class="row" id="info_grandoral" style="display:{{(old('type') == 3) ? 'block' : 'none'}}">
 								<div class="col-md-10 offset-md-2 text-success text-justify pb-4 small">
-									Au début de son entraînement, l'élève sera invité à saisir le sujet de son exposé. Tous les sujets saisis par les élèves seront consultables par l'enseignant. 
-								</div>	
-							</div>								
-							
+									Au début de son entraînement, l'élève sera invité à saisir ses deux sujets (ou un seul sujet si les deux sujets n'ont pas encore été définis). Un  sujet sera ensuite tiré au sort. Tous les sujets saisis par les élèves seront consultables par l'enseignant.
+								</div>
+							</div>
+
+							<div class="row" id="info_brevet" style="display:{{(old('type') == 4) ? 'block' : 'none'}}">
+								<div class="col-md-10 offset-md-2 text-success text-justify pb-4 small">
+									Au début de son entraînement, l'élève sera invité à saisir le sujet de son exposé. Tous les sujets saisis par les élèves seront consultables par l'enseignant.
+								</div>
+							</div>
+
 							<div class="form-row pb-3">
 								<div class="col-2 text-secondary">
 									<div>sous-titre</div>
@@ -238,11 +165,11 @@
 										<span class="invalid-feedback d-block" role="alert">
 											<strong>{{ $message }}</strong>
 										</span>
-									@enderror	
+									@enderror
 									<small class="form-text text-muted">visible par les élèves - exemples : "Oral blanc EAF", "Grand Oral blanc", "Exercice de lecture"...</small>
 								</div>
-							</div>										
-							
+							</div>
+
 							<div class="form-row pb-3">
 								<div class="col-2 text-secondary">préparation</div>
 								<div class="col">
@@ -250,14 +177,14 @@
 								</div>
 								<div class="col-auto text-secondary" id="temps_prep" style="text-align:right;width:70px;">{{ old('temps_prep','30') }} min.</div>
 							</div>
-							
+
 							<div class="form-row pb-3">
 								<div class="col-2 text-secondary">oral</div>
 								<div class="col">
 									<input type="range" id="temps_oral_slider" class="custom-range" value="{{ old('temps_oral','12') }}" min="1" max="20" step="1" name="temps_oral" oninput="set_temps_oral(this.value);">
 								</div>
 								<div class="col-auto text-secondary" id="temps_oral" style="text-align:right;width:70px;">{{ old('temps_oral','12') }} min.</div>
-							</div>	
+							</div>
 
 							<div class="form-row pb-3">
 								<div class="col-2 text-secondary">
@@ -270,11 +197,11 @@
 										<span class="invalid-feedback d-block" role="alert">
 											<strong>{{ $message }}</strong>
 										</span>
-									@enderror	
+									@enderror
 								</div>
 
-							</div>	
-							
+							</div>
+
 							<div class="form-group" id="sujets" style="display:@if(in_array(old('type'), array(3,4))) none @endif">
 								<label class="text-secondary">sujet(s) <sup style="color:red">*</sup> <i class="fas fa-info-circle pl-2" style="cursor:pointer" data-toggle="modal" data-target="#markdown_help""></i></label>
 								<div class="small pb-2" style="color:#c5c7c9;font-style:italic;margin-top:-5px;">si plusieurs sujets sont saisis, un sujet sera tiré au sort au début de l'entraînement de chaque élève</div>
@@ -284,7 +211,7 @@
 									</span>
 								@enderror
 								<?php
-								if (!empty(old('sujets'))){ 
+								if (!empty(old('sujets'))){
 									// array_filter : pour retirer les champs vides
 									foreach(old('sujets') as $key => $sujet) {
 										if ($sujet != '' OR $key == 0){
@@ -299,10 +226,10 @@
 												}
 												?>
 											</div>
-											<?php	
+											<?php
 										}
 									}
-									
+
 								} else {
 									?>
 									<div style="clear:both;">
@@ -315,43 +242,43 @@
 									<i class="material-icons ajouter" style="cursor:pointer;" data-toggle="tooltip" data-trigger="hover focus" data-placement="right" title="ajouter un sujet">add_box</i>
 								</div>
 							</div>
-							
+
 							<input type="hidden" name="user_id" value="{{ $user->id }}">
-							
+
 							<button type="submit" class="btn btn-primary mt-2 pl-4 pr-4"><i class="fas fa-check"></i></button>
 
-						</form>	
+						</form>
 
 					</div>
 				</div>
-				
+
 			</div><!-- /container -->
-			
+
 		</div><!-- /app -->
-	
+
 		@include('inc-bottom')
 		@include('inc-bottom-js')
-			
-		<script>		
-		
+
+		<script>
+
 		$(document).ready(function($) {
 
 			$("body").on("click", ".ajouter", function() {
 				$(this).parent().prev().after(
 				'<div style="clear:both;">'
-				+'<textarea name="sujets[]" class="form-control mb-2" style="float:left;padding-right:30px;" rows="5"></textarea>'			
+				+'<textarea name="sujets[]" class="form-control mb-2" style="float:left;padding-right:30px;" rows="5"></textarea>'
 				+'<i class="material-icons retirer" style="position:relative;display:block;top:2px;width:20px;right:26px;cursor:pointer;">indeterminate_check_box</i>'
 				+'</div>');
 			});
-			
+
 			$("body").on("click", ".retirer", function() {
 				$(this).parent().remove();
 			});
-			
+
 			$("body").on("click", "#type_francaislangues", function() {
 				$('#sujets').css('display', 'block');
 				$('#info_grandoral').css('display', 'none');
-				$('#info_brevet').css('display', 'none');				
+				$('#info_brevet').css('display', 'none');
 				$('#temps_prep_slider').val(30);
 				$('#temps_oral_slider').val(12);
 				$('#temps_prep').html("30 min.");
@@ -365,9 +292,9 @@
 				$('#temps_prep_slider').val(20);
 				$('#temps_oral_slider').val(5);
 				$('#temps_prep').html("20 min.");
-				$('#temps_oral').html("5 min.");				
+				$('#temps_oral').html("5 min.");
 			});
-			
+
 			$("body").on("click", "#type_brevet", function() {
 				$('#sujets').css('display', 'none');
 				$('#info_grandoral').css('display', 'none');
@@ -376,7 +303,7 @@
 				$('#temps_oral_slider').val(5);
 				$('#temps_prep').html("2 min.");
 				$('#temps_oral').html("5 min.");
-			});	
+			});
 
 			$("body").on("click", "#type_autre", function() {
 				$('#sujets').css('display', 'block');
@@ -386,19 +313,19 @@
 				$('#temps_oral_slider').val(10);
 				$('#temps_prep').html("5 min.");
 				$('#temps_oral').html("10 min.");
-			});					
-			
+			});
+
 		});
 
 		function set_temps_prep(m) {
 			document.getElementById("temps_prep").innerHTML = m + " min.";
 		}
-		
+
 		function set_temps_oral(m) {
 			document.getElementById("temps_oral").innerHTML = m + " min.";
 		}
-		
+
 		</script>
-		
+
 	</body>
 </html>

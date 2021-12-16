@@ -50,22 +50,22 @@ if (count($enregistrements) != 0) {
 			}
 
 			$enregistrement_sujet = App\Sujet::find($enregistrement['sujet_id']);
-			
+
 			$sujet_audio_popover = preg_replace('#\_{2}(.*?)\_{2}#', '<u>$1</u>', htmlentities(htmlspecialchars(strip_tags($enregistrement_sujet['sujet']), ENT_QUOTES)));
 			$sujet_audio_popover = \Illuminate\Mail\Markdown::parse($sujet_audio_popover);
-			
+
 			$opacity = ($enregistrement->is_checked == 1) ? 0.3 : 1;
-			$checked = ($enregistrement->is_checked == 1) ? "checked" : "";			
+			$checked = ($enregistrement->is_checked == 1) ? "checked" : "";
 			?>
 			<div  id="card_{{ $enregistrement->id }}"  style="opacity:{{ $opacity }}" class="card mb-2">
 				<div class="card-body p-3">
 
 					<div class="small text-muted mb-3">
-					
+
 						<div id="checkbox_{{ $enregistrement->id }}" style="display:inline;top:-4px;" class="custom-control custom-checkbox" data-toggle="tooltip" data-placement="right" title="vu / non vu">
 						  <input id="is_checked_{{$enregistrement->id}}" type="checkbox" class="custom-control-input" {{ $checked }} />
 						  <label style="cursor:pointer;" class="custom-control-label" for="is_checked_{{$enregistrement->id}}" onclick="check({{ $enregistrement->id }})" ></label>
-						</div>					
+						</div>
 						<script>
 							function check(id){
 								$('#checkbox_'+id).tooltip('hide');
@@ -87,7 +87,7 @@ if (count($enregistrements) != 0) {
 									}
 								});
 							}
-						</script>						
+						</script>
 
 						<i class="fas fa-user pr-2"></i>
 						<?php
@@ -216,8 +216,12 @@ if (count($enregistrements) != 0) {
 if ($entrainement['consignes'] != ''){
 	$consignes = preg_replace('#\_{2}(.*?)\_{2}#', '<u>$1</u>', strip_tags($entrainement->consignes));
 	//$consignes = str_replace('\n', '<br>', $consignes);
-    $consignes = \Illuminate\Mail\Markdown::parse($consignes);
 	$consignes = str_replace('<a href=', '<a target="_blank" href=', $consignes);
+	$consignes = str_replace('\\\\', ' \\\\\\\\', $consignes);
+	$consignes = str_replace('\\begin', '\\\\begin', $consignes);
+	$consignes = str_replace('\\end', '\\\\end', $consignes);
+	$consignes = \Illuminate\Mail\Markdown::parse($consignes);
+
 	?>
 	<div class="card"><div class="card-body"><?php echo $consignes ?></div></div>
 	<?php
