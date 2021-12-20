@@ -58,11 +58,12 @@
 
 
 		<div id="app">
+
 			<nav class="navbar navbar-expand-md navbar-light">
 				<div class="container">
 					<div>
 						<div class="pl-4"><a href="{{ url('/') }}"><img src="{{ asset('img/mon-oral.png') }}" width="40" /></a></div>
-						<div class="text-monospace small" style="color:#c5c7c9;margin-top:5px;">création d'une<br />capsule audio</div>
+						<div class="text-monospace text-center" style="color:#c5c7c9;margin-top:4px;width=40px;font-size:70%;">création d'une<br />capsule audio</div>
 					</div>
 				</div>
 			</nav>
@@ -124,7 +125,6 @@
 								</div>
 							</div>
 
-							<br />
 							<div class="text-center text-danger mt-5" style="cursor:pointer">
 								<i class="fas fa-question-circle fa-lg" style="opacity:0.5" data-toggle="modal" data-target="#modal-info"></i>
 							</div>
