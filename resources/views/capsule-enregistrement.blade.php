@@ -21,6 +21,42 @@
 
 	<body>
 
+		<!-- MODAL -->
+		<div id="modal-info" tabindex="-1" aria-labelledby="odal-info" aria-hidden="true" class="modal fade">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="fermer">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="text-danger text-justify">
+						<b>IMPORTANT</b><br />Utiliser un appareil relativement récent et à jour, vérifier la batterie avant de commencer et s'assurer que l'appareil ne se mettra pas en veille.
+						</div>
+						<div class="card border-success mt-3 mb-3">
+							<div class="card-body text-success">
+								Conseil : avant de faire un enregistrement de plusieurs minutes, faites un enregistrement de quelques secondes pour vérifier que votre microphone et vos haut-parleurs ou écouteurs fonctionnent correctement.
+							</div>
+						</div>
+						<div>
+							<b>Configurations recommandées</b>
+							<ul>
+								<li>Chrome / Firefox + Windows</li>
+								<li>Chrome / Firefox / Safari + macOS</li>
+								<li>Chromebook</li>
+								<li>Chrome + Android</li>
+								<li>Safari + iOS (le micro ne fonctionne pas avec d\'autres navigateurs)</li>
+							</ul>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!-- /MODAL -->
+
+
 		<div id="app">
 			<nav class="navbar navbar-expand-md navbar-light">
 				<div class="container">
@@ -88,30 +124,9 @@
 								</div>
 							</div>
 
-							<?php
-							$help = '
-							<div class="text-danger text-justify">
-							<b>IMPORTANT</b><br />Utiliser un appareil relativement récent et à jour, vérifier la batterie avant de commencer et s\'assurer que l\'appareil ne se mettra pas en veille.
-							</div>
-							<div class="card border-success mt-3 mb-3">
-								<div class="card-body text-success">
-									Conseil : avant de faire un enregistrement de plusieurs minutes, faites un enregistrement de quelques secondes pour vérifier que votre microphone et vos haut-parleurs ou écouteurs fonctionnent correctement.
-								</div>
-							</div>
-							<div>
-								<b>Configurations recommandées</b>
-								<ul>
-									<li>Chrome / Firefox + Windows</li>
-									<li>Chrome / Firefox / Safari + macOS</li>
-									<li>Chromebook</li>
-									<li>Chrome + Android</li>
-									<li>Safari + iOS (le micro ne fonctionne pas avec d\'autres navigateurs)</li>
-								</ul>
-							</div>';
-							?>
 							<br />
 							<div class="text-center text-danger mt-5" style="cursor:pointer">
-								<i class="fas fa-question-circle fa-lg" style="opacity:0.5" data-container="body" data-trigger="hover" data-html="true" data-toggle="popover" data-placement="top" data-content="{{$help}}"></i>
+								<i class="fas fa-question-circle fa-lg" style="opacity:0.5" data-toggle="modal" data-target="#modal-info"></i>
 							</div>
 
 						</div>
