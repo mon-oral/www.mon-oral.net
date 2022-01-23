@@ -32,7 +32,7 @@
 
 							<div class="form-group">
 
-								Saisir le titre de la lecture en suivant le format suivant :
+								Saisir le titre de la lecture en respectant le format suivant :
 								<div class="text-monospace text-center mt-1 mb-2" style="color:silver">ton nom # ton prénom # siècle de l'oeuvre # nom de l'auteur # titre de l'extrait</div>
 								<div class="mt-1 mb-2" style="font-size:90%;color:#103d60">
 									Exemple : <span class="text-monospace text-center mt-1 mb-2" style="font-size:85%;color:silver">Martin # Lucie # XVIe # Ronsard # Mignonne, allons voir si la rose</span>
