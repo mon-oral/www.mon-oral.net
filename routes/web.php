@@ -68,6 +68,17 @@ Route::get('telecharger-commentaire/{filename}', function ($filename) {
 
 
 // ==========================
+// == NUITS DE LA LECTURE
+// ==========================
+
+Route::get('/ndll/{code}', function($code){
+	return view('nuitsdelalecture-etape-identifier')->with('code', $code);
+});
+Route::post('/ndll/{code}', 'NuitsdelalectureController@identifier_post');
+
+
+
+// ==========================
 // == CLEAR COOKIE
 // ==========================
 
@@ -311,11 +322,11 @@ Route::get('/entrainement-cr/{entrainement_id}', function($entrainement_id) {
 
 // activite-identifier
 Route::get('/activite', 'ActiviteController@identifier_get')->name('activite-etape-identifier-get');
+Route::post('/activite', 'ActiviteController@identifier_post');
 Route::get('/a/{code}', function($code){
 	return view('activite-etape-identifier')->with('code', $code);
 });
 Route::post('/a/{code}', 'ActiviteController@identifier_post');
-Route::post('/activite', 'ActiviteController@identifier_post');
 
 // activite-enregistrer
 Route::any('/activite-etape-enregistrer', 'ActiviteController@enregistrer')->name('activite-etape-enregistrer');
