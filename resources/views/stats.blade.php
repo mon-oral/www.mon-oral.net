@@ -68,9 +68,10 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 				$nb_total_entrainements = App\Entrainement::count();
 				$nb_total_activites = App\Activite::count();
 				$nb_total_sujets = App\Sujet::count();
-				$nb_total_capsules = App\Logs_capsule::where('duration', '>', 5)->count() + 10000;
 				$nb_total_entrainements_enregistrements = App\Log::where('code_audio', '!=', '')->count();
 				$nb_total_activites_enregistrements = App\Activites_enregistrement::count();
+				$nb_total_commentaires_enregistrements = App\Commentaire::count();
+				$nb_total_capsules_enregistrements = App\Logs_capsule::where('duration', '>', 5)->count() + 10000;
 
 				//$utilisateurs = App\User::where('is_checked', '=', '2')->get();
 				?>
@@ -83,8 +84,9 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 						<div class="text-muted">Sujets : <span class="badge badge-pill badge-success" style="padding-bottom:1px;">{{ $nb_total_sujets }}<span></div>
 						<div class="text-muted">Enregistrements entraînements : <span class="badge badge-pill badge-success" style="padding-bottom:1px;">{{ $nb_total_entrainements_enregistrements }}<span></div>
 						<div class="text-muted">Enregistrements activités : <span class="badge badge-pill badge-success" style="padding-bottom:1px;">{{ $nb_total_activites_enregistrements }}<span></div>
-						<div class="text-muted">Enregistrements capsules : <span class="badge badge-pill badge-success" style="padding-bottom:1px;">{{ $nb_total_capsules }}<span></div>
-						<div class="text-muted">Total enregistrements : <span class="badge badge-pill badge-success" style="padding-bottom:1px;">{{ $nb_total_capsules + $nb_total_entrainements_enregistrements +$nb_total_activites_enregistrements }}<span></div>
+						<div class="text-muted">Enregistrements commentaires : <span class="badge badge-pill badge-success" style="padding-bottom:1px;">{{ $nb_total_commentaires_enregistrements }}<span></div>
+						<div class="text-muted">Enregistrements capsules : <span class="badge badge-pill badge-success" style="padding-bottom:1px;">{{ $nb_total_capsules_enregistrements }}<span></div>
+						<div class="text-muted">Total enregistrements : <span class="badge badge-pill badge-success" style="padding-bottom:1px;">{{ $nb_total_capsules_enregistrements + $nb_total_commentaires_enregistrements + $nb_total_entrainements_enregistrements +$nb_total_activites_enregistrements }}<span></div>
 						<br />
 						<br />
 					</div>
