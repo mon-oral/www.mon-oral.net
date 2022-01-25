@@ -284,7 +284,7 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 							data:{
 								datasets:[
 									{
-										data: <?php echo $chart_enregistrements_data; ?>,
+										data: <?php echo $chart_entrainements_enregistrements_data; ?>,
 										backgroundColor: 'rgb(56, 193, 114)',
 										borderColor: 'rgb(56, 193, 114)',
 										borderWidth:1,
@@ -296,7 +296,52 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 								responsive:true,
 								title:{
 									display:true,
-									text:"ENREGISTREMENTS"
+									text:"ENTRAINEMENTS ENREGISTREMENTS"
+								},
+								legend:{
+									display:false
+								},
+								scales:{
+									xAxes:[{
+										type:"time",
+										time:{
+											parser:'YYYY-WW',
+											displayFormats:{
+												week: 'YYYY-MM-DD'
+											},
+											unit:'week'
+										},
+									}],
+									yAxes: [{
+										scaleLabel: {
+											display:true,
+											labelString:'nombre d\'enregistrements'
+										}
+									}]
+								}
+							}
+						};
+					</script>
+
+					<script>
+						var config_enregistrements = {
+							type:'line',
+							data:{
+								datasets:[
+									{
+										data: <?php echo $chart_activites_enregistrements_data; ?>,
+										backgroundColor: 'rgb(56, 193, 114)',
+										borderColor: 'rgb(56, 193, 114)',
+										borderWidth:1,
+										pointRadius:1,
+									}
+								]
+							},
+							options: {
+								responsive:true,
+								title:{
+									display:true,
+									text:"ACTIVITES ENREGISTREMENTS"
 								},
 								legend:{
 									display:false
