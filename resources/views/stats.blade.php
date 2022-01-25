@@ -423,8 +423,8 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 							var ctx_capsules = document.getElementById("chart_capsules").getContext("2d");
 							window.chart_inscriptions = new Chart(ctx_inscriptions, config_inscriptions);
 							window.chart_entrainements = new Chart(ctx_entrainements, config_entrainements);
-							window.chart_entrainements_enregistrements = new Chart(ctx_enregistrements, config_entrainements_enregistrements);
-							window.chart_activites_enregistrements = new Chart(ctx_enregistrements, config_activites_enregistrements);
+							window.chart_entrainements_enregistrements = new Chart(ctx_entrainements_enregistrements, config_entrainements_enregistrements);
+							window.chart_activites_enregistrements = new Chart(ctx_activites_enregistrements, config_activites_enregistrements);
 							window.chart_capsules = new Chart(ctx_capsules, config_capsules);
 						};
 					</script>
