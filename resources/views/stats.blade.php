@@ -136,7 +136,7 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 
 
 					// ACTIVITES
-					$activites = App\Activitet::orderBy('created_at')->get()->groupBy(function($item) {
+					$activites = App\Activite::orderBy('created_at')->get()->groupBy(function($item) {
 						return $item->created_at->format('Y-W');
 					});
 					$activites_data = [];
@@ -181,18 +181,18 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 
 
 					// CAPSULES
-					$capsules = App\Logs_capsule::where('duration', '>', 10)->orderBy('created_at')->get()->groupBy(function($item) {
+					$capsules_enregistrements = App\Logs_capsule::where('duration', '>', 10)->orderBy('created_at')->get()->groupBy(function($item) {
 						return $item->created_at->format('Y-W');
 					});
-					$capsules_data = [];
+					$capsules_enregistrements_data = [];
 					foreach ($period_week as $dt) {
-						if (!empty($capsules[$dt->format("Y-W")])) {
-							$capsules_data[] = '{t:"' . $dt->format("Y-W") . '",y:' . $capsules[$dt->format("Y-W")]->count() . '}';
+						if (!empty($capsules_enregistrements[$dt->format("Y-W")])) {
+							$capsules_enregistrements_data[] = '{t:"' . $dt->format("Y-W") . '",y:' . $capsules_enregistrements[$dt->format("Y-W")]->count() . '}';
 						} else {
-							$capsules_data[] = '{t:"' . $dt->format("Y-W") . '",y:0}';
+							$capsules_enregistrements_data[] = '{t:"' . $dt->format("Y-W") . '",y:0}';
 						}
 					}
-					$chart_capsules_data = "[" . implode(",", $capsules_data) . "]";
+					$chart_capsules_enregistrements_data = "[" . implode(",", $capsules_enregistrements_data) . "]";
 
 					?>
 
