@@ -331,7 +331,7 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 								responsive:true,
 								title:{
 									display:true,
-									text:"ENTRAÎNEMENTS"
+									text:"ACTIVITÉS"
 								},
 								legend:{
 									display:false
@@ -376,7 +376,7 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 								responsive:true,
 								title:{
 									display:true,
-									text:"ENTRAINEMENTS ENREGISTREMENTS"
+									text:"ENTRAÎNEMENTS ENREGISTREMENTS"
 								},
 								legend:{
 									display:false
@@ -421,7 +421,7 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 								responsive:true,
 								title:{
 									display:true,
-									text:"ACTIVITES ENREGISTREMENTS"
+									text:"ACTIVITÉS ENREGISTREMENTS"
 								},
 								legend:{
 									display:false
