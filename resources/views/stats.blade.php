@@ -183,7 +183,8 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 
 					<canvas id="chart_inscriptions"></canvas>
 					<canvas id="chart_entrainements"></canvas>
-					<canvas id="chart_enregistrements"></canvas>
+					<canvas id="chart_entrainements_enregistrements"></canvas>
+					<canvas id="chart_activites_enregistrements"></canvas>
 					<canvas id="chart_capsules"></canvas>
 
 					<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
@@ -279,7 +280,7 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 					</script>
 
 					<script>
-						var config_enregistrements = {
+						var config_entrainements_enregistrements = {
 							type:'line',
 							data:{
 								datasets:[
@@ -324,7 +325,7 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 					</script>
 
 					<script>
-						var config_enregistrements = {
+						var config_activites_enregistrements = {
 							type:'line',
 							data:{
 								datasets:[
@@ -417,44 +418,17 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 						window.onload = function () {
 							var ctx_inscriptions = document.getElementById("chart_inscriptions").getContext("2d");
 							var ctx_entrainements = document.getElementById("chart_entrainements").getContext("2d");
-							var ctx_enregistrements = document.getElementById("chart_enregistrements").getContext("2d");
+							var ctx_entrainements_enregistrements = document.getElementById("chart_entrainements_enregistrements").getContext("2d");
+							var ctx_activites_enregistrements = document.getElementById("chart_activites_enregistrements").getContext("2d");
 							var ctx_capsules = document.getElementById("chart_capsules").getContext("2d");
 							window.chart_inscriptions = new Chart(ctx_inscriptions, config_inscriptions);
 							window.chart_entrainements = new Chart(ctx_entrainements, config_entrainements);
-							window.chart_enregistrements = new Chart(ctx_enregistrements, config_enregistrements);
-							window.chart_enregistrements = new Chart(ctx_capsules, config_capsules);
+							window.chart_entrainements_enregistrements = new Chart(ctx_enregistrements, config_entrainements_enregistrements);
+							window.chart_activites_enregistrements = new Chart(ctx_enregistrements, config_activites_enregistrements);
+							window.chart_capsules = new Chart(ctx_capsules, config_capsules);
 						};
 					</script>
 
-				</div>
-
-
-				<div class="row">
-					<div class="col-md-12 pt-5">
-					<?php
-					/*
-
-						$stats = App\Stat::select('log')->get();
-
-
-						$date_minus7 = Carbon\Carbon::today()->subDays(7);
-						$last7days = App\Stat::where('created_at', '>=', $date_minus7)->get();
-						$last7days_count = $last7days->count();
-						echo 'Since ' . $date_minus7 . ' : ' . $last7days_count;
-
-						echo '<table class="small table table-bordered">';
-						foreach ($stats as $stat) {
-							echo '<tr>';
-							$items = json_decode($stat->log);
-							foreach ($items as $item) {
-								echo '<td>'.substr($item,0,30).'</td>';
-							}
-							echo '</tr>';
-						}
-						echo '</table>';
-					*/
-					?>
-					</div>
 				</div>
 
 			</div><!-- /container -->
