@@ -83,7 +83,7 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 						<div class="text-muted">Sujets : <span class="badge badge-pill badge-success" style="padding-bottom:1px;">{{ $nb_total_sujets }}<span></div>
 						<div class="text-muted">Enregistrements entraînements : <span class="badge badge-pill badge-success" style="padding-bottom:1px;">{{ $nb_total_entrainements_enregistrements }}<span></div>
 						<div class="text-muted">Enregistrements activités : <span class="badge badge-pill badge-success" style="padding-bottom:1px;">{{ $nb_total_activites_enregistrements }}<span></div>
-						<div class="text-muted">Capsules : <span class="badge badge-pill badge-success" style="padding-bottom:1px;">{{ $nb_total_capsules }}<span></div>
+						<div class="text-muted">Enregistrements capsules : <span class="badge badge-pill badge-success" style="padding-bottom:1px;">{{ $nb_total_capsules }}<span></div>
 						<div class="text-muted">Total enregistrements : <span class="badge badge-pill badge-success" style="padding-bottom:1px;">{{ $nb_total_capsules + $nb_total_entrainements_enregistrements +$nb_total_activites_enregistrements }}<span></div>
 						<br />
 						<br />
@@ -135,19 +135,34 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 					$chart_entrainements_data = "[" . implode(",", $entrainements_data) . "]";
 
 
-					// ENREGISTREMENTS
-					$enregistrements = App\Log::where('code_audio', '!=', '')->orderBy('created_at')->get()->groupBy(function($item) {
+					// ENTRAINEMENTS - ENREGISTREMENTS
+					$entrainements_enregistrements = App\Log::where('code_audio', '!=', '')->orderBy('created_at')->get()->groupBy(function($item) {
 						return $item->created_at->format('Y-W');
 					});
-					$enregistrements_data = [];
+					$entrainements_enregistrements_data = [];
 					foreach ($period_week as $dt) {
-						if (!empty($enregistrements[$dt->format("Y-W")])) {
-							$enregistrements_data[] = '{t:"' . $dt->format("Y-W") . '",y:' . $enregistrements[$dt->format("Y-W")]->count() . '}';
+						if (!empty($entrainements_enregistrements[$dt->format("Y-W")])) {
+							$entrainements_enregistrements_data[] = '{t:"' . $dt->format("Y-W") . '",y:' . $entrainements_enregistrements[$dt->format("Y-W")]->count() . '}';
 						} else {
-							$enregistrements_data[] = '{t:"' . $dt->format("Y-W") . '",y:0}';
+							$entrainements_enregistrements_data[] = '{t:"' . $dt->format("Y-W") . '",y:0}';
 						}
 					}
-					$chart_enregistrements_data = "[" . implode(",", $enregistrements_data) . "]";
+					$chart_entrainements_enregistrements_data = "[" . implode(",", $entrainements_enregistrements_data) . "]";
+
+
+					// ACTIVITES - ENREGISTREMENTS
+					$activites_enregistrements = App\Activites_enregistrement::where('code_audio', '!=', '')->orderBy('created_at')->get()->groupBy(function($item) {
+						return $item->created_at->format('Y-W');
+					});
+					$activites_enregistrements_data = [];
+					foreach ($period_week as $dt) {
+						if (!empty($activites_enregistrements[$dt->format("Y-W")])) {
+							$activites_enregistrements_data[] = '{t:"' . $dt->format("Y-W") . '",y:' . $activites_enregistrements[$dt->format("Y-W")]->count() . '}';
+						} else {
+							$activites_enregistrements_data[] = '{t:"' . $dt->format("Y-W") . '",y:0}';
+						}
+					}
+					$chart_activites_enregistrements_data = "[" . implode(",", $activites_enregistrements_data) . "]";
 
 
 					// CAPSULES
