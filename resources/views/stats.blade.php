@@ -218,6 +218,7 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 					<canvas id="chart_activites"></canvas>
 					<canvas id="chart_entrainements_enregistrements"></canvas>
 					<canvas id="chart_activites_enregistrements"></canvas>
+					<canvas id="chart_commentaires_enregistrements"></canvas>
 					<canvas id="chart_capsules_enregistrements"></canvas>
 
 					<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
