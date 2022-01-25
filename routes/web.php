@@ -75,7 +75,7 @@ Route::get('/ndll/{code}', function($code){
 	return view('nuitsdelalecture-etape-identifier')->with('code', $code);
 });
 Route::post('/ndll/{code}', 'NuitsdelalectureController@identifier_post');
-
+Route::view('/ndll', 'nuitsdelalecture-enregistrements');
 
 
 // ==========================
