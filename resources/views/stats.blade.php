@@ -182,6 +182,21 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 					$chart_activites_enregistrements_data = "[" . implode(",", $activites_enregistrements_data) . "]";
 
 
+					// COMMENTAIRES - ENREGISTREMENTS
+					$commentaires_enregistrements = App\Commentaire::where('code_audio', '!=', '')->orderBy('created_at')->get()->groupBy(function($item) {
+						return $item->created_at->format('Y-W');
+					});
+					$commentaires_enregistrements_data = [];
+					foreach ($period_week as $dt) {
+						if (!empty($commentaires_enregistrements[$dt->format("Y-W")])) {
+							$commentaires_enregistrements_data[] = '{t:"' . $dt->format("Y-W") . '",y:' . $commentaires_enregistrements[$dt->format("Y-W")]->count() . '}';
+						} else {
+							$commentaires_enregistrements_data[] = '{t:"' . $dt->format("Y-W") . '",y:0}';
+						}
+					}
+					$chart_commentaires_enregistrements_data = "[" . implode(",", $commentaires_enregistrements_data) . "]";
+
+
 					// CAPSULES - ENREGISTREMENTS
 					$capsules_enregistrements = App\Logs_capsule::where('duration', '>', 10)->orderBy('created_at')->get()->groupBy(function($item) {
 						return $item->created_at->format('Y-W');
@@ -433,6 +448,51 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 					</script>
 
 					<script>
+						var config_commentaires_enregistrements = {
+							type:'line',
+							data:{
+								datasets:[
+									{
+										data: <?php echo $chart_commentaires_enregistrements_data; ?>,
+										backgroundColor: 'rgb(56, 193, 114)',
+										borderColor: 'rgb(56, 193, 114)',
+										borderWidth:1,
+										pointRadius:1,
+									}
+								]
+							},
+							options: {
+								responsive:true,
+								title:{
+									display:true,
+									text:"COMMENTAIRES ENREGISTREMENTS"
+								},
+								legend:{
+									display:false
+								},
+								scales:{
+									xAxes:[{
+										type:"time",
+										time:{
+											parser:'YYYY-WW',
+											displayFormats:{
+												week: 'YYYY-MM-DD'
+											},
+											unit:'week'
+										},
+									}],
+									yAxes: [{
+										scaleLabel: {
+											display:true,
+											labelString:'nombre de capsules'
+										}
+									}]
+								}
+							}
+						};
+					</script>
+
+					<script>
 						var config_capsules_enregistrements = {
 							type:'line',
 							data:{
@@ -450,7 +510,7 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 								responsive:true,
 								title:{
 									display:true,
-									text:"CAPSULES"
+									text:"CAPSULES ENREGISTREMENTS"
 								},
 								legend:{
 									display:false
@@ -484,12 +544,14 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 							var ctx_activites = document.getElementById("chart_activites").getContext("2d");
 							var ctx_entrainements_enregistrements = document.getElementById("chart_entrainements_enregistrements").getContext("2d");
 							var ctx_activites_enregistrements = document.getElementById("chart_activites_enregistrements").getContext("2d");
+							var ctx_commentaires_enregistrements = document.getElementById("chart_commentaires_enregistrements").getContext("2d");
 							var ctx_capsules_enregistrements = document.getElementById("chart_capsules_enregistrements").getContext("2d");
 							window.chart_inscriptions = new Chart(ctx_inscriptions, config_inscriptions);
 							window.chart_entrainements = new Chart(ctx_entrainements, config_entrainements);
 							window.chart_activites = new Chart(ctx_activites, config_activites);
 							window.chart_entrainements_enregistrements = new Chart(ctx_entrainements_enregistrements, config_entrainements_enregistrements);
 							window.chart_activites_enregistrements = new Chart(ctx_activites_enregistrements, config_activites_enregistrements);
+							window.chart_commentaires_enregistrements = new Chart(ctx_commentaires_enregistrements, config_commentaires_enregistrements);
 							window.chart_capsules_enregistrements = new Chart(ctx_capsules_enregistrements, config_capsules_enregistrements);
 						};
 					</script>
