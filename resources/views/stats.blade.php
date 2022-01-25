@@ -69,7 +69,8 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 				$nb_total_activites = App\Activite::count();
 				$nb_total_sujets = App\Sujet::count();
 				$nb_total_capsules = App\Logs_capsule::where('duration', '>', 10)->count() + 10000;
-				$nb_total_enregistrements = App\Log::where('code_audio', '!=', '')->count();
+				$nb_total_entrainements_enregistrements = App\Log::where('code_audio', '!=', '')->count();
+				$nb_total_activites_enregistrements = App\Activites_enregistrement::count();
 
 				//$utilisateurs = App\User::where('is_checked', '=', '2')->get();
 				?>
@@ -80,8 +81,10 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 						<div class="text-muted">Entraînements : <span class="badge badge-pill badge-success" style="padding-bottom:1px;">{{ $nb_total_entrainements }}<span></div>
 						<div class="text-muted">Activités : <span class="badge badge-pill badge-success" style="padding-bottom:1px;">{{ $nb_total_activites }}<span></div>
 						<div class="text-muted">Sujets : <span class="badge badge-pill badge-success" style="padding-bottom:1px;">{{ $nb_total_sujets }}<span></div>
-						<div class="text-muted">Enregistrements entraînements : <span class="badge badge-pill badge-success" style="padding-bottom:1px;">{{ $nb_total_enregistrements }}<span></div>
+						<div class="text-muted">Enregistrements entraînements : <span class="badge badge-pill badge-success" style="padding-bottom:1px;">{{ $nb_total_entrainements_enregistrements }}<span></div>
+						<div class="text-muted">Enregistrements activités : <span class="badge badge-pill badge-success" style="padding-bottom:1px;">{{ $nb_total_activites_enregistrements }}<span></div>
 						<div class="text-muted">Capsules : <span class="badge badge-pill badge-success" style="padding-bottom:1px;">{{ $nb_total_capsules }}<span></div>
+						<div class="text-muted">Total enregistrements : <span class="badge badge-pill badge-success" style="padding-bottom:1px;">{{ $nb_total_capsules + $nb_total_entrainements_enregistrements +$nb_total_activites_enregistrements }}<span></div>
 						<br />
 						<br />
 					</div>
