@@ -180,7 +180,7 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 					$chart_activites_enregistrements_data = "[" . implode(",", $activites_enregistrements_data) . "]";
 
 
-					// CAPSULES
+					// CAPSULES - ENREGISTREMENTS
 					$capsules_enregistrements = App\Logs_capsule::where('duration', '>', 10)->orderBy('created_at')->get()->groupBy(function($item) {
 						return $item->created_at->format('Y-W');
 					});
