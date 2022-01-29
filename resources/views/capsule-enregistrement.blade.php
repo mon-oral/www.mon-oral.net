@@ -30,7 +30,7 @@
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
-					<div class="modal-body">
+					<div class="modal-body p-4">
 						<div class="text-danger text-justify">
 						<b>IMPORTANT</b><br />Utiliser un appareil relativement récent et à jour, vérifier la batterie avant de commencer et s'assurer que l'appareil ne se mettra pas en veille.
 						</div>
@@ -79,7 +79,7 @@
 							<p class="text-danger"><i class="fas fa-bomb" style="font-size:20px;"></i> <b>Votre système n'est pas prêt !</b></p>
 							<div id="configuration" class="text-muted small pb-2 pl-4 pr-3"></div>
 							<p class="pt-2 pb-2 pl-4 pr-4 text-justify">
-								<img src="{{ asset('img/logo-connexion.png') }}" alt="connexion" style="margin:0px 20px 0px 20px;float:left;width:120px;height:120px;">
+								<img src="{{ asset('img/logo-connexion.png') }}" alt="connexion" style="margin:0px 20px 30px 20px;float:left;width:120px;height:120px;">
 								Vérifiez les branchements et la configuration votre microphone. Lisez la documentation qui correspond à votre environnement : <a href="https://support.google.com/chrome/answer/2693767" target="_blank">Chrome</a>, <a href="https://support.mozilla.org/fr/kb/gerer-permissions-camera-et-microphone" target="_blank">Firefox</a>, <a href="https://support.apple.com/fr-fr/guide/safari/ibrwe2159f50/mac" target="_blank">Safari</a>, <a href="https://support.apple.com/fr-fr/guide/mac-help/mchla1b1e1fe/mac" target="_blank">macOS</a>, <a href="https://support.apple.com/fr-fr/HT203792" target="_blank">iOS</a>. Si les problèmes persistent, fermez et rouvrez votre navigateur, faites des tests avec différents navigateurs, ordinateurs, téléphones ou redémarrez votre ordinateur.
 							</p>
 							<p class="text-danger pb-3 pl-4 pr-4 text-justify">
@@ -95,7 +95,13 @@
 							<div id="start_rec">
 								<div class="p-2"><span id="chrono" class="chrono">00:00</span></div>
 								<div class="pb-3 text-monospace text-danger" style="opacity:0.4;font-size:70%" id="max">20 minutes maximum</div>
-								<button id="start_button" type="button" class="btn btn-success pt-2 mt-2 btn-lg"><i class="material-icons align-middle">keyboard_voice</i></button>
+								<button id="start_button" type="button" class="btn btn-success pt-2 mt-3 btn-lg font-weight-bold">
+									@if (isset($_GET['a']) AND $_GET['a'] == 'go')
+										5
+									@else
+										<i class="material-icons align-middle">keyboard_voice</i>
+									@endif
+								</button>
 								<div id="start_label" class="small mt-4 text-muted text-monospace">cliquer sur le bouton ci-dessus<br />pour débuter un enregistrement audio<br />téléchargeable au format mp3</div>
 							</div>
 
@@ -125,8 +131,8 @@
 								</div>
 							</div>
 
-							<div class="text-center text-danger mt-5" style="cursor:pointer">
-								<i class="fas fa-question-circle fa-lg" style="opacity:0.5" data-toggle="modal" data-target="#modal-info"></i>
+							<div id="info" class="text-center text-danger mt-4" style="cursor:pointer">
+								<i class="fas fa-exclamation-circle fa-lg" style="opacity:0.5" data-toggle="modal" data-target="#modal-info"></i>
 							</div>
 
 						</div>
@@ -332,6 +338,7 @@
 				$('#start_button').css('display', 'none');
 				$('#enregistrement').css('display', 'block');
 				$('#stop_button').css('display', 'inline');
+				$('#info').css('display', 'none');
 			};
 
 			// ON STOP
@@ -371,8 +378,27 @@
 
 		</script>
 
+
 		@include('inc-bottom')
 		@include('inc-bottom-js')
+
+
+		@if (isset($_GET['a']) AND $_GET['a'] == 'go')
+		<script>
+		$('#start_label').css('display', 'none');
+		$('#info').css('display', 'none');
+		var timeleft = 4;
+		var downloadTimer = setInterval(function(){
+		  	if(timeleft <= -1){
+		    	clearInterval(downloadTimer);
+				recorder.start();
+		  	} else {
+			  	$('#start_button').text(timeleft)
+		  	}
+		  timeleft -= 1;
+		}, 1000);
+		</script>
+		@endif
 
 	</body>
 </html>

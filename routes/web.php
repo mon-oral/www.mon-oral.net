@@ -20,6 +20,7 @@ Route::view('/inscription-intro', 'auth/register-intro')->name('register-intro')
 
 // Index
 Route::view('/', 'welcome')->name('welcome');
+Route::view('/welcome-bis', 'welcome-bis')->name('welcome-bis');
 
 // Bac à  sable
 Route::get('/bac-a-sable', function () {
@@ -76,6 +77,9 @@ Route::get('/ndll/{code}', function($code){
 });
 Route::post('/ndll/{code}', 'NuitsdelalectureController@identifier_post');
 Route::view('/ndll', 'nuitsdelalecture-enregistrements');
+Route::get('/ndll/lecteur/{code}', function($code){
+    return redirect(asset("storage/audio-activites/") .'/glensaeqmd/@' . Crypt::decryptString($code) . '.mp3');
+});
 
 
 // ==========================

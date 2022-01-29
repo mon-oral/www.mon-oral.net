@@ -30,54 +30,87 @@
 
 <body>
 
+	<!-- MODAL -->
+	<div id="modal-info" tabindex="-1" aria-labelledby="odal-info" aria-hidden="true" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="fermer">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body p-4">
+					<div class="text-danger text-justify">
+					<b>IMPORTANT</b><br />Utiliser un appareil relativement récent et à jour, vérifier la batterie avant de commencer et s'assurer que l'appareil ne se mettra pas en veille.
+					</div>
+					<div class="card border-success mt-3 mb-3">
+						<div class="card-body text-success">
+							Conseil : avant de faire un enregistrement de plusieurs minutes, faites un enregistrement de quelques secondes pour vérifier que votre microphone et vos haut-parleurs ou écouteurs fonctionnent correctement.
+						</div>
+					</div>
+					<div>
+						<b>Configurations recommandées</b>
+						<ul>
+							<li>Chrome / Firefox + Windows</li>
+							<li>Chrome / Firefox / Safari + macOS</li>
+							<li>Chromebook</li>
+							<li>Chrome + Android</li>
+							<li>Safari + iOS (le micro ne fonctionne pas avec d\'autres navigateurs)</li>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<!-- /MODAL -->
+
 	@include('inc-nav-with-register')
 
 	<div class="container">
 
 		<?php
 		if (isset($_GET['a']) AND $_GET['a'] == 'supprimer'){
-			?>
-			<div class="text-center text-danger text-monospace">votre compte a été supprimé !</div>
-			<?php
+			echo '<div class="text-center text-danger text-monospace">votre compte a été supprimé !</div>';
 		}
 		?>
 
 		<div class="row">
 
-			<div class="col-md-3 mt-4 text-muted" style="padding:10px;">
+			<div class="col-md-3 text-muted mt-4">
 				<p class="text-center"><img src="{{ asset('img/quote-left.svg') }}" style="margin-right:6px;" width="18" />Pratique de l'oral au primaire<br />et au secondaire, préparation aux épreuves orales de collège et<br />de lycée <span style="color:silver">&amp;</span> création de commentaires audio pour les élèves<img src="{{ asset('img/quote-right.svg') }}" style="margin-left:6px;" width="18" /></p>
 				<p class="text-justify text-monospace small mt-5" style="color:silver">Pas de compte à créer pour les élèves, pas de logiciel à installer.</p>
 				<p class="text-justify text-monospace small m-0" style="color:silver">Multiplateforme : Windows, MacOS, Linux, téléphones ou tablettes (iOS ou Android)... Un navigateur web suffit.</p>
+				<div class="text-center mt-4"><a class="btn btn-primary btn-sm" href="/presentation" role="button">présentation</a></div>
 			</div>
 
+			<div class="col-md-4 text-muted pl-5 pr-5 mt-4">
 
-			<div class="col-md-4 pl-md-5 pr-md-5" style="padding:10px;">
-				<div class="pb-2 small text-monospace text-center" style="color:silver">&nbsp;</div>
-				<div class="card-deck">
-
-					<div class="card">
-						<div class="text-center pt-4"><img src="{{ asset('img/logo-capsules.png') }}" width="140" alt="Capsules Audio" /></div>
-						<div class="card-body pt-0">
-							<p class="card-text">
-								<div style="position:absolute;top:10px;right:12px;cursor:help;">
-								<i style="color:silver" class="fas fa-question-circle" data-placement="top" data-html="true" data-trigger="hover" data-toggle="popover" data-content="Enregistrement libre de capsules audio pour vos travaux scolaires, vos préparations aux épreuves orales, vos émissions webradio, la création de podcasts ou pour vous entraîner de façon autonome. Téléchargement des fichiers audio au format mp3."></i>
-								</div>
-								<h2 class="text-center">Capsules audio</h2>
-								<h3>enregistrements<br />libres</h3>
-							</p>
-							<div class="text-center mt-2"><a class="btn btn-primary btn-sm" href="/capsule" role="button"><i class="fas fa-check pl-2 pr-2"></i></a></div>
-						</div>
+				<!-- ENREGISTREMENT -->
+				<div id="interface" class="text-center mb-4 h-100 d-inline-block" style="border:4px dashed #f2f4f6;border-radius:8px;padding:10px;position:relative">
+					<div style="position:absolute;top:10px;right:12px;cursor:help;">
+					<i style="color:silver" class="fas fa-question-circle" data-placement="top" data-html="true" data-trigger="hover" data-toggle="popover" data-content="Enregistrement libre de capsules audio pour des travaux scolaires, des préparations aux épreuves orales, des émissions webradio, la création de podcasts ou pour s'entraîner à l'oral de façon autonome. Téléchargement des fichiers audio au format mp3."></i>
 					</div>
-
+					<div id="start_rec">
+						<div class="p-2"><span id="chrono" class="chrono">00:00</span></div>
+						<div class="pb-3 text-monospace text-danger" style="opacity:0.4;font-size:70%" id="max">20 minutes maximum</div>
+						<a href="/capsule?a=go" id="start_button" type="button" class="btn btn-success pt-2 mt-3 btn-lg"><i class="material-icons align-middle">keyboard_voice</i></a>
+						<div id="start_label" class="small mt-4 text-muted text-monospace">cliquer sur le bouton ci-dessus pour débuter un enregistrement audio téléchargeable au format mp3</div>
+					</div>
+					<div class="text-center text-danger mt-4" style="cursor:pointer">
+						<i class="fas fa-exclamation-circle fa-lg" style="opacity:0.5" data-toggle="modal" data-target="#modal-info"></i>
+					</div>
 				</div>
+				<!-- /ENREGISTREMENT -->
+
 			</div>
 
-			<div class="col-md-5" style="background-color:#f2f4f6;border-radius:5px;padding:10px 22px 14px 22px;">
-				<div class="pb-2 small text-monospace text-center" style="color:silver">activités et entraînements proposés par les enseignants</div>
+			<div class="col-md-5 mt-4" style="background-color:#f2f4f6;border-radius:6px;padding:10px 22px 14px 22px;">
+				<div class="pb-2 small text-monospace text-center" style="color:silver">sujets conçus par les enseignants <i style="color:silver;cursor:help;" class="fas fa-question-circle" data-placement="top" data-html="true" data-trigger="hover" data-toggle="popover" data-content="Pour créer des activités, des entraînements ou des commentaires audio à destination des élèves, les enseignants peuvent créer un compte en cliquant, en haut à droite de cette page, sur le bouton &quot;créer un compte&quot;"></i></div>
 				<div class="card-deck">
 
 					<div class="card" style="margin-left:7px;margin-right:7px;">
-						<div class="text-center pt-4"><img src="{{ asset('img/logo-activites.png') }}" width="140" alt="Activités" /></div>
+						<div class="text-center pt-4"><img src="{{ asset('img/logo-activites.png') }}" width="120" alt="Activités" /></div>
 						<div class="card-body pt-0">
 							<p class="card-text">
 								<h2 class="text-center">Activités</h2>
@@ -88,11 +121,11 @@
 					</div>
 
 					<div class="card" style="margin-left:7px;margin-right:7px;">
-						<div class="text-center pt-4"><img src="{{ asset('img/logo-entrainements.png') }}" width="140" alt="Entraînements" /></div>
+						<div class="text-center pt-4"><img src="{{ asset('img/logo-entrainements.png') }}" width="120" alt="Entraînements" /></div>
 						<div class="card-body pt-0">
 							<p class="card-text">
 								<h2 class="text-center">Entraînements</h2>
-								<h3>épreuves de français, langues,<br />grand oral,brevet...</h3>
+								<h3>épreuves de français, langues,<br />grand oral, brevet...</h3>
 							</p>
 							<div class="text-center mt-2"><a class="btn btn-primary btn-sm" href="/entrainement" role="button"><i class="fas fa-check pl-2 pr-2"></i></a></div>
 						</div>
@@ -101,61 +134,9 @@
 				</div>
 			</div>
 
-		</div><!-- /row -->
-
+		</div>
 
 	</div><!-- /container -->
-
-	<div style="margin-top:20px;background-color:#f2f4f6">
-		<div class="container">
-			<div class="row pt-5">
-
-				<div class="col-md-1 text-center">
-					<img src="{{ asset('img/icon-activites.png') }}" alt="Activités" width="48" class="mr-4 mb-5" />
-					<img src="{{ asset('img/icon-commentaires.png') }}" alt="Commentaires" width="48" class="mr-4 mb-5" />
-					<img src="{{ asset('img/icon-entrainements.png') }}" alt="Entraînements" width="48" class="mr-4 mb-5" />
-					<img src="{{ asset('img/icon-lecture.png') }}" alt="Lecture" width="48" class="mr-4 mb-5" />
-				</div>
-
-				<div class="col-md-5 mb-5">
-					<p class="text-success">ENSEIGNANTS</p>
-					<div class="text-monospace small mb-1">ACTIVITÉS</div>
-					<div class="text-justify small text-muted">Tout type d'activité orale à proposer aux élèves du secondaire ou du primaire : récitation, lecture expressive, explication linéaire, description d'image / schéma / graphique, exposé, podcast... Récupération automatique des enregistrements. Possibilité de correction / commentaires / conseils oraux ou écrits à partager avec les élèves (lien, QR code...).</div>
-					<div class="text-monospace small mt-3 mb-1">ENTRAÎNEMENTS</div>
-					<div class="text-justify small text-muted">Entraînements aux épreuves orales de collège et de lycée avec temps de préparation, tirage au sort de sujets et chronométrage. Récupération automatique des enregistrements. Possibilité de correction / commentaires / conseils oraux ou écrits à partager avec les élèves (lien, QR code...).<br />EAF, Grand Oral, langues, brevet...</div>
-					<div class="text-monospace small mt-3 mb-1">COMMENTAIRES</div>
-					<div class="text-justify small text-muted">Création de capsules audio pour les élèves : correction orale de copies, cours, consignes, explications... Différents moyens de distribution: lien, QR code, code unique, intégration dans un site ou une plateforme de partage...</div>
-				</div>
-
-				<div class="col-md-3 mb-5">
-					<p class="text-success">ÉLÈVES</p>
-					<div class="text-justify small text-muted"><i style="color:silver;">~ au secondaire ~</i><br />Avec un lien ou un code, l'élève accède aux activités orales ou aux entraînements de type examen proposés par l'enseignant afin d'améliorer l'expression et de préparer les épreuves de collège et de lycée (Épreuves Anticipées de Français, Grand Oral, langues, brevet...).</div>
-					<div class="text-justify small text-muted mt-4"><i style="color:silver;">~ au primaire ~</i><br />Les élèves, individuellement ou en groupe, réalisent des activités préparées par l'enseignant, de façon autonome ou encadrée : récitation, lecture expressive, lecture dialoguée, comptine, chanson, jeux rythmiques, répétition de structures syntaxiques, exposé...</div>
-				</div>
-
-				<div class="col-md-3 mb-5">
-					<p class="text-success">TOUT LE MONDE</p>
-					<div class="text-monospace small mb-1">CAPSULES AUDIO</div>
-					<div class="text-justify small text-muted">Enregistrement libre de capsules audio pour les travaux scolaires, les préparations aux épreuves orales, les émissions webradio, la création de podcasts ou pour s'entraîner de façon autonome. Téléchargement des fichiers audio au format mp3.</div>
-					<div class="text-center text-monospace mt-3"><a class="btn btn-light btn-sm" href="capsule" role="button" style="color:gray"><i class="fas fa-microphone-alt mr-2"></i>créer une capsule audio</a></div>
-				</div>
-
-			</div><!-- /row -->
-		</div><!-- /container -->
-	</div>
-
-	<div class="container">
-		<div class="row pt-5">
-			<div class="col-md-8 offset-md-2">
-				<p class="text-center text-muted text-monospace small">tutoriel vidéo réalisé par <a href="https://twitter.com/JohannNallet" target="_blank">Johann Nallet</a></p>
-				<p class="text-center text-monospace small" style="color:silver;font-size:80%">attention : le site évoluant régulièrement, l'interface peut avoir légèrement changé sur certaines pages</p>
-				<div class="embed-responsive embed-responsive-16by9" style="border-radius:5px;">
-  					<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/UCGT1POExrg?rel=0" allowfullscreen></iframe>
-				</div>
-			</div>
-		</div><!-- /row -->
-	</div><!-- /container -->
-
 
 	@include('inc-footer-welcome')
 	@include('inc-bottom-js')

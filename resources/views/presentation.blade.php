@@ -1,136 +1,100 @@
 @include('inc-top')
 <!doctype html>
 <html lang="fr">
-	<head>
-	
-		@include('inc-meta')
-		
-		<title>Mon Oral - Présentation</title>
-		
-	</head>
-		
-	<body data-spy="scroll" data-target="#menu" data-offset="120" style="position:relative;">
+<head>
 
-		<nav class="navbar navbar-expand-md navbar-light fixed-top">
-			<div class="container">
-				<div>
-					<div><a class="navbar-brand" href="{{ url('/') }}"><img src="{{ asset('img/mon-oral.png') }}" width="40" /></a></div>
-					<div class="text-monospace small text-danger" style="padding-left:40px;margin-top:-15px;">bêta</div>
-				</div>
-				
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-					<span class="navbar-toggler-icon"></span>
-				</button>
+	@include('inc-meta')
 
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<!-- Left Side Of Navbar -->
-					<ul class="navbar-nav mr-auto">
+	<title>Mon Oral | Présentation</title>
 
-					</ul>
+	<!-- Open Graph -->
+	<meta property="og:title" content="mon-oral.net" />
+	<meta property="og:type" content="website" />
+	<meta property="og:description" content="Pratique de l'oral au primaire et au secondaire - Préparation aux épreuves orales de collège et de lycée (brevet, français, langues, grand oral...)." />
+	<meta property="og:url" content="https://www.mon-oral.net" />
+	<meta property="og:image" content="{{ asset('img/opengraph_1200x630.png') }}" />
+	<meta property="og:image:alt" content="mon-oral.net" />
+	<meta property="og:image:type" content="image/png" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
 
-					<!-- Right Side Of Navbar -->
-					<ul class="navbar-nav ml-auto">
-			
-					</ul>
+	<!-- Twitter Card -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@mon_oral">
+	<meta name="twitter:creator" content="@mon_oral">
+	<meta name="twitter:title" content="mon-oral.net">
+	<meta name="twitter:description" content="Pratique de l'oral au primaire et au secondaire - Préparation aux épreuves orales de collège et de lycée (brevet, français, langues, grand oral...).">
+	<meta name="twitter:image" content="{{ asset('img/opengraph_1200x630.png') }}">
+
+</head>
+
+<body>
+
+	@include('inc-nav-with-register')
+
+	<div class="container">
+
+		<div class="row">
+
+			<div class="col-md-6 offset-md-3 text-muted mt-3">
+				<p class="text-center"><img src="{{ asset('img/quote-left.svg') }}" style="margin-right:6px;" width="18" />Pratique de l'oral au primaire et au secondaire, préparation aux épreuves orales de collège et de lycée <span style="color:silver">&amp;</span> création de commentaires audio pour les élèves<img src="{{ asset('img/quote-right.svg') }}" style="margin-left:6px;" width="18" /></p>
+				<p class="text-justify text-monospace small mt-4" style="color:silver">Pas de compte à créer pour les élèves, pas de logiciel à installer.</p>
+				<p class="text-justify text-monospace small m-0" style="color:silver">Multiplateforme : Windows, MacOS, Linux, téléphones ou tablettes (iOS ou Android)... Un navigateur web suffit.</p>
+			</div>
+
+		</div>
+
+		<div class="row pt-5">
+
+			<div class="col-md-1 text-center">
+				<img src="{{ asset('img/icon-activites.png') }}" alt="Activités" width="48" class="mr-4 mb-5" />
+				<img src="{{ asset('img/icon-commentaires.png') }}" alt="Commentaires" width="48" class="mr-4 mb-5" />
+				<img src="{{ asset('img/icon-entrainements.png') }}" alt="Entraînements" width="48" class="mr-4 mb-5" />
+				<img src="{{ asset('img/icon-lecture.png') }}" alt="Lecture" width="48" class="mr-4 mb-5" />
+			</div>
+
+			<div class="col-md-5 mb-5">
+				<p class="text-success">ENSEIGNANTS</p>
+				<div class="text-monospace small mb-1">ACTIVITÉS</div>
+				<div class="text-justify small text-muted">Tout type d'activité orale à proposer aux élèves du secondaire ou du primaire : récitation, lecture expressive, explication linéaire, description d'image / schéma / graphique, exposé, podcast... Récupération automatique des enregistrements. Possibilité de correction / commentaires / conseils oraux ou écrits à partager avec les élèves (lien, QR code...).</div>
+				<div class="text-monospace small mt-3 mb-1">ENTRAÎNEMENTS</div>
+				<div class="text-justify small text-muted">Entraînements aux épreuves orales de collège et de lycée avec temps de préparation, tirage au sort de sujets et chronométrage. Récupération automatique des enregistrements. Possibilité de correction / commentaires / conseils oraux ou écrits à partager avec les élèves (lien, QR code...).<br />EAF, Grand Oral, langues, brevet...</div>
+				<div class="text-monospace small mt-3 mb-1">COMMENTAIRES</div>
+				<div class="text-justify small text-muted">Création de capsules audio pour les élèves : correction orale de copies, cours, consignes, explications... Différents moyens de distribution: lien, QR code, code unique, intégration dans un site ou une plateforme de partage...</div>
+			</div>
+
+			<div class="col-md-3 mb-5">
+				<p class="text-success">ÉLÈVES</p>
+				<div class="text-justify small text-muted"><i style="color:silver;">~ au secondaire ~</i><br />Avec un lien ou un code, l'élève accède aux activités orales ou aux entraînements de type examen proposés par l'enseignant afin d'améliorer l'expression et de préparer les épreuves de collège et de lycée (Épreuves Anticipées de Français, Grand Oral, langues, brevet...).</div>
+				<div class="text-justify small text-muted mt-4"><i style="color:silver;">~ au primaire ~</i><br />Les élèves, individuellement ou en groupe, réalisent des activités préparées par l'enseignant, de façon autonome ou encadrée : récitation, lecture expressive, lecture dialoguée, comptine, chanson, jeux rythmiques, répétition de structures syntaxiques, exposé...</div>
+			</div>
+
+			<div class="col-md-3 mb-5">
+				<p class="text-success">TOUT LE MONDE</p>
+				<div class="text-monospace small mb-1">CAPSULES AUDIO</div>
+				<div class="text-justify small text-muted">Enregistrement libre de capsules audio pour les travaux scolaires, les préparations aux épreuves orales, les émissions webradio, la création de podcasts ou pour s'entraîner de façon autonome. Téléchargement des fichiers audio au format mp3.</div>
+				<div class="text-center text-monospace mt-3"><a class="btn btn-light btn-sm" href="capsule" role="button" style="color:gray"><i class="fas fa-microphone-alt mr-2"></i>créer une capsule audio</a></div>
+			</div>
+
+		</div><!-- /row -->
+
+	</div><!-- /container -->
+
+	<div class="container">
+		<div class="row pt-5">
+			<div class="col-md-8 offset-md-2">
+				<p class="text-center text-muted text-monospace small">tutoriel vidéo réalisé par <a href="https://twitter.com/JohannNallet" target="_blank">Johann Nallet</a></p>
+				<p class="text-center text-monospace small" style="color:silver;font-size:80%">attention : le site évoluant régulièrement, l'interface peut avoir légèrement changé sur certaines pages</p>
+				<div class="embed-responsive embed-responsive-16by9" style="border-radius:5px;">
+  					<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/UCGT1POExrg?rel=0" allowfullscreen></iframe>
 				</div>
 			</div>
-		</nav>
+		</div><!-- /row -->
+	</div><!-- /container -->	
 
-		<div class="container">
-			<div class="row">
-			
-				<div class="col-md-3 text-muted mt-2">
-					<nav id="menu" class="navbar navbar-light bg-light small sticky-top" style="top:80px;">
-						<nav class="nav nav-pills flex-column">
-							<a class="nav-link" href="#item-1">Entraînements</a>
-							<nav class="nav nav-pills flex-column">
-								<a class="nav-link ml-2 my-0" href="#item-1-1">Interface élève</a>
-									<nav class="nav nav-pills flex-column">
-										<a class="nav-link ml-4 my-0" href="#item-1-1-1">Étape 1</a>
-										<a class="nav-link ml-4 my-0" href="#item-1-1-2">Étape 2</a>
-										<a class="nav-link ml-4 my-0" href="#item-1-1-3">Étape 3</a>
-										<a class="nav-link ml-4 my-0" href="#item-1-1-4">Étape 4</a>
-										<a class="nav-link ml-4 my-0" href="#item-1-1-5">Étape 5</a>
-									</nav>
-								<a class="nav-link ml-2 my-0" href="#item-1-2">Interface enseignant</a>
-									<nav class="nav nav-pills flex-column">
-										<a class="nav-link ml-4 my-0" href="#item-1-2-1">Console</a>
-										<a class="nav-link ml-4 my-0" href="#item-1-2-2">Nouvel entraînement</a>
-										<a class="nav-link ml-4 my-0" href="#item-1-2-3">Modification d'un entraînement</a>
-										<a class="nav-link ml-4 my-0" href="#item-1-2-4">Activer / désactiver un entraînement</a>
-									</nav>								
-							</nav>
-							<a class="nav-link" href="#item-2">Capsules audio</a>
-							<nav class="nav nav-pills flex-column">
-								<a class="nav-link ml-2 my-0" href="#item-2-1">Enregistrement</a>
-								<a class="nav-link ml-2 my-0" href="#item-2-2">Écoute & téléchargement</a>
-							</nav>
-						</nav>
-					</nav>
-				</div>
-	
-				<div class="col-md-9" style="position:relative;top:85px;">
-				
-					<p>Préparation aux épreuves orales de collège et de lycée (grand oral, français, langues...) avec des <a href="/entrainement-etape1">travaux préparés par les enseignants</a> (avec phases de préparation et d'oral chronométrés) ou de <a href="/capsule-enregistrement">façon autonome</a>.</p>
-					<p>Enregistrez-vous, écoutez-vous, corrigez vos erreurs et recommencez.</p>
-					<p>Pas de compte à créer, pas de logiciel à installer.</p>
-					<p>Multiplateforme : Windows, MacOS, Linux, téléphones ou tablettes (iOS ou Android)...</p>	
-					
-					
-					<div id="item-1" class="n1">Entraînements</div>
-					<p>Entraînements proposés par les enseignants pour développer l'expression orale et préparer les épreuves orales de collège et de lycée avec phases de préparation et d'oral en temps limité et tirage au sort de sujets.</p>
-					<div id="item-1-1" class="n2">Interface élève</div>
-					<div id="item-1-1-1" class="n3">Étape 1</div>
-					<p class="text-center"><img src="{{ asset('img/captures/eleve_etape1.png') }}" class="img-fluid capture" alt="Interface élève - Étape 1"></p>
-					
-					<div id="item-1-1-2" class="n3">Étape 2</div>
-					<p class="text-center"><img src="{{ asset('img/captures/eleve_etape2-1.png') }}" class="img-fluid capture" alt="Interface élève - Étape 2 - 1"></p>
-					<p class="text-center"><img src="{{ asset('img/captures/eleve_etape2-2.png') }}" class="img-fluid capture" alt="Interface élève - Étape 2 - 2"></p>
-					<p class="text-center"><img src="{{ asset('img/captures/eleve_etape2-3.png') }}" class="img-fluid capture" alt="Interface élève - Étape 2 - 3"></p>
-					<p class="text-center"><img src="{{ asset('img/captures/eleve_etape2-4.png') }}" class="img-fluid capture" alt="Interface élève - Étape 2 - 4"></p>
-					
-					<div id="item-1-1-3" class="n3">Étape 3</div>
-					<p class="text-center"><img src="{{ asset('img/captures/eleve_etape3.png') }}" class="img-fluid capture" alt="Interface élève - Étape 3"></p>
-					
-					<div id="item-1-1-4" class="n3">Étape 4</div>
-					<p class="text-center"><img src="{{ asset('img/captures/eleve_etape4-1.png') }}" class="img-fluid capture" alt="Interface élève - Étape 4 - 1"></p>
-					<p class="text-center"><img src="{{ asset('img/captures/eleve_etape4-2.png') }}" class="img-fluid capture" alt="Interface élève - Étape 4 - 2"></p>
-					<p class="text-center"><img src="{{ asset('img/captures/eleve_etape4-3.png') }}" class="img-fluid capture" alt="Interface élève - Étape 4 - 3"></p>
-					<p class="text-center"><img src="{{ asset('img/captures/eleve_etape4-4.png') }}" class="img-fluid capture" alt="Interface élève - Étape 4 - 4"></p>
-					<p class="text-center"><img src="{{ asset('img/captures/eleve_etape4-5.png') }}" class="img-fluid capture" alt="Interface élève - Étape 4 - 5"></p>
-					<p class="text-center"><img src="{{ asset('img/captures/eleve_etape4-6.png') }}" class="img-fluid capture" alt="Interface élève - Étape 4 - 6"></p>
-					<p class="text-center"><img src="{{ asset('img/captures/eleve_etape4-7.png') }}" class="img-fluid capture" alt="Interface élève - Étape 4 - 7"></p>
-					<p class="text-center"><img src="{{ asset('img/captures/eleve_etape4-8.png') }}" class="img-fluid capture" alt="Interface élève - Étape 4 - 8"></p>
-					
-					<div id="item-1-1-5" class="n3">Étape 5</div>
-					<p class="text-center"><img src="{{ asset('img/captures/eleve_etape5.png') }}" class="img-fluid capture" alt="Interface élève - Étape 5"></p>
-					
+	@include('inc-footer-welcome')
+	@include('inc-bottom-js')
+	@include('inc-bottom')
 
-					<div id="item-1-2" class="n2">Interface enseignant</div>
-					<div id="item-1-2-1" class="n3">Console</div>
-					<p class="text-center"><img src="{{ asset('img/captures/enseignant_console.png') }}" class="img-fluid capture" alt="Interface enseignant - Console"></p>
-					<div id="item-1-2-2" class="n3">Nouvel entraînement</div>
-					<p class="text-center"><img src="{{ asset('img/captures/enseignant_nouvel_entrainement.png') }}" class="img-fluid capture" alt="Interface enseignant - Nouvel entraînement"></p>
-					<div id="item-1-2-3" class="n3">Modification d'un entraînement</div>
-					<p class="text-center"><img src="{{ asset('img/captures/enseignant_modifier.png') }}" class="img-fluid capture" alt="Interface enseignant - Modification d'un entraînement"></p>
-					<div id="item-1-2-4" class="n3">Activer / désactiver un entraînement</div>
-					<p class="text-center"><img src="{{ asset('img/captures/enseignant_activer_desactiver.png') }}" class="img-fluid capture" alt="Interface enseignant - Activer / désactiver un entraînement"></p>
-					
-					<div id="item-2" class="n1">Capsules audio</div>
-					<p>Enregistrement libre de capsules audio pour vos travaux scolaires, vos préparations aux épreuves orales, vos émissions webradio, la création de podcasts ou pour vous entraîner de façon autonome.</p>
-					<div id="item-2-1" class="n2">Enregistrement</div>
-					<p class="text-center"><img src="{{ asset('img/captures/capsule-enregistrement-1.png') }}" class="img-fluid capture" alt="Capsules audio - Enregistrement - 1"></p>
-					<p class="text-center"><img src="{{ asset('img/captures/capsule-enregistrement-2.png') }}" class="img-fluid capture" alt="Capsules audio - Enregistrement - 2"></p>
-					<p class="text-center"><img src="{{ asset('img/captures/capsule-enregistrement-3.png') }}" class="img-fluid capture" alt="Capsules audio - Enregistrement - 3"></p>
-					<div id="item-2-2" class="n2">Écoute & téléchargement</div>
-					<p class="text-center"><img src="{{ asset('img/captures/capsule-telechargement.png') }}" class="img-fluid capture" alt="Capsules audio - Téléchargement"></p>
-				</div>
-
-			</div>
-		</div><!-- /container -->
-	
-		@include('inc-bottom')			
-		@include('inc-bottom-js')			
-
-    </body>
+</body>
 </html>
