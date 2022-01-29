@@ -87,7 +87,7 @@
 			<div class="col-md-4 text-muted pl-5 pr-5 mt-4">
 
 				<!-- ENREGISTREMENT -->
-				<div id="interface" class="text-center mb-4 h-100 d-inline-block" style="border:4px dashed #f2f4f6;border-radius:8px;padding:10px;position:relative">
+				<div id="interface" class="text-center mb-4 h-100 d-inline-block" style="border:4px dashed #e8eaeb;border-radius:8px;padding:10px;position:relative">
 					<div style="position:absolute;top:10px;right:12px;cursor:help;">
 					<i style="color:silver" class="fas fa-question-circle" data-placement="top" data-html="true" data-trigger="hover" data-toggle="popover" data-content="Enregistrement libre de capsules audio pour des travaux scolaires, des préparations aux épreuves orales, des émissions webradio, la création de podcasts ou pour s'entraîner à l'oral de façon autonome. Téléchargement des fichiers audio au format mp3."></i>
 					</div>
