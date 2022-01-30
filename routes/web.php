@@ -72,12 +72,15 @@ Route::get('telecharger-commentaire/{filename}', function ($filename) {
 // == NUITS DE LA LECTURE
 // ==========================
 
+// Enregistrement
 Route::get('/ndll/{code}', function($code){
 	return view('nuitsdelalecture-etape-identifier')->with('code', $code);
 });
 Route::post('/ndll/{code}', 'NuitsdelalectureController@identifier_post');
-Route::view('/ndll', 'nuitsdelalecture-enregistrements');
-Route::get('/ndll/lecteur/{code}', function($code){
+
+// Écoute
+Route::view('/ndll-lfit', 'nuitsdelalecture-ecoute');
+Route::get('/ndll-lfit/lecteur/{code}', function($code){
     return redirect(asset("storage/audio-activites/") .'/glensaeqmd/@' . Crypt::decryptString($code) . '.mp3');
 });
 
