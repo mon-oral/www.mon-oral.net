@@ -24,7 +24,7 @@
 
 				<div class="row mt-4">
 
-					<div class="col-md-8 offset-md-2">
+					<div class="col-md-6 offset-md-3">
 					<?php
 					$lectures = App\Activites_enregistrement::where([['activite_id', 2134]])->get();
 
