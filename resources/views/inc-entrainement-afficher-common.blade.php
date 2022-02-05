@@ -58,6 +58,13 @@ if (count($enregistrements) != 0) {
 			$checked = ($enregistrement->is_checked == 1) ? "checked" : "";
 			?>
 			<div  id="card_{{ $enregistrement->id }}"  style="opacity:{{ $opacity }}" class="card mb-2">
+
+				<!-- options -->
+				<div style="position:absolute;right:8px;top:8px;">
+					<a tabindex="0" role="button" class="text-muted" style="cursor:pointer;outline:none;" data-toggle="popover" data-trigger="focus" data-placement="left" data-html="true" data-content="<a tabindex='0' id='/console/entrainement-enregistrement-supprimer/{{ Crypt::encryptString($enregistrement->id) }}' class='btn btn-danger btn-sm text-light' role='button' onclick='supprimer(this)'><i class='fas fa-trash fa-sm'></i></a>"><i class="fas fa-ellipsis-v"></i></a>
+				</div>
+				<!-- /options -->
+
 				<div class="card-body p-3">
 
 					<div class="small text-muted mb-3">

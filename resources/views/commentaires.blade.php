@@ -26,6 +26,7 @@
 				</div>
 			</div>
 		</div>
+		<!-- /SUPPRIMER - CONFIRMATION -->
 
 		<div id="app">
 

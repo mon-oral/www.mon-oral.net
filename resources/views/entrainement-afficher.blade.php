@@ -10,6 +10,20 @@
 
 	@include('inc-nav-console')
 
+	<!-- SUPPRIMER - CONFIRMATION -->
+	<div id="supprimer" class="modal fade" tabindex="-1" aria-labelledby="supprimerLabel" aria-hidden="true">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<div class="modal-body text-center">
+				<p class="text-monospace text-muted">suppression ?</p>
+				<a tabindex="0" id="supprimer_lien" href="" role="button" class="btn btn-danger btn-sm">confirmer</a>
+				<button type="button" class="btn btn-light btn-sm" data-dismiss="modal">annuler</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /SUPPRIMER - CONFIRMATION -->	
+
 	<div class="container mb-5">
 		<div class="row">
 
@@ -107,6 +121,13 @@
 		window.print();
 	}
 	// /PRINT MODAL
+
+	$.fn.tooltip.Constructor.Default.whiteList['*'].push('onclick');
+
+	function supprimer(item) {
+		$('#supprimer').modal('show');
+		$('#supprimer_lien').attr("href", item.id);
+	}
 	</script>
 
 </body>

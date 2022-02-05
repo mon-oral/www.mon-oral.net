@@ -284,6 +284,10 @@ Route::any('/console/activite-statut', 'ActiviteController@redirect');
 Route::post('/console/activite-enregistrement-statut/{enregistrement_id}', 'ConsoleController@activite_enregistrement_statut')->name('activite-enregistrement-status');
 Route::any('/console/activite-enregistrement-statut', 'ConsoleController@redirect');
 
+// activite-enregistrement-supprimer
+Route::get('/console/activite-enregistrement-supprimer/{activite_enregistrement_id}', 'ConsoleController@activite_enregistrement_supprimer')->name('activite-enregistrement-supprimer');
+Route::get('/console/activite-enregistrement-supprimer', 'ConsoleController@redirect');
+
 // activite-archiver
 Route::any('/console/activite-archiver/{activite_id}', 'ConsoleController@activite_archiver')->name('activite-archiver');
 Route::any('/console/activite-archiver', 'ActiviteController@redirect');
@@ -401,6 +405,10 @@ Route::any('/console/entrainement-archiver', 'ConsoleController@redirect');
 Route::get('/console/entrainements-archives', function(){
 	return view('entrainements')->with('is_archive', 1);
 });
+
+// entrainement-enregistrement-supprimer
+Route::get('/console/entrainement-enregistrement-supprimer/{entrainement_enregistrement_id}', 'ConsoleController@entrainement_enregistrement_supprimer')->name('entrainement-enregistrement-supprimer');
+Route::get('/console/entrainement-enregistrement-supprimer', 'ConsoleController@redirect');
 
 // entrainement-correction-creer
 Route::get('/console/entrainement-correction-creer', 'ConsoleController@redirect');
