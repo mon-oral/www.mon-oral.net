@@ -244,7 +244,7 @@
 										<div class="collapse @if ($enregistrement->cr_texte) show @endif" id="cr_texte_{{$enregistrement->id }}">
 
 											<div class="mt-1 p-2" style="background-color:#dff0e5;border-radius:4px;">
-												<textarea class="form-control" id="cr_textarea_{{$enregistrement->id }}" rows="3" onkeyup="show_save({{ $enregistrement->id }})">{{ $enregistrement->cr_texte }}</textarea>
+												<textarea class="form-control" id="cr_textarea_{{$enregistrement->id }}" rows="2" onkeyup="show_save({{ $enregistrement->id }})">{{ $enregistrement->cr_texte }}</textarea>
 												<div class="row">
 													<div class="col-md-6 text-left">
 														<button type="submit" id="cr_texte_submit_{{$enregistrement->id }}" class="btn btn-light btn-sm mt-2" style="opacity:1" onclick="cr_texte_sauvegarde({{ $enregistrement->id }})" data-toggle="tooltip" data-placement="right" title="sauvegarder les modifications"><i class="fas fa-save"></i></button>
