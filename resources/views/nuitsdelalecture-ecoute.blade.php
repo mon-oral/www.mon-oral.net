@@ -36,12 +36,9 @@
 					}
 				}
 
-				// tri pour siecles
-				/*
-				$keys = array_column($liste_lectures, 'siecle');
+				// tri par auteur
+				$keys = array_column($liste_lectures, 'auteur');
 				array_multisort($keys, SORT_ASC, $liste_lectures);
-				dump($liste_lectures);
-				*/
 
 				// affichage lecteur audio
 				$siecles = ['XVe','XVIe','XVIIe', 'XVIIIe', 'XIXe', 'XXe', 'XXIe'];
@@ -52,6 +49,7 @@
 					?>
 					<div class="row row-cols-1 row-cols-md-3">
 					<?php
+
 					foreach($liste_lectures as $lecteur_audio) {
 						if($siecle == $lecteur_audio['siecle'] AND $lecteur_audio['autorisation'] == 0){
 							?>
