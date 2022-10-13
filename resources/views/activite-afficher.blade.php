@@ -39,6 +39,7 @@
 				<?php
 				$activite = App\Activite::where([['user_id', Auth::user()->id],['id', $activite_id]])->first();
 				
+				// ADMIN CONTROL
 				if (Auth::user() and Auth::user()->is_admin == 1){
 					$activite = App\Activite::where([['id', $activite_id]])->first();
 				}
