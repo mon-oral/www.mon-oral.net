@@ -33,12 +33,16 @@
 	<span style="font-size:80%"><i class="fab fa-twitter" style="float:left;margin:4px 8px 5px 0px;"></i> @mon_oral</span>
 </a>
 
-<div class="mt-3 text-muted text-monospace text-center" style="font-size:70%;opacity:0.8;">
+<div class="mt-3 text-muted text-monospace text-left" style="font-size:70%;opacity:0.8;">
 	<span><i class="fa fa-envelope"></i> contact@mon-oral.net</span>
+</div>
+
+<div class="mt-3 text-muted text-monospace text-left" style="font-size:70%;opacity:0.8;">
+	<a href="https://opencollective.com/mon-oral" target="_blank">💗 soutenir ce projet</a>
 </div>
 
 
 
-<div class="mt-5 pt-4 text-danger text-monospace text-center" style="font-size:70%;opacity:0.8;">
+<div class="mt-5 pt-4 text-danger text-monospace text-left" style="font-size:70%;opacity:0.8;">
 	<a tabindex="0" role="button" style="cursor:pointer;" data-trigger="focus" data-container="body" data-placement="right" data-toggle="popover" data-html="true" data-content="<a class='btn btn-danger btn-sm' href='{{ route('supprimer') }}' role='button'>confirmer</a> <a tabindex='0' class='btn btn-secondary btn-sm text-light' role='button'>annuler</a>"><i class="fas fa-trash"></i> supprimer ce compte</a>
 </div>

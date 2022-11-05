@@ -8,7 +8,7 @@
 	</div>
 	<div class="row">
 		<div class="col-md-12 text-center small">
-			<a href="{{ route('donnees-personnelles') }}">données personnelles</a> | <a href="mailto:contact@mon-oral.net">contact courriel</a> | illustrations : <a href="https://streamlinehq.com" target="_blank">streamlinehq.com</a> | <a href="https://twitter.com/laurentabbal" target="_blank" class="text-monospace">@laurentabbal</a> | <a href="https://twitter.com/mon_oral" target="_blank" class="text-monospace">@mon_oral</a>
+			<a href="https://opencollective.com/mon-oral" target="_blank">💗 soutenir ce projet</a> | <a href="{{ route('donnees-personnelles') }}">données personnelles</a> | <a href="mailto:contact@mon-oral.net">contact courriel</a> | illustrations : <a href="https://streamlinehq.com" target="_blank">streamlinehq.com</a> | <a href="https://twitter.com/laurentabbal" target="_blank" class="text-monospace">@laurentabbal</a> | <a href="https://twitter.com/mon_oral" target="_blank" class="text-monospace">@mon_oral</a>
 		</div>
 	</div>
 	<div class="row pt-4">
