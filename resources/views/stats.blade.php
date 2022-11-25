@@ -108,7 +108,7 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 
 
 					// INSCRIPTIONS
-					$inscriptions = App\User::orderBy('created_at')->get()->groupBy(function($item) {
+					$inscriptions = App\User::orderBy('created_at')->get('created_at')->groupBy(function($item) {
 						return $item->created_at->format('Y-W');
 					});
 					$inscriptions_data = [];
@@ -123,7 +123,7 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 
 
 					// ENTRAINEMENTS
-					$entrainements = App\Entrainement::orderBy('created_at')->get()->groupBy(function($item) {
+					$entrainements = App\Entrainement::orderBy('created_at')->get('created_at')->groupBy(function($item) {
 						return $item->created_at->format('Y-W');
 					});
 					$entrainements_data = [];
@@ -138,7 +138,7 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 
 
 					// ACTIVITES
-					$activites = App\Activite::orderBy('created_at')->get()->groupBy(function($item) {
+					$activites = App\Activite::orderBy('created_at')->get('created_at')->groupBy(function($item) {
 						return $item->created_at->format('Y-W');
 					});
 					$activites_data = [];
@@ -153,7 +153,7 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 
 
 					// ENTRAINEMENTS - ENREGISTREMENTS
-					$entrainements_enregistrements = App\Log::where('code_audio', '!=', '')->orderBy('created_at')->get()->groupBy(function($item) {
+					$entrainements_enregistrements = App\Log::where('code_audio', '!=', '')->orderBy('created_at')->get('created_at')->groupBy(function($item) {
 						return $item->created_at->format('Y-W');
 					});
 					$entrainements_enregistrements_data = [];
@@ -168,7 +168,7 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 
 
 					// ACTIVITES - ENREGISTREMENTS
-					$activites_enregistrements = App\Activites_enregistrement::where('code_audio', '!=', '')->orderBy('created_at')->get()->groupBy(function($item) {
+					$activites_enregistrements = App\Activites_enregistrement::where('code_audio', '!=', '')->orderBy('created_at')->get('created_at')->groupBy(function($item) {
 						return $item->created_at->format('Y-W');
 					});
 					$activites_enregistrements_data = [];
@@ -183,7 +183,7 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 
 
 					// COMMENTAIRES - ENREGISTREMENTS
-					$commentaires_enregistrements = App\Commentaire::where('code_audio', '!=', '')->orderBy('created_at')->get()->groupBy(function($item) {
+					$commentaires_enregistrements = App\Commentaire::where('code_audio', '!=', '')->orderBy('created_at')->get('created_at')->groupBy(function($item) {
 						return $item->created_at->format('Y-W');
 					});
 					$commentaires_enregistrements_data = [];
@@ -198,7 +198,7 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 
 
 					// CAPSULES - ENREGISTREMENTS
-					$capsules_enregistrements = App\Logs_capsule::where('duration', '>', 10)->orderBy('created_at')->get()->groupBy(function($item) {
+					$capsules_enregistrements = App\Logs_capsule::where('duration', '>', 5)->orderBy('created_at')->get('created_at')->groupBy(function($item) {
 						return $item->created_at->format('Y-W');
 					});
 					$capsules_enregistrements_data = [];
