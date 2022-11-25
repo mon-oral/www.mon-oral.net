@@ -62,7 +62,7 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 
 				<?php
 				//$capsules = File::allFiles(storage_path().'/app/public/audio-capsules/sfokasnejd');
-				$entrainements = File::allFiles(storage_path().'/app/public/audio-entrainements/lrpxmensjw');
+				//$entrainements = File::allFiles(storage_path().'/app/public/audio-entrainements/lrpxmensjw');
 
 				$nb_total_utilisateurs = App\User::count();
 				$nb_total_entrainements = App\Entrainement::count();
