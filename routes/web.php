@@ -422,6 +422,10 @@ Route::post('/console/entrainement-correction-creer', 'ConsoleController@entrain
 Route::get('/console/entrainement-correction-supprimer/{correction_id}', 'ConsoleController@entrainement_correction_supprimer')->name('entrainement-correction-supprimer');
 Route::get('/console/entrainement-correction-supprimer', 'CommentaireController@redirect');
 
+// entrainement-supprimer
+Route::get('/console/entrainement-supprimer/{entrainement_id}', 'ConsoleController@entrainement_supprimer');
+Route::get('/console/entrainement-supprimer', 'ConsoleController@redirect');
+
 // ==========================
 // == ENTRAINEMENTS - ELEVES
 // ==========================
