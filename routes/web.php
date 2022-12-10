@@ -301,6 +301,10 @@ Route::get('/console/activites-archives', function(){
 Route::post('/console/activite-enregistrement-cr-texte-sauvegarde', 'ConsoleController@activite_enregistrement_cr_texte_sauvegarde')->name('activite-enregistrement-cr-texte-sauvegarde');
 Route::get('/console/activite-enregistrement-cr-texte-sauvegarde', 'ConsoleController@redirect');
 
+// activite-supprimer
+Route::get('/console/activite-supprimer/{activite_id}', 'ConsoleController@activite_supprimer');
+Route::get('/console/activite-supprimer', 'ConsoleController@redirect');
+
 
 // ==========================
 // == COMPTES RENDUS

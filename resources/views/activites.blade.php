@@ -8,6 +8,20 @@
 
 	<body>
 
+		<!-- SUPPRIMER - CONFIRMATION -->
+		<div id="supprimer" class="modal fade" tabindex="-1" aria-labelledby="supprimerLabel" aria-hidden="true">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content">
+					<div class="modal-body text-center">
+					<p class="text-monospace text-muted">Supprimer cette activité et les enregistrements qu'elle contient&nbsp;?</p>
+					<a tabindex="0" id="supprimer_lien" href="" role="button" class="btn btn-danger btn-sm">oui</a>
+					<button type="button" class="btn btn-light btn-sm" data-dismiss="modal">non</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /SUPPRIMER - CONFIRMATION -->
+
 		<?php
 		$user = Auth::user();
 		if (isset($is_archive)){
@@ -96,6 +110,9 @@
 														<a class='btn btn-light btn-sm m-1' href='/console/activite-modifier/{{ $activite->id }}' role='button'>modifier</a><a class='btn btn-light btn-sm m-1' href='/console/activite-statut/{{ $activite->id }}' role='button'>{{ $action }}</a>
 													@endif
 													<a class='btn btn-light btn-sm m-1' href='/console/activite-archiver/{{ $activite->id }}' role='button'>{{ $archiver }}</a>
+													@if(isset($is_archive))
+														<a tabindex='0' id='/console/activite-supprimer/{{ Crypt::encryptString($activite->id) }}' class='btn btn-danger btn-sm text-light' role='button' onclick='supprimer(this)'><i class='fas fa-trash fa-sm'></i></a>
+													@endif
 													"><i class="fas fa-ellipsis-v"></i></a></div>
 												<!-- /options -->
 
@@ -126,6 +143,15 @@
 
 		@include('inc-bottom')
 		@include('inc-bottom-js')
+
+		<script>
+			$.fn.tooltip.Constructor.Default.whiteList['*'].push('onclick');
+
+			function supprimer(item) {
+				$('#supprimer').modal('show');
+				$('#supprimer_lien').attr("href", item.id);
+			}
+		</script>
 
 	</body>
 </html>
