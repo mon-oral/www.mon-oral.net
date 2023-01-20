@@ -8,10 +8,7 @@
 	</div>
 	<div class="row">
 		<div class="col-md-12 text-center small">
-			<a href="https://opencollective.com/mon-oral" target="_blank">💗 soutenir ce projet</a> | <a href="{{ route('donnees-personnelles') }}">données personnelles</a> | <a href="mailto:contact@mon-oral.net">contact courriel</a><br /><a href="https://twitter.com/laurentabbal" target="_blank" class="text-monospace">@laurentabbal</a> | <a href="https://twitter.com/mon_oral" target="_blank" class="text-monospace">@mon_oral</a> | <a rel="me" href="https://mastodon.social/@laurentabbal" target="_blank" class="text-monospace">@laurentabbal@mastodon.social</a><br />illustrations : <a href="https://streamlinehq.com" target="_blank">streamlinehq.com</a>
+			<a href="{{ route('donnees-personnelles') }}">données personnelles</a> | <a href="mailto:contact@mon-oral.net">contact courriel</a><br /><a href="https://twitter.com/laurentabbal" target="_blank" class="text-monospace">@laurentabbal</a> | <a href="https://twitter.com/mon_oral" target="_blank" class="text-monospace">@mon_oral</a> | <a rel="me" href="https://mastodon.social/@laurentabbal" target="_blank" class="text-monospace">@laurentabbal@mastodon.social</a><br />illustrations : <a href="https://streamlinehq.com" target="_blank">streamlinehq.com</a>
 		</div>
-	</div>
-	<div class="row pt-4">
-		<div class="col-md-12 text-center"><img src="https://www.mon-oral.net/img/AEFE_RF_logo-xs.png" width="100" style="border:5px #edeff1 solid;border-radius:4px;"></div>
 	</div>
 </div>
