@@ -61,9 +61,6 @@
 						<i class="fa fa-link mr-2" aria-hidden="true"></i> <span class="text-monospace">www.mon-oral.net/e/{{ $entrainement->code }}</span>
 					</div>
 					<div class="small text-muted pb-1">
-						<i class="fa fa-shield mr-2" aria-hidden="true"></i> <span class="text-monospace">{{ $entrainement->code }}</span>
-					</div>
-					<div class="small text-muted pb-1">
 						<b>Préparation : </b> {{ $entrainement->temps_prep }} minutes
 					</div>
 					<div class="small text-muted pb-1">

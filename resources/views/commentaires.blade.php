@@ -67,22 +67,25 @@
 								<p class="mb-3 small font-italic" style="color:silver;">capsules audio créées par les enseignants pour les élèves (correction orale de devoirs, consignes orales, explications...)</p>
 
 								<div class="mt-3 mb-3">
-									<a href="/console/commentaires/dossier-creer" style="background-color:#ffe791;border:solid 1px #ffe791; border-radius:4px; padding:5px; margin-bottom:10px; color:#eecb49;" data-toggle="tooltip" data-placement="top" title="créer un dossier"><i class="fas fa-plus fa-xs pl-2 pr-2"></i></a>
+									<a href="/console/commentaires/dossier-creer" style="background-color:#ffe791;border:solid 1px #ffe791; border-radius:4px; padding:2px 1px 3px 1px; margin-bottom:10px; color:#eecb49;" data-toggle="tooltip" data-placement="top" title="créer un dossier"><i class="fas fa-plus fa-xs pl-2 pr-2"></i></a>
 								</div>
 
 								<?php
 								if (count($commentaires_dossiers) != 0){
 									foreach($commentaires_dossiers as $commentaires_dossier){
 										?>
-										<div style="position:relative;background-color:#ffe791;border:solid 1px #ffe791; border-radius:4px; padding:10px; margin-bottom:10px; color:#eecb49;">
-											<div style="position:absolute;right:8px;top:8px;"><a tabindex="0" role="button" class="text-muted" style="cursor:pointer;outline:none;" data-trigger="focus" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="<a class='btn btn-light btn-sm' href='/console/commentaires/dossier-modifier/{{$commentaires_dossier->id}}' role='button'>modifier</a>"><i class="fas fa-ellipsis-v"></i></a></div>
-
-											<i class="fas fa-folder fa-lg mr-2"></i> <a href="/console/commentaires/dossier/{{ $commentaires_dossier->id }}" class="text-dark">{{ $commentaires_dossier->nom }}</a>
+										<div style="float:left;width:25%;">
+											<div style="position:relative;background-color:#ffe791;border:solid 1px #ffe791; border-radius:4px; padding:10px 20px 10px 10px; margin:0px 4px 4px 0px;color:#eecb49;" class="text-nowrap text-truncate">
+												<div style="position:absolute;right:8px;top:8px;"><a tabindex="0" role="button" style="cursor:pointer;outline:none;color:#eecb49;" data-trigger="focus" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="<a class='btn btn-light btn-sm' href='/console/commentaires/dossier-modifier/{{$commentaires_dossier->id}}' role='button'>modifier</a>"><i class="fas fa-ellipsis-v"></i></a></div>
+												<i class="fas fa-folder fa-lg mr-2"></i> <a href="/console/commentaires/dossier/{{ $commentaires_dossier->id }}" class="text-dark small text-monospace" title="{{ $commentaires_dossier->nom }}">{{ $commentaires_dossier->nom }}</a>
+											</div>
 										</div>
 										<?php
 									}
 								}
-
+								?>
+								<br style="clear:both;" />
+								<?php
 								if (count($commentaires) == 0){
 									?>
 									<div class="mt-5 text-monospace small text-muted">Aucun commentaire pour l'instant. <a href="/console/commentaire-creer">Créer un commentaire</a>.</div>
@@ -90,8 +93,10 @@
 								} else {
 
 									?>
-									<div class="mt-4 mb-2">
-										<a tabindex='0' class='text-muted small' style="cursor:pointer;outline:none;vertical-align:2px;" role='button' data-toggle="modal" data-target="#liste"><i class="fas fa-print ml-1 mr-1"></i> imprimer la liste des liens</i></a>
+									<div class="mt-5 mb-3">
+										<a href="/console/commentaire-creer" role="button" class="btn btn-light text-dark btn-sm mr-1" data-toggle="tooltip" data-placement="top" title="" data-original-title="créer un nouveau commentaire audio"><i class="fas fa-plus fa-xs" aria-hidden="true"></i></a>
+										<a href="/console/commentaires/qrcodes-creer" role="button" class="btn btn-light text-dark btn-sm mr-4" data-toggle="tooltip" data-placement="top" title="" data-original-title="créer un lot de liens / QR codes"><i class="fas fa-qrcode fa-xs" aria-hidden="true"></i></a>
+										<a chref="#" class='btn btn-light text-dark btn-sm text-monospace' role='button' data-toggle="modal" data-target="#liste"><i class="fas fa-print ml-1 mr-1"></i> imprimer les liens / QR codes</i></a>
 									</div>
 									<?php
 
@@ -102,20 +107,36 @@
 											<div class="card-body p-3">
 
 												<!-- options -->
-												<div style="position:absolute;right:8px;top:8px;">
+												<div style="position:absolute;right:10px;top:8px;">
 													<a tabindex="0" role="button" class="text-muted" style="cursor:pointer;outline:none;" data-toggle="popover" data-trigger="focus" data-placement="left" data-html="true" data-content="<a class='btn btn-light btn-sm' href='/console/commentaire-modifier/{{$commentaire->id}}' role='button'>modifier</a><a tabindex='0' id='/console/commentaire-supprimer/{{ Crypt::encryptString($commentaire->id) }}' class='ml-2 btn btn-danger btn-sm text-light' role='button' onclick='supprimer(this)'><i class='fas fa-trash fa-sm'></i></a>"><i class="fas fa-ellipsis-v"></i></a>
 												</div>
 												<!-- /options -->
 
 												<div style="line-height:1">
+
 													<table>
 														<tr>
-															<td>
+															<td style="vertical-align:top">
 																<a data-toggle="collapse" role="button" href="#commentaire-{{$commentaire->id }}" style="color:black" aria-expanded="false" aria-controls="commentaire-{{$commentaire->id }}"><i class="fas fa-plus-square pr-2 text-muted"></i></a>
 															</td>
-															<td style="width:60%">{{ $commentaire->titre }}</td>
-															<td style="width:40%">
-																<a href="https://www.mon-oral.net/c/{{ $commentaire->code_audio }}" class="text-monospace text-muted small" target="_blank">www.mon-oral.net/c/{{ $commentaire->code_audio }}</a>
+															<td>
+																<div>{{ $commentaire->titre }}<div>
+																<div class="mt-1 mb-2"><a href="/C{{ strtoupper($commentaire->code_audio) }}" class="text-monospace text-muted small" target="_blank">www.mon-oral.net/C{{ strtoupper($commentaire->code_audio) }}</a><div>
+															</td>
+															<td></td>
+															<td></td>
+														</tr>
+													
+														<tr>
+															<td></td>
+															<td style="width:100%">
+																<audio controls style="width:100%"><source src="/s/{{$commentaire->code_audio}}" type="audio/mpeg"></audio>
+															</td>
+															<td>
+																<a style="font-size:120%;" href="/telecharger-commentaire/{{$commentaire->code_audio}}" class="text-dark" style="verticla-align:middle;"><i class="fas fa-download ml-2 mr-2 text-muted" data-toggle="tooltip" data-placement="top" title="télécharger le fichier mp3"></i></a>
+															</td>
+															<td>
+																<a style="font-size:120%;" href="/console/commentaire-creer?a={{Crypt::encryptString($commentaire->code_audio)}}" class="text-dark" style="verticla-align:middle;"><i class="fas fa-redo-alt ml-2 mr-2 text-success" data-toggle="tooltip" data-placement="top" title="refaire l'enregistrement"></i></a>
 															</td>
 														</tr>
 													</table>
@@ -143,15 +164,6 @@
 															<div class="text-monospace mt-1 p-3" style="background-color:#2c3e50; color:#ecf0f1; border-radius:3px;">
 															[:audio-{{$commentaire->code_audio}}:]
 															</div>
-															</td>
-														</tr>
-														<tr style="line-height:10px;">
-															<td class="pt-4" style="font-size:150%"><i class="fas fa-volume-up mr-4 text-muted"></i></td>
-															<td class="pt-4" style="width:100%">
-																<audio controls style="width:100%"><source src="/s/{{$commentaire->code_audio}}" type="audio/mpeg"></audio>
-															</td>
-															<td class="pt-4">
-																<a style="display:block;font-size:120%;height:40px;line-height:40px;background-color:#f1f3f4;border-radius:4px;" href="/telecharger-commentaire/{{$commentaire->code_audio}}" class="text-dark" style="verticla-align:middle;"><i class="fas fa-download ml-3 mr-3 text-muted" data-toggle="tooltip" data-placement="top" title="télécharger le fichier mp3"></i></a>
 															</td>
 														</tr>
 														<tr>
@@ -190,21 +202,24 @@
 								}
 								?>
 
-
-
 								<div id="liste" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="listeLabel" aria-hidden="true">
 									<div class="modal-dialog modal-xl">
 										<div class="modal-content">
+											<div class="modal-header">
+												<div></div>
+												<div>
+													<button class="btn btn-light btn-sm" data-dismiss="modal" aria-hidden="true">annuler</button>
+													<button class="btn btn-primary btn-sm ml-2" id="print-button">imprimer</button>
+												</div>
+											</div>	
 											<div id="print-content" class="modal-body">
-												<table class="text-muted table table-bordered" style="width:100%">
-												<?php
-												foreach($commentaires as $commentaire) {
-													?>
-													<tr><td class="p-2">{{$commentaire->titre}}</td><td class="text-monospace p-2">https://www.mon-oral.net/c/{{$commentaire->code_audio}}</td><td class="p-2 text-center"><img src="https://api.qrserver.com/v1/create-qr-code/?data={{urlencode('mon-oral.net/c/' . $commentaire->code_audio)}}&amp;size=100x100" /></td></tr>
-													<?php
-												}
-												?>
-												</table>
+												@foreach($commentaires as $commentaire)
+													<div class="p-4 text-center float-left" style="border:dashed 1px silver">
+														<img src="https://api.qrserver.com/v1/create-qr-code/?data={{urlencode('mon-oral.net/C' . strtoupper($commentaire->code_audio))}}&amp;size=160x160" />
+														<br />
+														<span class="small text-monospace">www.mon-oral.net/c/{{strtoupper($commentaire->code_audio)}}</span>
+													</div>
+												@endforeach
 											</div>
 											<div class="modal-footer">
 												<button class="btn btn-light btn-sm" data-dismiss="modal" aria-hidden="true">annuler</button>

@@ -107,7 +107,7 @@
 											<div class="card-body p-3">
 
 												<!-- options -->
-												<div style="position:absolute;right:8px;top:8px;"><a tabindex="0" role="button" class="text-muted" style="cursor:pointer;outline:none;" data-trigger="focus" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="
+												<div style="position:absolute;right:10px;top:8px;"><a tabindex="0" role="button" class="text-muted" style="cursor:pointer;outline:none;" data-trigger="focus" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="
 													@if(!isset($is_archive))
 													<a class='btn btn-light btn-sm m-1' href='/console/entrainement-modifier/{{ $entrainement->id }}' role='button'>modifier</a><a class='btn btn-light btn-sm m-1' href='/console/entrainement-statut/{{ $entrainement->id }}' role='button'>{{ $action }}</a>
 													@endif

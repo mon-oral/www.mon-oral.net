@@ -28,22 +28,14 @@
 									
 				<div class="row mt-5">
 				
-					<div class="col-md-6 offset-md-3">
+					<div class="col-md-6 offset-md-3 text-center">
 			
-						<table>
-							<tr>
-								<td style="font-size:150%"><i class="fas fa-volume-up mr-4 text-muted"></i></td>
-								<td class="pt-4" style="width:100%">
-									<audio controls style="width:100%"><source src="/activite-etape-verifier-ecoute" type="audio/mpeg"></audio>
-									<p class="m-0 p-0 text-monospace text-center small" style="color:silver">attendez quelques secondes que le lecteur se charge</p>
-								</td>							
-							</tr>													
-						</table>
-						
-						<p class="text-center mt-5">
-							<a class="btn btn-success btn-sm mr-3" href="/activite-etape-sauvegarder" role="button"><i class="fas fa-save align-middle pr-2"></i>conserver cet enregistrement</a>
-							<a class="btn btn-primary btn-sm mr-3" href="/activite-etape-refaire" role="button"><i class="fas fa-sync-alt align-middle pr-2"></i>refaire l'enregistrement</a>
-							<a class="btn btn-dark btn-sm" href="/activite-etape-quitter" role="button"><i class="fas fa-times align-middle pr-2"></i>quitter</a>
+						<audio controls style="width:100%"><source src="/activite-etape-verifier-ecoute" type="audio/mpeg"></audio>
+						<p class="m-0 p-0 text-monospace text-center small" style="color:silver">attendez quelques secondes que le lecteur se charge</p>
+						<p class="mt-5">
+							<a class="btn btn-success" href="/activite-etape-sauvegarder" role="button" data-toggle="tooltip" data-placement="top" title="conserver cet enregistrement"><i class="fas fa-save align-middle"></i></a>
+							<a class="btn btn-light ml-2 mr-2" href="/activite-etape-refaire" role="button" data-toggle="tooltip" data-placement="top" title="refaire l'enregistrement"><i class="fas fa-sync-alt align-middle"></i></a>
+							<a class="btn btn-dark" href="/activite-etape-quitter" role="button" data-toggle="tooltip" data-placement="top" title="quitter"><i class="fas fa-times align-middle"></i></a>
 						</p>
 
 					</div>

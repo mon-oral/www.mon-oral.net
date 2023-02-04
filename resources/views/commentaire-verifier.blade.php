@@ -15,11 +15,11 @@
 	<body>
 
 		<div id="app">
-			<nav class="navbar navbar-expand-md navbar-light">
+			<nav class="navbar navbar-expand-md navbar-light mt-2">
 				<div class="container">
-					<div>
-						<div><img src="{{ asset('img/mon-oral.png') }}" width="40" /></div>
-						<div class="text-monospace small" style="color:#c5c7c9;margin-top:4px;">Commentaire Audio - Vérification</div>
+				<div>
+						<div class="float-left"><a href="{{ url('/console/') }}"><img src="{{ asset('img/mon-oral.svg') }}" width="40" /></a></div>
+						<div class="float-left text-monospace small pl-3" style="color:#c5c7c9;">Commentaire Audio<br />Vérification</div>
 					</div>
 				</div>
 			</nav>
@@ -30,22 +30,15 @@
 
 					<div class="col-md-6 offset-md-3">
 
-						<table>
-							<tr>
-								<td style="font-size:150%"><i class="fas fa-volume-up mr-4 text-muted"></i></td>
-								<td class="pt-4" style="width:100%">
-									<audio controls style="width:100%"><source src="/console/commentaire-verifier-ecoute" type="audio/mpeg"></audio>
-									<p class="m-0 p-0 text-monospace text-muted text-center small">attendez quelques secondes que le lecteur se charge</p>
-								</td>
-							</tr>
-						</table>
+						<audio controls style="width:100%"><source src="/console/commentaire-verifier-ecoute" type="audio/mpeg"></audio>
+						<p class="m-0 p-0 text-monospace text-muted text-center small">attendez quelques secondes que le lecteur se charge</p>
 
 						<form method="POST" action="{{ route('commentaire-sauvegarder-post')}}">
 
 							@csrf
 
 							<?php
-							if (Session::has('commentaire_type')) {
+							if (Session::has('commentaire_type') OR Session::has('commentaire_code_audio')) {
 								?>
 								<input type="hidden" name="titre" value="compte rendu audio">
 								<p class="text-center mt-4">

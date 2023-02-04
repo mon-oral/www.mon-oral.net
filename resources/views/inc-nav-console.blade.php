@@ -1,9 +1,9 @@
-<nav class="navbar navbar-expand-md navbar-light mb-4">
+<nav class="navbar navbar-expand-md navbar-light mt-2 mb-4">
 	<div class="container">
 		<div>
-			<div style="padding-left:4px;"><a class="navbar-brand" href="{{ url('/console/') }}"><img src="{{ asset('img/mon-oral.svg') }}" width="40" /></a></div>
-			<div class="text-monospace small" style="color:#c5c7c9;margin-top:-2px;">console</div>
-		</div>
+			<div class="float-left"><a href="{{ url('/console/') }}"><img src="{{ asset('img/mon-oral.svg') }}" width="40" /></a></div>
+			<div class="float-left text-monospace small pl-3" style="color:#c5c7c9;">Console</div>
+		</div>		
 
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
 			<span class="navbar-toggler-icon"></span>

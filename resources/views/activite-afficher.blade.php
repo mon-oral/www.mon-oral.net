@@ -64,9 +64,6 @@
 					<div class="small text-muted pb-1">
 						<i class="fa fa-link mr-2" aria-hidden="true"></i> <span class="text-monospace">www.mon-oral.net/a/{{ $activite->code }}</span>
 					</div>
-					<div class="small text-muted pb-1">
-						<i class="fa fa-shield mr-2" aria-hidden="true"></i> <span class="text-monospace">{{ $activite->code }}</span>
-					</div>
 
 					<br />
 					<br />
@@ -100,7 +97,7 @@
 					?>
 
 					<div class="mt-2 mb-2">
-						<a href="{{ url('') }}/activite-cr/{{ Crypt::encryptString($activite->id) }}" class='text-muted'><i class="fas fa-print ml-1 mr-1"></i> afficher / imprimer tous les comptes-rendus</i></a>
+						<a href="{{ url('') }}/activite-cr/{{ Crypt::encryptString($activite->id) }}" class='btn btn-light text-dark btn-sm text-monospace'><i class="fas fa-print ml-1 mr-1"></i> imprimer tous les comptes-rendus</i></a>
 					</div>
 
 					<?php
@@ -264,7 +261,7 @@
 
 										<!-- imprimer le compte-rendu -->
 										<div class="mt-2">
-											<a tabindex='0' class='text-muted' style="cursor:pointer;outline:none;" role='button' data-toggle="modal" data-target="#print_cr_modal_{{ $enregistrement->id }}"><i class="fas fa-print ml-1 mr-1 text-success" style="opacity:0.5;"></i> imprimer ce compte-rendu</i></a>
+											<a tabindex='0' class='btn btn-light text-dark btn-sm text-monospace' role='button' data-toggle="modal" data-target="#print_cr_modal_{{ $enregistrement->id }}"><i class="fas fa-print ml-1 mr-1"></i> imprimer ce compte-rendu</i></a>
 										</div>
 
 									@else

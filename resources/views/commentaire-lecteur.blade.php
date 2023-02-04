@@ -3,7 +3,7 @@
 <html lang="fr">
 <head>
 	@include('inc-meta')
-	<title>Capsule audio</title>
+	<title>Capsule Audio</title>
 </head>
 <body>
 
@@ -15,23 +15,34 @@
 
 			<div class="col-md-8 offset-md-2">
 
-				<table>
-					<tr style="line-height:10px">
-						<td style="font-size:150%;"><i class="fas fa-volume-up mr-4 text-dark"></i></td>
-						<td style="width:100%">
-							<audio controls style="width:100%"><source src="/s/{{$code}}" type="audio/mpeg"></audio>
-						</td>
-						<td><a style="display:block;font-size:120%;height:40px;line-height:40px;background-color:#f1f3f4;border-radius:4px;" href="/telecharger-commentaire/{{$code}}" class="text-dark" style="verticla-align:middle;"><i class="fas fa-download ml-3 mr-3 text-muted" data-toggle="tooltip" data-placement="top" title="télécharger le fichier mp3"></i></a>
-						</td>
-					</tr>
-					<tr>
-						<td></td>
-						<td style="width:100%">
-							<p class="mt-1 p-0 text-monospace text-center small" style="color:silver;">attendez quelques secondes que le lecteur se charge</p>
-						</td>
-						<td></td>
-					</tr>
-				</table>
+				@if (Storage::exists('public/audio-commentaires/xektdgpmcw/@'.$code.'.mp3'))
+					<table>
+						<tr style="line-height:10px">
+							<td style="width:100%">
+								<audio controls style="width:100%"><source src="/s/{{$code}}" type="audio/mpeg"></audio>
+							</td>
+							<td><a href="/telecharger-commentaire/{{$code}}" class="text-dark" style="verticla-align:middle;"><i class="fas fa-download ml-3 mr-3 text-muted" data-toggle="tooltip" data-placement="top" title="télécharger le fichier mp3"></i></a>
+							</td>
+						</tr>
+						<tr>
+							<td style="width:100%">
+								<p class="mt-1 p-0 text-monospace text-center small" style="color:silver;">attendez quelques secondes que le lecteur se charge</p>
+							</td>
+							<td></td>
+						</tr>
+					</table>
+				@else
+					<p class="p-0 text-monospace text-center small" style="color:silver;">pas de fichier audio actuellement</p>
+				@endif
+
+				@auth
+					@if (App\Commentaire::where([['user_id', Auth::id()],['code_audio',$code]])->exists())
+						<div class="text-center mt-4">
+							<a class="btn btn-success btn-sm" href="/console/commentaire-creer?a={{Crypt::encryptString($code)}}" role="button"><i class="material-icons align-middle">keyboard_voice</i></a>
+							<p class="mt-1 p-0 text-monospace small" style="color:silver;">enregistrer / réenregistrer</p>
+						</div>
+					@endif
+				@endauth
 
 				<p class="text-center mt-4">
 					<a class="btn btn-dark btn-sm" href="{{ url('/') }}" role="button"><i class="fas fa-times pr-2"></i>quitter</a>

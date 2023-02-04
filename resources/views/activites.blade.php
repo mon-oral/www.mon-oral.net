@@ -105,7 +105,7 @@
 											<div class="card-body p-3">
 
 												<!-- options -->
-												<div style="position:absolute;right:8px;top:8px;"><a tabindex="0" role="button" class="text-muted" style="cursor:pointer;outline:none;" data-trigger="focus" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="
+												<div style="position:absolute;right:10px;top:8px;"><a tabindex="0" role="button" class="text-muted" style="cursor:pointer;outline:none;" data-trigger="focus" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="
 													@if(!isset($is_archive))
 														<a class='btn btn-light btn-sm m-1' href='/console/activite-modifier/{{ $activite->id }}' role='button'>modifier</a><a class='btn btn-light btn-sm m-1' href='/console/activite-statut/{{ $activite->id }}' role='button'>{{ $action }}</a>
 													@endif
@@ -121,7 +121,7 @@
 												</div>
 
 												<div class="small pt-2 pb-1">
-													<i class="fa fa-link mr-2 text-muted"></i><span style="color:silver;">lien à fournir aux élèves : </span><a href="https://www.mon-oral.net/a/{{ $activite->code }}" class="text-monospace text-muted ml-2" target="_blank">www.mon-oral.net/a/{{ $activite->code }}</a>
+													<i class="fa fa-link mr-2 text-muted"></i><span style="color:silver;">lien à fournir aux élèves : </span><a href="/a/{{ $activite->code }}" class="text-monospace text-muted ml-2" target="_blank">www.mon-oral.net/a/{{ $activite->code }}</a>
 												</div>
 
 											</div>

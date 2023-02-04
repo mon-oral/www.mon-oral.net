@@ -23,37 +23,11 @@
 
 		<div id="app">
 
-			<nav class="navbar navbar-expand-md navbar-light">
+			<nav class="navbar navbar-expand-md navbar-light mt-2">
 				<div class="container">
 					<div>
-						<div><a href="{{ url('/') }}"><img src="{{ asset('img/mon-oral.png') }}" width="40" /></a></div>
-						<div class="text-monospace small" style="color:#c5c7c9;margin-top:4px;">Commentaire Audio - Enregistrement</div>
-					</div>
-
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-						<span class="navbar-toggler-icon"></span>
-					</button>
-
-					<div class="collapse navbar-collapse" id="navbarSupportedContent">
-						<!-- Left Side Of Navbar -->
-						<ul class="navbar-nav mr-auto">
-
-						</ul>
-
-						<!-- Right Side Of Navbar -->
-						<ul class="navbar-nav ml-auto" style="padding-left:100px;">
-							@if (Route::has('login'))
-								@auth
-									<li class="nav-item"><a class="btn btn-outline-secondary btn-sm" style="font-size:80%;opacity:0.4;margin:2px 0px 0px 4px" href="{{ url('/console') }}">console</a></li>
-								@else
-									<li class="nav-item" style="font-size:80%;opacity:0.3;padding:6px 0px 0px 4px">Enseignants :</li>
-									<li class="nav-item"><a class="btn btn-outline-secondary btn-sm" style="font-size:80%;opacity:0.4;margin:2px 0px 0px 4px" href="{{ route('login') }}">se connecter</a></li>
-									@if (Route::has('register'))
-										<li class="nav-item"><a class="btn btn-outline-secondary btn-sm " style="font-size:80%;opacity:0.4;margin:2px 0px 0px 4px" href="{{ route('register') }}">créer un compte</a></li>
-									@endif
-								@endauth
-							@endif
-						</ul>
+						<div class="float-left"><a href="{{ url('/console/') }}"><img src="{{ asset('img/mon-oral.svg') }}" width="40" /></a></div>
+						<div class="float-left text-monospace small pl-3" style="color:#c5c7c9;">Commentaire Audio<br />Enregistrement</div>
 					</div>
 				</div>
 			</nav>
@@ -362,14 +336,15 @@
 				var dataBlob = new Blob( [typedArray], { type: 'audio/ogg' } );
 
 				/* move to server */
-				var xhr=new XMLHttpRequest();
+				var xhr = new XMLHttpRequest();
 				xhr.onload=function(e) {
 					if(this.readyState === 4) {
+						//console.log(xhr.responseText);
 						$(location).attr('href', 'commentaire-verifier');
 					}
 				};
 
-				var fd=new FormData();
+				var fd = new FormData();
 				fd.append("commentaire_data",dataBlob);
 				fd.append("_token","{{ csrf_token() }}");
 				xhr.open("POST","commentaire-mp3",true);

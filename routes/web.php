@@ -146,6 +146,11 @@ Route::any('/console/commentaire-creer', 'CommentaireController@creer')->name('c
 // commentaire-creer2
 Route::any('/console/commentaire-creer2', 'CommentaireController@creer2')->name('commentaire-creer2');
 
+// commentaires-qrcodes-creer
+Route::get('/console/commentaires/qrcodes-creer', 'CommentaireController@qrcodes_creer')->name('commentaires-qrcodes-creer');
+Route::post('/console/commentaires/qrcodes-creer', 'CommentaireController@qrcodes_creer_post')->name('commentaires-qrcodes-creer-post');
+
+
 // commentaires-dossier-creer
 Route::get('/console/commentaires/dossier-creer', 'CommentaireController@dossier_creer')->name('commentaires-dossier-creer');
 Route::post('/console/commentaires/dossier-creer', 'CommentaireController@dossier_creer_post')->name('commentaires-dossier-creer-post');
@@ -514,3 +519,15 @@ Route::any('/console/lecteur-activite', 'ConsoleController@redirect');
 
 // Entrainement - ecoute
 Route::any('/entrainement/{code_audio}', 'ConsoleController@entrainementecoute')->name('entrainementecoute');
+
+
+// HUB
+Route::get('/{code}', function($code) {
+
+    $categorie = substr(strtoupper($code), 0, 1);
+    $code_audio = substr($code, 1);
+    if ($categorie == 'C') {
+        return view("commentaire-lecteur", ["code"=>$code_audio]);
+    }
+
+});

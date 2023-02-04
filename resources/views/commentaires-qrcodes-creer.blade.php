@@ -9,15 +9,11 @@
 		<meta http-equiv="Pragma" content="no-cache" />
 		<meta http-equiv="Expires" content="0" />	
 
-		<title>Dossier Commentaires Audio</title>
+		<title>Dossier QR Codes Commentaires Audio</title>
 
 	</head>
 		
 	<body>	
-	
-		<?php
-		$user = Auth::user();
-		?>	
 
 		<div id="app">
 
@@ -65,25 +61,38 @@
 				
 					<div class="col-md-10">
 					
-						<h2>NOUVEAU DOSSIER</h2>
+						<h2>NOUVEAU LOT DE LIENS / QR CODES</h2>
 						
-						<form method="POST" action="{{ route('commentaires-dossier-creer-post')}}">
+						<form method="POST" action="{{ route('commentaires-qrcodes-creer-post')}}">
 							
 							@csrf
 														
-							<div class="form-row pb-3 mt-4">
-								<div class="col-2 text-secondary">nom du dossier <sup style="color:red">*</sup></div>
-								<div class="col">
+							<div class="form-row mt-4">
+								<div class="col-3 text-secondary text-right">
+									nom du lot <sup style="color:red">*</sup>
+									<span class="ml-1 small" style=""><i class="fas fa-question-circle" style="cursor:pointer" data-container="body" data-html="true" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="caractères autorisés: lettres, chiffres, espace, - et _" aria-hidden="true" data-original-title="" title=""></i></span>
+								</div>
+								<div class="col-6">
 									<input id="nom" class="form-control @error('nom') is-invalid d-block @enderror" name="nom" type="text" value="{{ old('nom') }}" autocomplete="nom" autofocus />
 									@error('nom')
 										<span class="invalid-feedback d-block" role="alert">
 											<strong>{{ $message }}</strong>
 										</span>
 									@enderror
-									<input type="hidden" name="user_id" value="{{ $user->id }}">
-									<button type="submit" class="btn btn-primary mt-2 pl-4 pr-4"><i class="fas fa-check"></i></button>
 								</div>
 							</div>	
+							<div class="form-row pt-2 pb-3">
+								<div class="col-3 text-secondary text-right">nombre de liens / QR codes <sup style="color:red">*</sup></div>
+								<div class="col-2">
+									<input id="nb_qrcodes" class="form-control @error('nb_qrcodes') is-invalid d-block @enderror" name="nb_qrcodes" type="text" value="{{ old('nb_qrcodes') }}" autocomplete="nb_qrcodes" autofocus />
+									@error('nb_qrcodes')
+										<span class="invalid-feedback d-block" role="alert">
+											<strong>{{ $message }}</strong>
+										</span>
+									@enderror
+									<button type="submit" class="btn btn-primary mt-2 pl-4 pr-4"><i class="fas fa-check"></i></button>
+								</div>
+							</div>							
 
 						</form>												
 						
