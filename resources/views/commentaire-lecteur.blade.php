@@ -14,12 +14,12 @@
 		<div class="row mt-4">
 
 			<div class="col-md-8 offset-md-2">
-
-				@if (Storage::exists('public/audio-commentaires/xektdgpmcw/@'.$code.'.mp3'))
+			
+				@if (Storage::exists('public/audio-commentaires/xektdgpmcw/@'.strtolower($code).'.mp3'))
 					<table>
 						<tr style="line-height:10px">
 							<td style="width:100%">
-								<audio controls style="width:100%"><source src="/s/{{$code}}" type="audio/mpeg"></audio>
+								<audio controls style="width:100%"><source src="/s/{{strtolower($code)}}" type="audio/mpeg"></audio>
 							</td>
 							<td><a href="/telecharger-commentaire/{{$code}}" class="text-dark" style="verticla-align:middle;"><i class="fas fa-download ml-3 mr-3 text-muted" data-toggle="tooltip" data-placement="top" title="télécharger le fichier mp3"></i></a>
 							</td>
@@ -38,7 +38,7 @@
 				@auth
 					@if (App\Commentaire::where([['user_id', Auth::id()],['code_audio',$code]])->exists())
 						<div class="text-center mt-4">
-							<a class="btn btn-success btn-sm" href="/console/commentaire-creer?a={{Crypt::encryptString($code)}}" role="button"><i class="material-icons align-middle">keyboard_voice</i></a>
+							<a class="btn btn-success btn-sm" href="/console/commentaire-creer?a={{Crypt::encryptString(strtolower($code))}}" role="button"><i class="material-icons align-middle">keyboard_voice</i></a>
 							<p class="mt-1 p-0 text-monospace small" style="color:silver;">enregistrer / réenregistrer</p>
 						</div>
 					@endif
