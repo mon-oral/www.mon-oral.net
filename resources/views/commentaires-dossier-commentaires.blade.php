@@ -104,6 +104,12 @@
 										<a href="/console/commentaires/qrcodes-creer" role="button" class="btn btn-light text-dark btn-sm mr-4" data-toggle="tooltip" data-placement="top" title="" data-original-title="créer un lot de liens / QR codes"><i class="fas fa-qrcode fa-xs" aria-hidden="true"></i></a>
 										<a href="#" class='btn btn-light text-dark btn-sm text-monospace' role='button' data-toggle="modal" data-target="#liste"><i class="fas fa-print ml-1 mr-1"></i> imprimer les liens / QR codes</i></a>
 									</div>
+									<div class="text-muted text-monospace small pt-2">Deux possibilités pour faire les enregistrements:</div>
+									<ul class="text-muted text-monospace small mb-0">
+										<li>via la console (ici)</li>
+										<li>en scannant le QR code ou en suivant le lien</li>
+									</ul>
+									<div class="text-muted text-monospace small pb-3">Dans le deuxième cas, il faut s'être connecté au compte auparavant (sinon, l'icône d'enregistrement ou de réenregistrement n'apparaîtra pas).<br />Les enregistrements peuvent être refaits autant de fois que nécessaire.</div>
 									<?php					
 
 									foreach($commentaires as $commentaire) {
