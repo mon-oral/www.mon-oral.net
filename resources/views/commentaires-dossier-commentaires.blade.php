@@ -240,7 +240,7 @@
 												<div id="print-content" class="modal-body">
 													@foreach($commentaires as $commentaire)
 														<div class="p-4 text-center float-left" style="border:dashed 1px silver">
-															<img src="https://api.qrserver.com/v1/create-qr-code/?data={{urlencode('mon-oral.dev/C' . strtoupper($commentaire->code_audio))}}&amp;size=160x160" />
+															<img src="https://api.qrserver.com/v1/create-qr-code/?data={{urlencode('mon-oral.net/C' . strtoupper($commentaire->code_audio))}}&amp;size=160x160" />
 															<br />
 															<span class="small text-monospace">www.mon-oral.net/C{{strtoupper($commentaire->code_audio)}}</span>
 														</div>
