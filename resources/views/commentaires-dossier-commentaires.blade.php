@@ -90,16 +90,7 @@
 										<span class='ml-2 text-dark small' style="cursor:pointer;outline:none;vertical-align:2px;opacity:0.2;" data-toggle="tooltip" data-placement="top" title="le dossier doit être vide pour pouvoir être supprimé"><i class='fas fa-trash fa-sm'></i></span>
 									@endif
 								</h2>
-	
-								<?php
-								if (count($commentaires) == 0){
-									?>
-									<div class="pt-1 text-monospace small text-muted">Aucun commentaire pour l'instant dans ce dossier. <a href="/console/commentaire-creer">Créer un commentaire</a>.</div>
-									<?php
-								} else {
-									
-									?>
-									<div class="mt-5 mb-3">
+								<div class="mt-5 mb-3">
 										<a href="/console/commentaire-creer" role="button" class="btn btn-light text-dark btn-sm mr-1" data-toggle="tooltip" data-placement="top" title="" data-original-title="créer un nouveau commentaire audio"><i class="fas fa-plus fa-xs" aria-hidden="true"></i></a>
 										<a href="/console/commentaires/qrcodes-creer" role="button" class="btn btn-light text-dark btn-sm mr-4" data-toggle="tooltip" data-placement="top" title="" data-original-title="créer un lot de liens / QR codes"><i class="fas fa-qrcode fa-xs" aria-hidden="true"></i></a>
 										<a href="#" class='btn btn-light text-dark btn-sm text-monospace' role='button' data-toggle="modal" data-target="#liste"><i class="fas fa-print ml-1 mr-1"></i> imprimer les liens / QR codes</i></a>
@@ -109,8 +100,16 @@
 										<li>via la console (ici)</li>
 										<li>en scannant le QR code ou en suivant le lien</li>
 									</ul>
-									<div class="text-muted text-monospace small pb-3">Dans le deuxième cas, il faut s'être connecté au compte auparavant (sinon, l'icône d'enregistrement ou de réenregistrement n'apparaîtra pas).<br />Les enregistrements peuvent être refaits autant de fois que nécessaire.</div>
-									<?php					
+									<div class="text-muted text-monospace small pb-3">
+										Dans le deuxième cas, il faut s'être connecté au compte auparavant (sinon, l'icône d'enregistrement ou de réenregistrement n'apparaîtra pas).<br />Les enregistrements peuvent être refaits autant de fois que nécessaire.
+									</div>
+	
+								<?php
+								if (count($commentaires) == 0){
+									?>
+									<div class="pt-1 text-monospace small font-italic" style="color:silver">Aucun commentaire pour l'instant dans ce dossier.</div>
+									<?php
+								} else {	
 
 									foreach($commentaires as $commentaire) {
 										?>
