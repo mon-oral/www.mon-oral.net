@@ -161,7 +161,7 @@
 														<tr>
 															<td class="pt-3" style="font-size:140%"><i class="fa fa-link mr-2 text-muted"></i></td>
 															<td class="pt-3" style="width:100%;color:silver;">
-																lien à fournir aux élèves : <a href="https://www.mon-oral.net/c/{{ $commentaire->code_audio }}" class="text-monospace text-muted" target="_blank">www.mon-oral.net/c/{{ $commentaire->code_audio }}</a>
+																lien à fournir aux élèves : <a href="/C{{ strtoupper($commentaire->code_audio) }}" class="text-monospace text-muted" target="_blank">www.mon-oral.net/C{{ strtoupper($commentaire->code_audio) }}</a>
 															</td>
 														</tr>
 														<tr>

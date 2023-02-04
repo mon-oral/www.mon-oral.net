@@ -134,7 +134,9 @@
 															</td>
 															<td>
 																<div>{{ $commentaire->titre }}<div>
-																<div class="mt-1 mb-2"><a href="/C{{ strtoupper($commentaire->code_audio) }}" class="text-monospace text-muted small" target="_blank">www.mon-oral.net/C{{ strtoupper($commentaire->code_audio) }}</a><div>
+																<div class="mt-1 mb-2">
+																	<a href="/C{{ strtoupper($commentaire->code_audio) }}" class="text-monospace text-muted small" target="_blank">www.mon-oral.net/C{{ strtoupper($commentaire->code_audio) }}</a>
+																<div>
 															</td>
 															<td></td>
 															<td></td>
@@ -186,18 +188,17 @@
 														<tr>
 															<td class="pt-3" style="font-size:140%"><i class="fa fa-link mr-2 text-muted"></i></td>
 															<td class="pt-3" style="width:100%;color:silver;">
-																lien à fournir aux élèves : <a href="https://www.mon-oral.net/c/{{ $commentaire->code_audio }}" class="text-monospace text-muted" target="_blank">www.mon-oral.net/c/{{ $commentaire->code_audio }}</a>
+																lien à fournir aux élèves : <a href="/C{{ strtoupper($commentaire->code_audio) }}" class="text-monospace text-muted" target="_blank">www.mon-oral.net/C{{ strtoupper($commentaire->code_audio) }}</a>
+															</td>
+														</tr>	
+														<tr>
+															<td class="pt-4" style="font-size:150%"><i class="fas fa-tag text-muted"></i></td>
+															<td class="pt-4 text-muted" style="width:100%">Balise à insérer dans les sujets ou les consignes pour afficher le lecteur audio de cet enregistrement :
+															<div class="text-monospace mt-1 p-3" style="background-color:#2c3e50; color:#ecf0f1; border-radius:3px;">
+															[:audio-{{$commentaire->code_audio}}:]
+															</div>
 															</td>
 														</tr>														
-														<tr style="line-height:10px;">
-															<td class="pt-4" style="font-size:150%"><i class="fas fa-volume-up mr-4 text-muted"></i></td>
-															<td class="pt-4" style="width:100%">
-																<audio controls style="width:100%"><source src="/s/{{$commentaire->code_audio}}" type="audio/mpeg"></audio>
-															</td>
-															<td class="pt-4">
-																<a style="display:block;font-size:120%;height:40px;line-height:40px;background-color:#f1f3f4;border-radius:4px;" href="/telecharger-commentaire/{{$commentaire->code_audio}}" class="text-dark" style="verticla-align:middle;"><i class="fas fa-download ml-3 mr-3 text-muted" data-toggle="tooltip" data-placement="top" title="télécharger le fichier mp3"></i></a>
-															</td>	
-														</tr>	
 														<tr>
 															<td class="pt-4" style="font-size:180%"><i class="fas fa-qrcode mr-4 text-muted"></i></td>
 															<td class="pt-4" style="width:100%">QR code : <img src="https://api.qrserver.com/v1/create-qr-code/?data={{urlencode('mon-oral.net/c/' . $commentaire->code_audio)}}&amp;size=100x100" data-toggle="tooltip" data-placement="right" title="clic droit + 'Enregistrer l'image sous...' pour sauvegarder l'image du code" />
