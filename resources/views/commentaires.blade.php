@@ -10,7 +10,12 @@
 
 		<?php
 		$user = Auth::user();
-		$commentaires = App\Commentaire::where([['user_id', $user->id],['dossier',0],['type',NULL]])->orderBy('created_at', 'desc')->get();
+		$commentaires = App\Commentaire::where([['user_id', $user->id],['dossier',0]])
+			->where(function ($query) {
+				$query->where('type', NULL)
+					->orWhere('type', 'qrcode');
+			})
+			->orderBy('created_at', 'desc')->get();
 		$commentaires_dossiers = App\Commentaires_dossier::where('user_id', $user->id)->orderBy('created_at', 'desc')->get();
 		?>
 
@@ -87,7 +92,7 @@
 								<br style="clear:both;" />
 								<div class="mt-5 mb-3">
 									<a href="/console/commentaire-creer" role="button" class="btn btn-light text-dark btn-sm mr-1" data-toggle="tooltip" data-placement="top" title="" data-original-title="créer un nouveau commentaire audio"><i class="fas fa-plus fa-xs" aria-hidden="true"></i></a>
-									<a href="/console/commentaires/qrcodes-creer" role="button" class="btn btn-light text-dark btn-sm mr-4" data-toggle="tooltip" data-placement="top" title="" data-original-title="créer un lot de liens / QR codes"><i class="fas fa-qrcode fa-xs" aria-hidden="true"></i></a>
+									<a href="/console/commentaires/qrcodes-creer/{{ Crypt::encryptString('0') }}" role="button" class="btn btn-light text-dark btn-sm mr-4" data-toggle="tooltip" data-placement="top" title="" data-original-title="créer un ou plusieurs liens / QR codes"><i class="fas fa-qrcode fa-xs" aria-hidden="true"></i></a>
 									<a chref="#" class='btn btn-light text-dark btn-sm text-monospace' role='button' data-toggle="modal" data-target="#liste"><i class="fas fa-print ml-1 mr-1"></i> imprimer les liens / QR codes</i></a>
 								</div>
 								<div class="text-muted text-monospace small pt-2">Deux possibilités pour faire les enregistrements:</div>

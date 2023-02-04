@@ -147,7 +147,7 @@ Route::any('/console/commentaire-creer', 'CommentaireController@creer')->name('c
 Route::any('/console/commentaire-creer2', 'CommentaireController@creer2')->name('commentaire-creer2');
 
 // commentaires-qrcodes-creer
-Route::get('/console/commentaires/qrcodes-creer', 'CommentaireController@qrcodes_creer')->name('commentaires-qrcodes-creer');
+Route::get('/console/commentaires/qrcodes-creer/{dossier_id}', 'CommentaireController@qrcodes_creer')->name('commentaires-qrcodes-creer');
 Route::post('/console/commentaires/qrcodes-creer', 'CommentaireController@qrcodes_creer_post')->name('commentaires-qrcodes-creer-post');
 
 

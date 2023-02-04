@@ -92,7 +92,7 @@
 								</h2>
 								<div class="mt-5 mb-3">
 										<a href="/console/commentaire-creer" role="button" class="btn btn-light text-dark btn-sm mr-1" data-toggle="tooltip" data-placement="top" title="" data-original-title="créer un nouveau commentaire audio"><i class="fas fa-plus fa-xs" aria-hidden="true"></i></a>
-										<a href="/console/commentaires/qrcodes-creer" role="button" class="btn btn-light text-dark btn-sm mr-4" data-toggle="tooltip" data-placement="top" title="" data-original-title="créer un lot de liens / QR codes"><i class="fas fa-qrcode fa-xs" aria-hidden="true"></i></a>
+										<a href="/console/commentaires/qrcodes-creer/{{ Crypt::encryptString($commentaires_dossier->id) }}" role="button" class="btn btn-light text-dark btn-sm mr-4" data-toggle="tooltip" data-placement="top" title="" data-original-title="créer un ou plusieurs liens / QR codes"><i class="fas fa-qrcode fa-xs" aria-hidden="true"></i></a>
 										<a href="#" class='btn btn-light text-dark btn-sm text-monospace' role='button' data-toggle="modal" data-target="#liste"><i class="fas fa-print ml-1 mr-1"></i> imprimer les liens / QR codes</i></a>
 									</div>
 									<div class="text-muted text-monospace small pt-2">Deux possibilités pour faire les enregistrements:</div>

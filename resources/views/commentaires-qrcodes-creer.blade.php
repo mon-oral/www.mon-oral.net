@@ -61,38 +61,65 @@
 				
 					<div class="col-md-10">
 					
-						<h2>NOUVEAU LOT DE LIENS / QR CODES</h2>
+						<h2 class="m-0">NOUVEAU LOT DE LIENS / QR CODES</h2>
+						<p class="small text-monospace" style="color:silver">Vous pouvez créer entre 1 et 40 liens / QR codes.</p>
 						
 						<form method="POST" action="{{ route('commentaires-qrcodes-creer-post')}}">
 							
 							@csrf
 														
-							<div class="form-row mt-4">
-								<div class="col-3 text-secondary text-right">
-									nom du lot <sup style="color:red">*</sup>
-									<span class="ml-1 small" style=""><i class="fas fa-question-circle" style="cursor:pointer" data-container="body" data-html="true" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="caractères autorisés: lettres, chiffres, espace, - et _" aria-hidden="true" data-original-title="" title=""></i></span>
-								</div>
-								<div class="col-6">
-									<input id="nom" class="form-control @error('nom') is-invalid d-block @enderror" name="nom" type="text" value="{{ old('nom') }}" autocomplete="nom" autofocus />
-									@error('nom')
-										<span class="invalid-feedback d-block" role="alert">
-											<strong>{{ $message }}</strong>
-										</span>
-									@enderror
-								</div>
-							</div>	
-							<div class="form-row pt-2 pb-3">
-								<div class="col-3 text-secondary text-right">nombre de liens / QR codes <sup style="color:red">*</sup></div>
-								<div class="col-2">
+							<div class="form-row pt-3 pb-3">
+								<div class="col-md-3 text-secondary text-right">nombre de liens / QR codes <sup style="color:red">*</sup></div>
+								<div class="col-md-2">
 									<input id="nb_qrcodes" class="form-control @error('nb_qrcodes') is-invalid d-block @enderror" name="nb_qrcodes" type="text" value="{{ old('nb_qrcodes') }}" autocomplete="nb_qrcodes" autofocus />
 									@error('nb_qrcodes')
 										<span class="invalid-feedback d-block" role="alert">
 											<strong>{{ $message }}</strong>
 										</span>
 									@enderror
+									
+								</div>
+							</div>	
+							@php
+								$display = "display:none";		
+								$checked = "";			
+								if($errors->has('nom_dossier')){
+									$display = "display:block";
+									$checked = "checked";	
+								} 
+							@endphp	
+							<div class="form-row pt-2 pb-2">
+								<div class="col-md-3 text-secondary text-right">transformer en dossier</div>
+								<div class="col-md-2">
+									<div class="form-check">
+    									<input class="form-check-input" style="cursor:pointer" type="checkbox"  onchange="if (this.checked){ document.getElementById('creation_dossier').style.display = 'block'}else{document.getElementById('creation_dossier').style.display = 'none'}" value="" id="defaultCheck1" {{$checked}}>
+    								</div>
+								</div>
+							</div>
+							<div id="creation_dossier" style="{{$display}}">
+								<div class="form-row">
+									<div class="col-md-3 text-secondary text-right">
+										nom du dossier
+										<span class="ml-1 small" style=""><i class="fas fa-question-circle" style="cursor:pointer" data-container="body" data-html="true" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="caractères autorisés: lettres, chiffres, espace, - et _" aria-hidden="true" data-original-title="" title=""></i></span>
+									</div>
+									<div class="col-md-6">
+										<input id="nom_dossier" class="form-control @error('nom_dossier') is-invalid d-block @enderror" name="nom_dossier" type="text" value="{{ old('nom_dossier') }}" autocomplete="nom_dossier" autofocus />
+										@error('nom_dossier')
+											<span class="invalid-feedback d-block" role="alert">
+												<strong>{{ $message }}</strong>
+											</span>
+										@enderror
+									</div>
+								</div>	
+							</div>	
+
+							<input type="hidden" name="dossier_id" value="{{$dossier_id}}">
+
+							<div class="row">
+								<div class="col-md-4 offset-md-3">
 									<button type="submit" class="btn btn-primary mt-2 pl-4 pr-4"><i class="fas fa-check"></i></button>
 								</div>
-							</div>							
+							</div>
 
 						</form>												
 						
