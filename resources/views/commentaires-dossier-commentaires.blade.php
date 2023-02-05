@@ -129,10 +129,10 @@
 
 														<tr>
 															<td style="vertical-align:top">
-																<a data-toggle="collapse" role="button" href="#commentaire-{{$commentaire->id }}" style="color:black" aria-expanded="false" aria-controls="commentaire-{{$commentaire->id }}"><i class="fas fa-angle-double-down pr-2 text-muted"></i></a>
+																<a data-toggle="collapse" role="button" href="#commentaire-{{$commentaire->id }}" aria-expanded="false" aria-controls="commentaire-{{$commentaire->id }}"><i class="fas fa-angle-double-down pr-2 text-muted"></i></a>
 															</td>
 															<td>
-																<div>{{ $commentaire->titre }}<div>
+																<a class="text-dark" data-toggle="collapse" role="button" href="#commentaire-{{$commentaire->id }}" aria-expanded="false" aria-controls="commentaire-{{$commentaire->id }}">{{ $commentaire->titre }}</a>
 																<div class="mt-1 mb-2">
 																	<a href="/C{{ strtoupper($commentaire->code_audio) }}" class="text-monospace text-muted small" target="_blank">www.mon-oral.net/C{{ strtoupper($commentaire->code_audio) }}</a>
 																<div>
