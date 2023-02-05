@@ -210,6 +210,10 @@ Route::get('/console/commentaire-supprimer', 'CommentaireController@redirect');
 Route::get('/console/commentaires/dossier-supprimer/{dossier_id}', 'CommentaireController@commentaires_dossier_supprimer')->name('commentaires-dossier-supprimer');
 Route::get('/console/commentaires/dossier-supprimer', 'CommentaireController@redirect');
 
+// commentaires-enregistrement-supprimer
+Route::get('/console/commentaires/enregistrement-supprimer/{code_audio}', 'CommentaireController@commentaires_enregistrement_supprimer');
+Route::get('/console/commentaires/enregistrement-supprimer', 'CommentaireController@redirect');
+
 
 // ==========================
 // == GRAND ORAL

@@ -135,20 +135,36 @@
 															</td>
 															<td></td>
 															<td></td>
-														</tr>
-													
-														<tr>
 															<td></td>
-															<td style="width:100%">
-																<audio controls style="width:100%"><source src="/s/{{$commentaire->code_audio}}" type="audio/mpeg"></audio>
-															</td>
-															<td>
-																<a style="font-size:120%;" href="/telecharger-commentaire/{{$commentaire->code_audio}}" class="text-dark" style="verticla-align:middle;"><i class="fas fa-download ml-2 mr-2 text-muted" data-toggle="tooltip" data-placement="top" title="télécharger le fichier mp3"></i></a>
-															</td>
-															<td>
-																<a style="font-size:120%;" href="/console/commentaire-creer?a={{Crypt::encryptString($commentaire->code_audio)}}" class="text-dark" style="verticla-align:middle;"><i class="fas fa-redo-alt ml-2 mr-2 text-success" data-toggle="tooltip" data-placement="top" title="refaire l'enregistrement"></i></a>
-															</td>
 														</tr>
+
+														@if (Storage::exists('public/audio-commentaires/xektdgpmcw/@'.$commentaire->code_audio.'.mp3'))
+															<tr>
+																<td></td>
+																<td style="width:100%">
+																	<audio controls style="width:100%"><source src="/s/{{$commentaire->code_audio}}" type="audio/mpeg"></audio>
+																</td>
+																<td>
+																	<a style="font-size:100%;" href="/telecharger-commentaire/{{$commentaire->code_audio}}" class="text-dark" style="verticla-align:middle;"><i class="fas fa-download ml-2 mr-1 text-muted" data-toggle="tooltip" data-placement="top" title="télécharger le fichier mp3"></i></a>
+																</td>
+																<td>
+																	<a style="font-size:100%;" href="/console/commentaire-creer?a={{Crypt::encryptString($commentaire->code_audio)}}" class="text-dark" style="verticla-align:middle;"><i class="fas fa-sync-alt ml-1 mr-1 text-muted" data-toggle="tooltip" data-placement="top" title="refaire l'enregistrement"></i></a>
+																</td>
+																<td>
+																	<a style="font-size:100%;cursor:pointer;outline:none;" tabindex="0" class="ml-1 mr-2 text-muted" role="button" data-trigger="focus" data-container="body" data-placement="left" data-toggle="popover" data-html="true" data-content="<div class='text-center'><div class='mb-1'>suppressoin de l'enregistrement</div><a class='btn btn-danger btn-sm' href='/console/commentaires/enregistrement-supprimer/{{ Crypt::encryptString($commentaire->code_audio) }}' role='button'>confirmer</a> <a tabindex='0' class='btn btn-secondary btn-sm text-light' role='button'>annuler</a></div>"><i class="fas fa-trash fa-sm"></i></a>
+																</td>
+															</tr>
+														@else
+															<tr>
+																<td></td>
+																<td style="width:100%">
+																	<a class="btn btn-success btn-sm" href="/console/commentaire-creer?a={{Crypt::encryptString($commentaire->code_audio)}}" role="button"><i class="material-icons align-middle">keyboard_voice</i></a>
+																</td>
+																<td></td>
+																<td></td>
+																<td></td>
+															</tr>	
+														@endif
 													</table>
 
 												</div>
@@ -178,7 +194,7 @@
 														</tr>
 														<tr>
 															<td class="pt-4" style="font-size:180%"><i class="fas fa-qrcode mr-4 text-muted"></i></td>
-															<td class="pt-4" style="width:100%">QR code : <img src="https://api.qrserver.com/v1/create-qr-code/?data={{urlencode('mon-oral.net/c/' . session()->get('code_commentaire'))}}&amp;size=100x100" style="width:100px" alt="mon-oral.net/c/{{ session()->get('code_commentaire') }}" data-toggle="tooltip" data-placement="right" title="clic droit + 'Enregistrer l'image sous...' pour sauvegarder l'image du code" />
+															<td class="pt-4" style="width:100%">QR code : <img src="https://api.qrserver.com/v1/create-qr-code/?data={{urlencode('mon-oral.net/C' . strtoupper($commentaire->code_audio))}}&amp;size=100x100" style="width:100px" alt="mon-oral.net/C{{ strtoupper($commentaire->code_audio) }}" data-toggle="tooltip" data-placement="right" title="clic droit + 'Enregistrer l'image sous...' pour sauvegarder l'image du code" />
 															</td>
 														</tr>
 														<tr>
@@ -224,10 +240,10 @@
 											</div>	
 											<div id="print-content" class="modal-body">
 												@foreach($commentaires as $commentaire)
-													<div class="p-4 text-center float-left" style="border:dashed 1px silver">
+													<div class="p-3 text-center float-left" style="border:dashed 1px silver">
 														<img src="https://api.qrserver.com/v1/create-qr-code/?data={{urlencode('mon-oral.net/C' . strtoupper($commentaire->code_audio))}}&amp;size=160x160" />
-														<br />
-														<span class="small text-monospace">www.mon-oral.net/c/{{strtoupper($commentaire->code_audio)}}</span>
+														<div class="small text-monospace">www.mon-oral.net/C{{strtoupper($commentaire->code_audio)}}</div>
+														<div class="small text-monospace">{{$commentaire->titre}}</div>
 													</div>
 												@endforeach
 											</div>
