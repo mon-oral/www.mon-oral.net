@@ -72,7 +72,7 @@
 								<p class="mb-3 small font-italic" style="color:silver;">capsules audio créées par les enseignants pour les élèves (correction orale de devoirs, consignes orales, explications...)</p>
 
 								<div class="mt-3 mb-3">
-									<a href="/console/commentaires/dossier-creer" style="background-color:#ffe791;border:solid 1px #ffe791; border-radius:4px; padding:2px 1px 3px 1px; margin-bottom:10px; color:#eecb49;" data-toggle="tooltip" data-placement="top" title="créer un dossier"><i class="fas fa-plus fa-xs pl-2 pr-2"></i></a>
+									<a href="/console/commentaires/dossier-creer" style="background-color:#ffe791;border:solid 1px #ffe791; border-radius:4px; padding:2px 1px 3px 1px; margin-bottom:10px; color:#eecb49;" data-toggle="tooltip" data-placement="right" title="créer un dossier"><i class="fas fa-plus fa-xs pl-2 pr-2"></i></a>
 								</div>
 
 								<?php
@@ -127,7 +127,7 @@
 													<table>
 														<tr>
 															<td style="vertical-align:top">
-																<a data-toggle="collapse" role="button" href="#commentaire-{{$commentaire->id }}" style="color:black" aria-expanded="false" aria-controls="commentaire-{{$commentaire->id }}"><i class="fas fa-plus-square pr-2 text-muted"></i></a>
+																<a data-toggle="collapse" role="button" href="#commentaire-{{$commentaire->id }}" style="color:black" aria-expanded="false" aria-controls="commentaire-{{$commentaire->id }}"><i class="fas fa-angle-double-down pr-2 text-muted"></i></a>
 															</td>
 															<td>
 																<div>{{ $commentaire->titre }}<div>

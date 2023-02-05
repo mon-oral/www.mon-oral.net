@@ -129,7 +129,7 @@
 
 														<tr>
 															<td style="vertical-align:top">
-																<a data-toggle="collapse" role="button" href="#commentaire-{{$commentaire->id }}" style="color:black" aria-expanded="false" aria-controls="commentaire-{{$commentaire->id }}"><i class="fas fa-plus-square pr-2 text-muted"></i></a>
+																<a data-toggle="collapse" role="button" href="#commentaire-{{$commentaire->id }}" style="color:black" aria-expanded="false" aria-controls="commentaire-{{$commentaire->id }}"><i class="fas fa-angle-double-down pr-2 text-muted"></i></a>
 															</td>
 															<td>
 																<div>{{ $commentaire->titre }}<div>
