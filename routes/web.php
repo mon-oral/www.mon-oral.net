@@ -22,20 +22,17 @@ Route::view('/inscription-intro', 'auth/register-intro')->name('register-intro')
 Route::view('/', 'welcome')->name('welcome');
 Route::view('/welcome-bis', 'welcome-bis')->name('welcome-bis');
 
+// Soutien
+Route::view('/soutien', 'soutien');
+
 // Bac à  sable
-Route::get('/bac-a-sable', function () {
-    return view('bac-a-sable');
-});
+Route::get('/bac-a-sable', function () {return view('bac-a-sable');});
 
 // Discussions
-Route::get('/discussions', function () {
-    return view('discussions');
-})->middleware('auth');;
+Route::get('/discussions', function () {return view('discussions');})->middleware('auth');;
 
 // Webinaire
-Route::get('/webinaire', function () {
-    return view('webinaire');
-});
+Route::get('/webinaire', function () {return view('webinaire');});
 
 // Présentation
 Route::get('/presentation', function () {
