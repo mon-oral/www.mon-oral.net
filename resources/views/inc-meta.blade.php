@@ -8,11 +8,11 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
 <!-- Font Awesome -->
-<link rel="preload" href="{{ asset('lib/fontawesome/css/all.css') }}" rel="stylesheet">
+<link rel="preload" href="{{ asset('lib/fontawesome/css/all.css') }}" as="style">
 
 <!-- Styles -->
-<link rel="preload" href="{{ asset('css/app.css') }}" rel="stylesheet">
-<link rel="preload" href="{{ asset('css/custom.css') }}" rel="stylesheet">
+<link rel="preload" href="{{ asset('css/app.css') }}" as="style">
+<link rel="preload" href="{{ asset('css/custom.css') }}" as="style">
 
 <!-- Matomo -->
 <script type="text/javascript">
