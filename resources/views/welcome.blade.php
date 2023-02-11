@@ -94,7 +94,7 @@
 					<div id="start_rec">
 						<div class="p-2"><span id="chrono" class="chrono">00:00</span></div>
 						<div class="pb-3 text-monospace text-danger" style="opacity:0.4;font-size:70%" id="max">20 minutes maximum</div>
-						<a href="/capsule?a=go" id="start_button" type="button" class="btn btn-success pt-2 mt-3 btn-lg"><i class="material-icons align-middle">keyboard_voice</i></a>
+						<a href="/capsule?a=go" id="start_button" type="button" class="btn btn-success pt-2 mt-3 btn-lg"><i class="material-icons align-middle">&#xe31d</i></a>
 						<div id="start_label" class="small mt-4 text-muted text-monospace">cliquer sur le bouton ci-dessus pour débuter un enregistrement audio téléchargeable au format mp3</div>
 					</div>
 					<div class="text-center text-danger mt-4" style="cursor:pointer">

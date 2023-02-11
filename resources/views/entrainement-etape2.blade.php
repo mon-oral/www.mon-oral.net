@@ -65,7 +65,7 @@
 								<p class="small text-center text-center text-muted" id="start_test">Cliquez sur le bouton ci-dessous pour lancer un test audio de quelques secondes.</p>
 								
 								<div class="text-center"><button type="button" class="btn btn-success btn-sm pt-2" id="start_button">
-									<i class="material-icons">keyboard_voice</i></button>
+									<i class="material-icons">&#xe31d</i></button>
 								</div>
 
 								<div id="rec_test" style="display:none" class="text-center mt-3">

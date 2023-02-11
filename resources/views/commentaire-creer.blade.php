@@ -56,7 +56,7 @@
 							<div id="start_rec">
 								<div class="p-2"><span id="chrono" class="chrono">00:00</span></div>
 								<div class="pb-3 text-monospace text-danger small" id="max">20 minutes maximum</div>
-								<button id="start_button" type="button" class="btn btn-success pt-2 mt-2 btn-lg"><i class="material-icons align-middle">keyboard_voice</i></button>
+								<button id="start_button" type="button" class="btn btn-success pt-2 mt-2 btn-lg"><i class="material-icons align-middle">&#xe31d</i></button>
 								<div id="start_label" class="small mt-4 text-muted text-monospace">Cliquez sur le bouton ci-dessus<br />pour lancer l'enregistrement audio.</div>
 							</div>
 
@@ -65,7 +65,7 @@
 								<button id="pause_button" type="button" class="btn btn-light btn-lg pt-2 mt-2" style="display:inline;" data-toggle="tooltip"  data-delay='{"show":400,"hide":0}' data-placement="left" title="pause"><i class="material-icons align-middle">pause</i></button>
 
 								<!-- RESUME -->
-								<button id="resume_button" style="display:none;" type="button" class="btn btn-light btn-lg pt-2 mt-2" data-toggle="tooltip"  data-delay='{"show":400,"hide":0}' data-placement="left" title="reprendre l'enregistrement"><i class="material-icons align-middle">keyboard_voice</i></button>
+								<button id="resume_button" style="display:none;" type="button" class="btn btn-light btn-lg pt-2 mt-2" data-toggle="tooltip"  data-delay='{"show":400,"hide":0}' data-placement="left" title="reprendre l'enregistrement"><i class="material-icons align-middle">&#xe31d</i></button>
 
 								<!-- STOP -->
 								<button id="stop_button" type="button" class="btn btn-dark btn-lg pt-2 mt-2" data-toggle="tooltip"  data-delay='{"show":400,"hide":0}' data-placement="right" title="arrêter définitivement l'enregistrement"><i class="material-icons align-middle">stop</i></button>

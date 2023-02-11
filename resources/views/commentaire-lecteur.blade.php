@@ -38,7 +38,7 @@
 				@auth
 					@if (App\Commentaire::where([['user_id', Auth::id()],['code_audio',$code]])->exists())
 						<div class="text-center mt-4">
-							<a class="btn btn-success btn-sm" href="/console/commentaire-creer?a={{Crypt::encryptString(strtolower($code))}}" role="button"><i class="material-icons align-middle">keyboard_voice</i></a>
+							<a class="btn btn-success btn-sm" href="/console/commentaire-creer?a={{Crypt::encryptString(strtolower($code))}}" role="button"><i class="material-icons align-middle">&#xe31d</i></a>
 							<p class="mt-1 p-0 text-monospace small" style="color:silver;">enregistrer / réenregistrer</p>
 						</div>
 					@endif

@@ -99,7 +99,7 @@
 									@if (isset($_GET['a']) AND $_GET['a'] == 'go')
 										5
 									@else
-										<i class="material-icons align-middle">keyboard_voice</i>
+										<i class="material-icons align-middle">&#xe31d</i>
 									@endif
 								</button>
 								<div id="start_label" class="small mt-4 text-muted text-monospace">cliquer sur le bouton ci-dessus<br />pour débuter un enregistrement audio<br />téléchargeable au format mp3</div>
@@ -110,7 +110,7 @@
 								<button id="pause_button" type="button" class="btn btn-light btn-lg pt-2 mt-2" style="display:inline;" data-toggle="tooltip"  data-delay='{"show":400,"hide":0}' data-placement="left" title="pause"><i class="material-icons align-middle">pause</i></button>
 
 								<!-- RESUME -->
-								<button id="resume_button" style="display:none;" type="button" class="btn btn-light btn-lg pt-2 mt-2" data-toggle="tooltip"  data-delay='{"show":400,"hide":0}' data-placement="left" title="reprendre l'enregistrement"><i class="material-icons align-middle">keyboard_voice</i></button>
+								<button id="resume_button" style="display:none;" type="button" class="btn btn-light btn-lg pt-2 mt-2" data-toggle="tooltip"  data-delay='{"show":400,"hide":0}' data-placement="left" title="reprendre l'enregistrement"><i class="material-icons align-middle">&#xe31d</i></button>
 
 								<!-- STOP -->
 								<button id="stop_button" type="button" class="btn btn-dark btn-lg pt-2 mt-2" data-toggle="tooltip"  data-delay='{"show":400,"hide":0}' data-placement="right" title="arrêter définitivement l'enregistrement"><i class="material-icons align-middle">stop</i></button>

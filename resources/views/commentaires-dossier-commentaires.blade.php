@@ -164,7 +164,7 @@
 															<tr>
 																<td></td>
 																<td style="width:100%">
-																	<a class="btn btn-success btn-sm" href="/console/commentaire-creer?a={{Crypt::encryptString($commentaire->code_audio)}}" role="button"><i class="material-icons align-middle">keyboard_voice</i></a>
+																	<a class="btn btn-success btn-sm" href="/console/commentaire-creer?a={{Crypt::encryptString($commentaire->code_audio)}}" role="button"><i class="material-icons align-middle">&#xe31d</i></a>
 																</td>
 																<td>
 																</td>

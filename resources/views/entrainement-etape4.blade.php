@@ -72,7 +72,7 @@
 								
 								<div id="start_rec" style="display:none;">
 									<div class="p-2"><span id="chrono_etape2" class="chrono" style="display:none;">00:00</span></div>											
-									<div class="p-2"><button type="button" class="btn btn-success pt-2 btn-lg blink" id="start_button"><i class="material-icons align-middle">keyboard_voice</i></button></div>
+									<div class="p-2"><button type="button" class="btn btn-success pt-2 btn-lg blink" id="start_button"><i class="material-icons align-middle">&#xe31d</i></button></div>
 								</div>
 							
 								<div id="enregistrement" style="display:none;">

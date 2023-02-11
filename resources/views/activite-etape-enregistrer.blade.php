@@ -76,7 +76,7 @@
 					<div id="start_rec">
 						<div class="p-2"><span id="chrono" class="chrono">00:00</span></div>
 						<div class="pb-3 text-monospace text-danger small" id="max">20 minutes maximum</div>
-						<button type="button" class="btn btn-success pt-2 mt-2 btn-lg" id="start_button"><i class="material-icons align-middle">keyboard_voice</i></button>
+						<button type="button" class="btn btn-success pt-2 mt-2 btn-lg" id="start_button"><i class="material-icons align-middle">&#xe31d</i></button>
 						<div id="start_label" class="small mt-4 text-muted text-monospace">Cliquez sur le bouton ci-dessus<br />pour lancer l'enregistrement audio.</div>
 					</div>
 
