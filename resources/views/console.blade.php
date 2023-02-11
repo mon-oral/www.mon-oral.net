@@ -8,7 +8,7 @@
 
 <body>
 
-	@include('inc-nav-console')
+	@include('inc-nav-console-accueil')
 
 	<div class="container mb-5">
 		<div class="row">
