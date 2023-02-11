@@ -149,7 +149,6 @@
 		<!-- dirty trick to bypass webrtc blockers -->
         <iframe id="iframe" sandbox="allow-same-origin" style="display: none"></iframe>
 
-		@include('inc-bottom')
 		@include('inc-bottom-js')		
 
 		<script>
@@ -381,8 +380,6 @@
 
 		</script>
 
-
-
 		@if (isset($_GET['a']) AND $_GET['a'] == 'go')
 		<script>
 		$('#start_label').css('display', 'none');
@@ -399,6 +396,8 @@
 		}, 1000);
 		</script>
 		@endif
+
+		@include('inc-bottom')
 
 	</body>
 </html>

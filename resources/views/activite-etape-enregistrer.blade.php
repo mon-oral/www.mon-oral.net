@@ -133,6 +133,8 @@
 	<!-- dirty trick to bypass webrtc blockers -->
     <iframe id="iframe" sandbox="allow-same-origin" style="display: none"></iframe>
 
+	@include('inc-bottom-js')
+
 	<script>
 
 	function chrono() {
@@ -319,7 +321,6 @@
 	</script>
 
 	@include('inc-bottom')
-	@include('inc-bottom-js')
 
 </body>
 </html>

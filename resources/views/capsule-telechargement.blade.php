@@ -72,10 +72,6 @@
 
 		</div><!-- /app -->
 
-
-
-
-
 		@include('inc-bottom-js')
 
 	</body>
