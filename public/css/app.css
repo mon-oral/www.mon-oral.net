@@ -14,7 +14,7 @@
 
 @font-face {
   font-family: 'Material Icons';
-  font-display: swap;
+  font-display: block;
   font-style: normal;
   font-weight: 400;
   src: url('../fonts/MaterialIcons/MaterialIcons-Regular.eot'); /* For IE6-8 */
