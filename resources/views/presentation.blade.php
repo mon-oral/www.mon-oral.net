@@ -81,7 +81,7 @@
 	</div><!-- /container -->
 
 	<div class="container">
-		<div class="row pt-5">
+		<div class="row pt-2">
 			<div class="col-md-8 offset-md-2">
 				<p class="text-center text-muted text-monospace small">tutoriel vidéo réalisé par <a href="https://twitter.com/JohannNallet" target="_blank">Johann Nallet</a></p>
 				<p class="text-center text-monospace small" style="color:silver;font-size:80%">attention : le site évoluant régulièrement, l'interface peut avoir légèrement changé sur certaines pages</p>
@@ -93,7 +93,41 @@
 				</div>
 			</div>
 		</div><!-- /row -->
+
+		<div class="row mt-5">
+			<div class="col-md-8 offset-md-2">
+				<p class="text-center text-muted text-monospace small">tutoriel vidéo réalisé par <a href="https://www.recitarts.ca/" target="_blank">Récit Arts</a></p>
+				<p class="text-center text-monospace small" style="color:silver;font-size:80%">attention : le site évoluant régulièrement, l'interface peut avoir légèrement changé sur certaines pages</p>
+
+				<div class="embed-responsive embed-responsive-16by9" style="border-radius:5px;">
+					<video controls autoplay muted>
+						<source src="{{ asset('videos/mon-oral_trucartic.mp4') }}" type="video/mp4">
+					</video>
+				</div>
+			</div>
+		</div><!-- /row -->
+
+		<div class="row mt-5">
+			<div class="col-md-8 offset-md-2">
+				<b>Autres vidéos</b>
+				<ul>
+					<li>Correction / Feedback audio : <a href="https://www.youtube.com/watch?v=H53ZWptODu4" target="_blank">https://www.youtube.com/watch?v=H53ZWptODu4</a></li>
+					<li>Paramétrer une activité avec mon-oral.net : <a href="https://www.youtube.com/watch?v=1b-zBij0x0U" target="_blank">https://www.youtube.com/watch?v=1b-zBij0x0U</a></li>
+					<li>Utiliser mon-oral.net: <a href="https://www.youtube.com/watch?v=ptlkYXj1JyM" target="_blank">https://www.youtube.com/watch?v=ptlkYXj1JyM</a></li>
+					<li>Création d'un nouvel entraînement par l'enseignant : <a href="https://www.youtube.com/watch?v=taBQuNKHNo0" target="_blank">https://www.youtube.com/watch?v=taBQuNKHNo0</a></li>
+					<li>Entrainement élève - partie 1 : <a href="https://www.youtube.com/watch?v=fWYMXX7lXQY" target="_blank">https://www.youtube.com/watch?v=fWYMXX7lXQY</a></li>
+					<li>Entrainement élève - partie 2 : <a href="https://www.youtube.com/watch?v=InmZhz2K4uI" target="_blank">https://www.youtube.com/watch?v=InmZhz2K4uI</a></li>
+					<li>Entrainement élève - partie 3 : <a href="https://www.youtube.com/watch?v=VPLCvJpftEw" target="_blank">https://www.youtube.com/watch?v=VPLCvJpftEw</a></li>
+					<li>Comment utiliser mon oral : <a href="https://www.youtube.com/watch?v=RoLsGNFN8ds" target="_blank">https://www.youtube.com/watch?v=RoLsGNFN8ds</a></li>
+				</ul>
+			</div>
+		</div><!-- /row -->		
+
 	</div><!-- /container -->	
+
+
+	
+
 
 	@include('inc-footer-welcome')
 	@include('inc-bottom-js')
