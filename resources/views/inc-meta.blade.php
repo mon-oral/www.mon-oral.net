@@ -8,9 +8,7 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
 <!-- Font Awesome -->
-<link href="{{ asset('lib/fontawesome/css/fontawesome.css') }}" rel="stylesheet">
-<link href="{{ asset('lib/fontawesome/css/solid.css') }}" rel="stylesheet">
-<link href="{{ asset('lib/fontawesome/css/brands.css') }}" rel="stylesheet">
+<link href="{{ asset('lib/fontawesome/css/all.css') }}" rel="stylesheet">
 
 <!-- Styles -->
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
