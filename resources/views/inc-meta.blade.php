@@ -8,18 +8,11 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
 <!-- Font Awesome -->
-<script src="https://kit.fontawesome.com/cbfbfc2c41.js" crossorigin="anonymous"></script>
-
-<!-- Fonts -->
-<link rel="dns-prefetch" href="//fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+<link href="{{ asset('lib/fontawesome/css/all.css') }}" rel="stylesheet">
 
 <!-- Styles -->
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
-
-<!-- Material Icons -->
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <!-- Matomo -->
 <script type="text/javascript">
