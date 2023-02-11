@@ -52,7 +52,7 @@
 						<br />
 						<h2>Commentaires</h2>
 						<p>
-							Création de capsules audio pour les élèves : correction orale de copies, consignes, explications...<br />
+							Création de capsules audio pour les élèves : correction orale de copies, consignes, explications... avec liens et QR codes.<br />
 						</p>
 					</div>
 				</div>
