@@ -47,7 +47,7 @@
 						</div>
 						Le seul but est de couvrir les frais d'hébergement et de renouvellement du nom de domaine.
 						<br />
-						Pour nous écrire: contac@mon-oral.net
+						Pour nous écrire: contact@mon-oral.net
 					</div>
 				</div>
 				@endif
