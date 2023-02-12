@@ -37,8 +37,21 @@
 					</div>
 				</div>
 
+				@if (Auth::user()->is_checked == 3)
+				<div class="row mt-3 mb-3">
+					<div class="col-md-10 offset-md-1 text-muted text-justify text-monospace small" style="background-color:white;padding:10px;border:solid 1px silver;border-radius:4px;">
+						Développé et maintenu par des enseignants sans soutien financier, ce site est ouvert à tous les enseignants et formateurs, que la structure soit publique ou privée.<br />
+						Les dons individuels sont refusés mais si votre organisme ou votre département souhaite soutenir le projet, il est possible de le faire en cliquant sur ce lien:
+						<div class="text-center mt-2 mb-3">
+							<a class="btn btn-light btn-sm" href="https://www.mon-oral.net/soutien" role="button" target="_blank"><i class="text-danger fas fa-heart"></i> soutenir ce projet</a></a>
+						</div>
+						Le seul but est de couvrir les frais d'hébergement et de renouvellement du nom de domaine.
+					</div>
+				</div>
+				@endif
+
 				<div class="row mb-5">
-					<div class="col-md-6 offset-md-3 text-muted text-justify">
+					<div class="col-md-10 offset-md-1 text-muted text-justify">
 						<br />
 						<h2>Activités</h2>
 						<p>
