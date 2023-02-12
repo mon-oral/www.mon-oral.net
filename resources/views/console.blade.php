@@ -46,6 +46,8 @@
 							<a class="btn btn-light btn-sm" href="https://www.mon-oral.net/soutien" role="button" target="_blank"><i class="text-danger fas fa-heart"></i> soutenir ce projet</a></a>
 						</div>
 						Le seul but est de couvrir les frais d'hébergement et de renouvellement du nom de domaine.
+						<br />
+						Pour nous écrire: contac@mon-oral.net
 					</div>
 				</div>
 				@endif
