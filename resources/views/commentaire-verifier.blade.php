@@ -31,7 +31,7 @@
 					<div class="col-md-6 offset-md-3">
 
 						<audio controls style="width:100%"><source src="/console/commentaire-verifier-ecoute" type="audio/mpeg"></audio>
-						<p class="m-0 p-0 text-monospace text-muted text-center small">attendez quelques secondes que le lecteur se charge</p>
+						<p class="m-0 p-0 text-monospace text-muted text-center small" style="color:silver;">attendre quelques secondes que le lecteur se charge</p>
 
 						<form method="POST" action="{{ route('commentaire-sauvegarder-post')}}">
 

@@ -11,6 +11,26 @@
 
 		<title>Capsule Audio - Enregistrement</title>
 
+		<!-- Open Graph -->
+		<meta property="og:title" content="ENREGISTREMENT - CAPSULE AUDIO" />
+		<meta property="og:type" content="website" />
+		<meta property="og:description" content="Pratique de l'oral au primaire et au secondaire - Préparation aux épreuves orales de collège et de lycée (brevet, français, langues, grand oral...)." />
+		<meta property="og:url" content="https://www.mon-oral.net" />
+		<meta property="og:image" content="{{ asset('img/opengraph_capsule_1200x630.png') }}" />
+		<meta property="og:image:alt" content="mon-oral.net" />
+		<meta property="og:image:type" content="image/png" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:site" content="@mon_oral">
+		<meta name="twitter:creator" content="@mon_oral">
+		<meta name="twitter:title" content="ENREGISTREMENT - CAPSULE AUDIO">
+		<meta name="twitter:description" content="Pratique de l'oral au primaire et au secondaire - Préparation aux épreuves orales de collège et de lycée (brevet, français, langues, grand oral...).">
+		<meta name="twitter:image" content="{{ asset('img/opengraph_capsule_1200x630.png') }}">
+
+
 		<!-- Scripts -->
 		<script src="{{ asset('js/DetectRTC.min.js') }}"></script>
 
