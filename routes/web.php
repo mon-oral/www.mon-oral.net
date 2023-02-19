@@ -103,9 +103,41 @@ Route::get('/direct-welcome', function(){
 
 
 // ==========================
-// == CAPSULES ELEVES
+// == CAPSULES
 // ==========================
 
+
+// capsule-creer
+Route::any('/capsule', 'CapsuleController@etape_1');
+
+// capsule-verifier
+Route::get('/capsule-verification', 'CapsuleController@etape_2');
+
+// capsule-mp3
+Route::post('/capsule-mp3', 'CapsuleController@capsule_mp3');
+Route::get('/capsule-mp3', 'CapsuleController@redirect');
+
+// capsule-verifier-ecoute
+Route::get('/capsule-verifier-ecoute', 'CapsuleController@verifier_ecoute')->name('capsule-verifier-ecoute');
+
+// capsule-sauvegarder
+Route::post('/capsule-informations', 'CapsuleController@sauvegarder_post')->name('capsule-sauvegarder-post');
+Route::get('/capsule-informations', 'CapsuleController@etape_3');
+
+// capsule-quitter (suppression de l'enregistrement)
+Route::any('/capsule-quitter', 'CapsuleController@quitter')->name('capsule-quitter');
+
+// capsule-source
+Route::get('/capsule-source/{code_audio}', function ($code_audio) {
+    return redirect(asset("storage/audio-capsules/") .'/sfokasnejd/' . $code_audio . '.mp3');
+});
+
+// capsule-telechargement
+Route::get('capsule-telechargement/{code_audio}', function ($code_audio) {
+    return Storage::disk('local')->download('/public/audio-capsules/sfokasnejd/'.$code_audio.'.mp3');
+});
+
+/*
 // capsule-enregistrement
 Route::any('/capsule', 'CapsuleController@enregistrement')->name('capsule-enregistrement');
 
@@ -124,7 +156,7 @@ Route::any('/capsule-quitter', 'CapsuleController@quitter')->name('capsule-quitt
 
 // capsule-refaire (suppression de l'enregistrement pour nouvel enregistrement)
 Route::get('/capsule-refaire', 'CapsuleController@refaire')->name('capsule-refaire');
-
+*/
 
 // ==========================
 // == COMMENTAIRES
@@ -522,7 +554,9 @@ Route::any('/console/lecteur-activite', 'ConsoleController@redirect');
 Route::any('/entrainement/{code_audio}', 'ConsoleController@entrainementecoute')->name('entrainementecoute');
 
 
-// HUB
+// ==========================
+// == HUB
+// ==========================
 Route::get('/{code}', function($code) {
 
     $categorie = substr(strtoupper($code), 0, 1);
@@ -530,5 +564,9 @@ Route::get('/{code}', function($code) {
     if ($categorie == 'C') {
         return view("commentaire-lecteur", ["code"=>$code_audio]);
     }
+    if ($categorie == 'K') {
+        Session::flash('capsule_page', 'capsule-lecteur');
+        return view("capsule-lecteur", ["code_audio"=>$code_audio]);
+    }    
 
 });

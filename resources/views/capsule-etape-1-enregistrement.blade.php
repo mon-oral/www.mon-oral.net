@@ -54,23 +54,22 @@
 				</div>
 			</div>
 		</div>
-		<!-- /MODAL -->
-
+		<!-- /MODAL -->	
 
 		<div id="app">
 
-			<nav class="navbar navbar-expand-md navbar-light">
+			<nav class="navbar navbar-expand-md navbar-light mt-2">
 				<div class="container">
 					<div>
-						<div class="pl-4"><a href="{{ url('/') }}"><img src="{{ asset('img/mon-oral.png') }}" width="40" /></a></div>
-						<div class="text-monospace text-center" style="color:#c5c7c9;margin-top:4px;width=40px;font-size:70%;">création d'une<br />capsule audio</div>
+						<div class="float-left"><a href="{{ url('/') }}"><img src="{{ asset('img/mon-oral.svg') }}" width="40" /></a></div>
+						<div class="float-left text-monospace small pl-3" style="color:#c5c7c9;">Capsule Audio<br />Enregistrement</div>
 					</div>
 				</div>
 			</nav>
 
 			<div class="container">
 
-				<div class="row mt-4">
+				<div class="row mt-5">
 
 					<div class="col-md-12">
 
@@ -79,30 +78,37 @@
 							<p class="text-danger"><i class="fas fa-bomb" style="font-size:20px;"></i> <b>Votre système n'est pas prêt !</b></p>
 							<div id="configuration" class="text-muted small pb-2 pl-4 pr-3"></div>
 							<p class="pt-2 pb-2 pl-4 pr-4 text-justify">
-								<img src="{{ asset('img/logo-connexion.png') }}" alt="connexion" style="margin:0px 20px 30px 20px;float:left;width:120px;height:120px;">
+								<img src="{{ asset('img/logo-connexion.png') }}" alt="connexion" style="margin:0px 20px 0px 20px;float:left;width:120px;height:120px;">
 								Vérifiez les branchements et la configuration votre microphone. Lisez la documentation qui correspond à votre environnement : <a href="https://support.google.com/chrome/answer/2693767" target="_blank">Chrome</a>, <a href="https://support.mozilla.org/fr/kb/gerer-permissions-camera-et-microphone" target="_blank">Firefox</a>, <a href="https://support.apple.com/fr-fr/guide/safari/ibrwe2159f50/mac" target="_blank">Safari</a>, <a href="https://support.apple.com/fr-fr/guide/mac-help/mchla1b1e1fe/mac" target="_blank">macOS</a>, <a href="https://support.apple.com/fr-fr/HT203792" target="_blank">iOS</a>. Si les problèmes persistent, fermez et rouvrez votre navigateur, faites des tests avec différents navigateurs, ordinateurs, téléphones ou redémarrez votre ordinateur.
-							</p>
-							<p class="text-danger pb-3 pl-4 pr-4 text-justify">
-								<b>IMPORTANT</b><br />Utiliser un appareil relativement récent et à jour, vérifier la batterie avant de commencer et s'assurer que l'appareil ne se mettra pas en veille.
 							</p>
 							<div class="text-center"><a class="btn btn-danger btn-sm" href="{{ url()->current() }}" role="button"><i class="fas fa-sync-alt align-middle pr-2"></i>réessayer</a></div>
 						</div>
 						<!-- /TEST SYSTEM -->
 
 						<!-- ENREGISTREMENT -->
-						<div id="interface" class="text-center mb-4" style="position:relative;display:none;">
+						<div id="interface" class="text-center mb-4" style="display:none;">
 
 							<div id="start_rec">
 								<div class="p-2"><span id="chrono" class="chrono">00:00</span></div>
-								<div class="pb-3 text-monospace text-danger" style="opacity:0.4;font-size:70%" id="max">20 minutes maximum</div>
-								<button id="start_button" type="button" class="btn btn-success pt-2 mt-3 btn-lg font-weight-bold">
+								<div class="pb-3 text-monospace text-danger small mb-4" style="opacity:0.5" id="max">20 minutes maximum</div>
+
+								<div id="start_frame">
+								@if (isset($_GET['a']) AND $_GET['a'] == 'go')
+									<div class="text-monospace text-muted small">l'enregistrement<br />débute dans</div>
+								@endif
+								<button id="start_button" type="button" class="mt-1 btn btn-success btn-lg">
 									@if (isset($_GET['a']) AND $_GET['a'] == 'go')
 										5
 									@else
 										<i class="material-icons align-middle">&#xe31d</i>
 									@endif
 								</button>
-								<div id="start_label" class="small mt-4 text-muted text-monospace">cliquer sur le bouton ci-dessus<br />pour débuter un enregistrement audio</div>
+								@if (isset($_GET['a']) AND $_GET['a'] == 'go')
+									<div class="mt-1 text-monospace text-muted small">secondes</div>
+								@endif
+								</div>
+
+								<div id="start_label" class="small mt-4 text-muted text-monospace">cliquer sur le bouton ci-dessus<br />pour lancer l'enregistrement audio</div>
 							</div>
 
 							<div id="enregistrement" style="display:none;">
@@ -110,13 +116,13 @@
 								<button id="pause_button" type="button" class="btn btn-light btn-lg pt-2 mt-2" style="display:inline;" data-toggle="tooltip"  data-delay='{"show":400,"hide":0}' data-placement="left" title="pause"><i class="material-icons align-middle">pause</i></button>
 
 								<!-- RESUME -->
-								<button id="resume_button" style="display:none;" type="button" class="btn btn-light btn-lg pt-2 mt-2" data-toggle="tooltip"  data-delay='{"show":400,"hide":0}' data-placement="left" title="reprendre l'enregistrement"><i class="material-icons align-middle">&#xe31d</i></button>
+								<button id="resume_button" style="display:none;" type="button" class="btn btn-success btn-lg pt-2 mt-2" data-toggle="tooltip"  data-delay='{"show":400,"hide":0}' data-placement="left" title="reprendre l'enregistrement"><i class="material-icons align-middle">&#xe31d</i></button>
 
 								<!-- STOP -->
 								<button id="stop_button" type="button" class="btn btn-dark btn-lg pt-2 mt-2" data-toggle="tooltip"  data-delay='{"show":400,"hide":0}' data-placement="right" title="arrêter définitivement l'enregistrement"><i class="material-icons align-middle">stop</i></button>
 
 								<div id="animation">
-									<div class="text-centered pt-5"><img src="img/record.gif" width="42" style="opacity:0.9" /></div>
+									<div class="text-centered pt-5"><img src="{{ asset('img/record.gif') }}" width="42" style="opacity:0.9" /></div>
 									<div class="text-centered pt-3 text-muted small text-monospace">enregistrement en cours</div>
 								</div>
 								<div id="pause_label" style="display:none;">
@@ -131,9 +137,9 @@
 								</div>
 							</div>
 
-							<div id="info" class="text-center text-danger mt-4" style="cursor:pointer">
+							<div id="conseils" class="text-center text-danger mt-5" style="cursor:pointer">
 								<i class="fas fa-exclamation-circle fa-lg" style="opacity:0.5" data-toggle="modal" data-target="#modal-info"></i>
-							</div>
+							</div>							
 
 						</div>
 						<!-- /ENREGISTREMENT -->
@@ -149,7 +155,7 @@
 		<!-- dirty trick to bypass webrtc blockers -->
         <iframe id="iframe" sandbox="allow-same-origin" style="display: none"></iframe>
 
-		@include('inc-bottom-js')		
+		@include('inc-bottom-js')
 
 		<script>
 
@@ -292,7 +298,7 @@
 				numberOfChannels: parseInt(1, 10),
 				encoderBitRate: parseInt(64000,10),
 				encoderSampleRate: parseInt(48000,10),
-				encoderPath: "encoderWorker.min.js"
+				encoderPath: "../encoderWorker.min.js"
 			});
 
 			stop_button.addEventListener( "click", function(){
@@ -338,9 +344,9 @@
 				//pause.disabled = stop_button.disabled = false;
 				$('#start_label').css('display', 'none');
 				$('#start_button').css('display', 'none');
+				$('#start_frame').css('display', 'none');
 				$('#enregistrement').css('display', 'block');
 				$('#stop_button').css('display', 'inline');
-				$('#info').css('display', 'none');
 			};
 
 			// ON STOP
@@ -352,6 +358,7 @@
 				$('#enregistrement').css('display', 'none');
 				$('#chrono').css('display', 'none');
 				$('#max').css('display', 'none');
+				$('#conseils').css('display', 'none');
 				$('#warning').css('display', 'block');
 			};
 
@@ -361,14 +368,15 @@
 				var dataBlob = new Blob( [typedArray], { type: 'audio/ogg' } );
 
 				/* move to server */
-				var xhr=new XMLHttpRequest();
+				var xhr = new XMLHttpRequest();
 				xhr.onload=function(e) {
 					if(this.readyState === 4) {
-						$(location).attr('href', 'capsule-telechargement');
+						//console.log(xhr.responseText);
+						$(location).attr('href', 'capsule-verification');
 					}
 				};
 
-				var fd=new FormData();
+				var fd = new FormData();
 				fd.append("capsule_data",dataBlob);
 				fd.append("_token","{{ csrf_token() }}");
 				xhr.open("POST","capsule-mp3",true);

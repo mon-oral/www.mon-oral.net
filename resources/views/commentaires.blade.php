@@ -153,7 +153,7 @@
 																	<a style="font-size:100%;" href="/console/commentaire-creer?a={{Crypt::encryptString($commentaire->code_audio)}}" class="text-dark" style="verticla-align:middle;"><i class="fas fa-sync-alt ml-1 mr-1 text-muted" data-toggle="tooltip" data-placement="top" title="refaire l'enregistrement"></i></a>
 																</td>
 																<td>
-																	<a style="font-size:100%;cursor:pointer;outline:none;" tabindex="0" class="ml-1 mr-2 text-muted" role="button" data-trigger="focus" data-container="body" data-placement="left" data-toggle="popover" data-html="true" data-content="<div class='text-center'><div class='mb-1'>suppressoin de l'enregistrement</div><a class='btn btn-danger btn-sm' href='/console/commentaires/enregistrement-supprimer/{{ Crypt::encryptString($commentaire->code_audio) }}' role='button'>confirmer</a> <a tabindex='0' class='btn btn-secondary btn-sm text-light' role='button'>annuler</a></div>"><i class="fas fa-trash fa-sm"></i></a>
+																	<a style="font-size:100%;cursor:pointer;outline:none;" tabindex="0" class="ml-1 mr-2 text-muted" role="button" data-trigger="focus" data-container="body" data-placement="left" data-toggle="popover" data-html="true" data-content="<div class='text-center'><div class='mb-1'>suppression de l'enregistrement</div><a class='btn btn-danger btn-sm' href='/console/commentaires/enregistrement-supprimer/{{ Crypt::encryptString($commentaire->code_audio) }}' role='button'>confirmer</a> <a tabindex='0' class='btn btn-secondary btn-sm text-light' role='button'>annuler</a></div>"><i class="fas fa-trash fa-sm"></i></a>
 																</td>
 															</tr>
 														@else
@@ -214,10 +214,6 @@
 															<a href="https://www.mon-oral.net/s/{{$commentaire->code_audio}}" class="text-monospace" style="color:#ecf0f1" target="_blank">https://www.mon-oral.net/s/{{$commentaire->code_audio}}</a>
 															</div>
 															</td>
-														</tr>
-														<tr>
-															<td class="pt-4" style="font-size:150%"><i class="fas fa-download mr-4 text-muted"></i></td>
-															<td class="pt-4 text-muted text-justify">Pour télécharger votre fichier audio, cliquez sur les trois petits points verticaux à droite du lecteur. Si les trois petits points verticaux n'apparaissent pas (cela dépend des navigateurs), faites un clic droit sur le lecteur. Le fichier audio est au format mp3.</td>
 														</tr>
 													</table>
 

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light mb-4">
+<nav class="navbar navbar-expand-md navbar-light">
     <div class="container">
         <div>
             <div><a class="navbar-brand" href="{{ url('/') }}"><img src="{{ asset('img/mon-oral.svg') }}" width="60" /></a></div>
