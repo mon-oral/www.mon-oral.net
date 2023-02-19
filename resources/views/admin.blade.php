@@ -74,21 +74,21 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 				?>
 					
 				<div class="row mt-4">
-					<div class="col-md-4">
+					<div class="col-md-3">
 						<div class="text-muted">Utilisateurs : <span class="badge badge-pill badge-success" style="padding-bottom:1px;">{{ $nb_total_utilisateurs }}<span></div>
 						<div class="text-muted">Entraînements : <span class="badge badge-pill badge-success" style="padding-bottom:1px;">{{ $nb_total_entrainements }}<span></div>
 						<div class="text-muted">Activités : <span class="badge badge-pill badge-success" style="padding-bottom:1px;">{{ $nb_total_activites }}<span></div>
 						<div class="text-muted">Sujets : <span class="badge badge-pill badge-success" style="padding-bottom:1px;">{{ $nb_total_sujets }}<span></div>
-						<div class="text-muted">Enregistrements entraînements : <span class="badge badge-pill badge-success" style="padding-bottom:1px;">{{ $nb_total_entrainements_enregistrements }}<span></div>
-						<div class="text-muted">Enregistrements activités : <span class="badge badge-pill badge-success" style="padding-bottom:1px;">{{ $nb_total_activites_enregistrements }}<span></div>
-						<div class="text-muted">Enregistrements commentaires : <span class="badge badge-pill badge-success" style="padding-bottom:1px;">{{ $nb_total_commentaires_enregistrements }}<span></div>
-						<div class="text-muted">Enregistrements capsules : <span class="badge badge-pill badge-success" style="padding-bottom:1px;">{{ $nb_total_capsules_enregistrements }}<span></div>
-						<div class="text-muted">Total enregistrements : <span class="badge badge-pill badge-success" style="padding-bottom:1px;">{{ $nb_total_capsules_enregistrements + $nb_total_commentaires_enregistrements + $nb_total_entrainements_enregistrements +$nb_total_activites_enregistrements }}<span></div>
+						<div class="text-muted">Enr. entraînements : <span class="badge badge-pill badge-success" style="padding-bottom:1px;">{{ $nb_total_entrainements_enregistrements }}<span></div>
+						<div class="text-muted">Enr. activités : <span class="badge badge-pill badge-success" style="padding-bottom:1px;">{{ $nb_total_activites_enregistrements }}<span></div>
+						<div class="text-muted">Enr. commentaires : <span class="badge badge-pill badge-success" style="padding-bottom:1px;">{{ $nb_total_commentaires_enregistrements }}<span></div>
+						<div class="text-muted">Enr. capsules : <span class="badge badge-pill badge-success" style="padding-bottom:1px;">{{ $nb_total_capsules_enregistrements }}<span></div>
+						<div class="text-muted">Total enr. : <span class="badge badge-pill badge-success" style="padding-bottom:1px;">{{ $nb_total_capsules_enregistrements + $nb_total_commentaires_enregistrements + $nb_total_entrainements_enregistrements +$nb_total_activites_enregistrements }}<span></div>
 						<br />
 						<br />
 					</div>
 					
-					<div class="col-md-8">
+					<div class="col-md-9">
 				
 						<div class="">
 							<table>
