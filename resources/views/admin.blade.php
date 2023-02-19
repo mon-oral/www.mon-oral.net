@@ -60,8 +60,9 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 
 			<div class="container">
 
+				<?php 				
+				$utilisateurs = App\User::where('is_checked', '=', '1')->get();
 
-				<?php
 				$nb_total_utilisateurs = App\User::count();
 				$nb_total_entrainements = App\Entrainement::count();
 				$nb_total_activites = App\Activite::count();
@@ -113,23 +114,7 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 							</table>
 
 														
-						</div>	
-						
-						<?php
-						/*
-						echo '<h1 class="mt-5">CAPSULES</h1>';
-						foreach($capsules as $capsule) {
-							echo pathinfo($capsule, PATHINFO_BASENAME);
-							echo '<audio controls style="width:100%"><source src="https://www.mon-oral.net/storage/audio-capsules/sfokasnejd/'.pathinfo($capsule, PATHINFO_BASENAME).'" type="audio/mpeg"></audio>';
-						}
-
-						echo '<h1 class="mt-5">ENTRAÎNEMENTS</h1>';
-						foreach($entrainements as $entrainement) {
-							echo pathinfo($entrainement, PATHINFO_BASENAME);
-							echo '<audio controls style="width:100%"><source src="https://www.mon-oral.net/storage/audio-entrainements/lrpxmensjw/'.pathinfo($entrainement, PATHINFO_BASENAME).'" type="audio/mpeg"></audio>';
-						}
-						*/
-						?>							
+						</div>				
 						
 					</div>
 				</div>
