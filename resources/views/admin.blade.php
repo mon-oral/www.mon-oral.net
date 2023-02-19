@@ -74,7 +74,7 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 				?>
 					
 				<div class="row mt-4">
-					<div class="col-md-3">
+					<div class="col-md-4">
 						<div class="text-muted">Utilisateurs : <span class="badge badge-pill badge-success" style="padding-bottom:1px;">{{ $nb_total_utilisateurs }}<span></div>
 						<div class="text-muted">Entraînements : <span class="badge badge-pill badge-success" style="padding-bottom:1px;">{{ $nb_total_entrainements }}<span></div>
 						<div class="text-muted">Activités : <span class="badge badge-pill badge-success" style="padding-bottom:1px;">{{ $nb_total_activites }}<span></div>
@@ -88,7 +88,7 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 						<br />
 					</div>
 					
-					<div class="col-md-9">
+					<div class="col-md-8">
 				
 						<div class="">
 							<table>
