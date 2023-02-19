@@ -71,7 +71,7 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 				$nb_total_entrainements_enregistrements = App\Log::where('code_audio', '!=', '')->count();
 				$nb_total_activites_enregistrements = App\Activites_enregistrement::count();
 				$nb_total_commentaires_enregistrements = App\Commentaire::count();
-				$nb_total_capsules_enregistrements = App\Logs_capsule::where('duration', '>', 5)->count() + 10000;
+				$nb_total_capsules_enregistrements = App\Logs_capsule::count() + 10000;
 
 				//$utilisateurs = App\User::where('is_checked', '=', '2')->get();
 				?>
