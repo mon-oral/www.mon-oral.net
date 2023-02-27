@@ -96,7 +96,7 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 					<div class="col-md-12 small text-monospace">
 						<table>
 							@foreach ($connexions as $connexion)
-							@if (strpos($connexion['email'], '@ac-') == false)
+							@if (strpos($connexion['email'], '@ac- || @aefe') == false)
 							<tr>
 								<td>{{$connexion['name']}}</td>
 								<td>{{$connexion['email']}}</td>
