@@ -61,7 +61,7 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 			<div class="container">
 
 				<?php 	
-				$nb_days = 30;			
+				$nb_days = 600;			
 				$entrainements = App\Entrainement::where('entrainements.updated_at', '>', now()->subDays($nb_days)->endOfDay())
 					->join('users', 'users.id', '=', 'entrainements.user_id')
 					->get(['users.name', 'users.email', 'users.etablissement', 'entrainements.updated_at'])
@@ -96,7 +96,7 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 					<div class="col-md-12 small text-monospace">
 						<table>
 							@foreach ($connexions as $connexion)
-							@if (strpos($connexion['email'], '@ac-||@aefe') == false)
+							@if (preg_match('(@ac|@aefe)', $connexion['email']) !== 1)
 							<tr>
 								<td>{{$connexion['name']}}</td>
 								<td>{{$connexion['email']}}</td>
