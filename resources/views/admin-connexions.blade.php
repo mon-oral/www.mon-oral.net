@@ -75,8 +75,8 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 					->get(['users.name', 'users.email', 'users.etablissement', 'users.is_checked'])				
 					->toArray();
 
-				$connexions = array_merge($entrainements, $activites, $commentaires);
-				$connexions = array_unique($connexions, SORT_REGULAR);
+				$connexions_merge = array_merge($entrainements, $activites, $commentaires);
+				$connexions = array_unique($connexions_merge, SORT_REGULAR);
 				$email = array_column($connexions, 'email');
 				array_multisort($email, SORT_ASC, $connexions);
 				?>
@@ -86,8 +86,9 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 						<table>
 							@foreach ($connexions as $connexion)
 							@if ($connexion['is_checked'] != 0)
-							@if (preg_match('(@ac|@aefe|@AEFE)', $connexion['email']) !== 1)
+							@if (preg_match('(@ac-|@aefe|@AEFE)', $connexion['email']) !== 1)
 							<tr>
+								<td>{{count(array_keys($connexions_merge, $connexion))}}</td>
 								<td>{{$connexion['name']}}</td>
 								<td>{{$connexion['email']}}</td>
 								<td>{{$connexion['etablissement']}}</td>
