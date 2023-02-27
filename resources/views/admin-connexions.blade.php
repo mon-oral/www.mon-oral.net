@@ -61,33 +61,22 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 			<div class="container">
 
 				<?php 	
-				$nb_days = 600;			
+				$nb_days = 30;			
 				$entrainements = App\Entrainement::where('entrainements.updated_at', '>', now()->subDays($nb_days)->endOfDay())
 					->join('users', 'users.id', '=', 'entrainements.user_id')
-					->get(['users.name', 'users.email', 'users.etablissement', 'entrainements.updated_at'])
-					->map(function ($item) {
-						$item['type'] = 'entrainement';
-						return $item;
-				  	})
+					->get(['users.name', 'users.email', 'users.etablissement'])
 					->toArray();
 				$activites = App\Activite::where('activites.updated_at', '>', now()->subDays($nb_days)->endOfDay())
 					->join('users', 'users.id', '=', 'activites.user_id')
-					->get(['users.name', 'users.email', 'users.etablissement', 'activites.updated_at'])
-					->map(function ($item) {
-						$item['type'] = 'activite';
-						return $item;
-				  	})					
+					->get(['users.name', 'users.email', 'users.etablissement'])				
 					->toArray();
 				$commentaires = App\Commentaire::where('commentaires.updated_at', '>', now()->subDays($nb_days)->endOfDay())
 					->join('users', 'users.id', '=', 'commentaires.user_id')
-					->get(['users.name', 'users.email', 'users.etablissement', 'commentaires.updated_at'])
-					->map(function ($item) {
-						$item['type'] = 'commentaire';
-						return $item;
-				  	})					
+					->get(['users.name', 'users.email', 'users.etablissement'])				
 					->toArray();
 
 				$connexions = array_merge($entrainements, $activites, $commentaires);
+				$connexions = array_unique($connexions, SORT_REGULAR);
 				$email = array_column($connexions, 'email');
 				array_multisort($email, SORT_ASC, $connexions);
 				?>
@@ -101,8 +90,6 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 								<td>{{$connexion['name']}}</td>
 								<td>{{$connexion['email']}}</td>
 								<td>{{$connexion['etablissement']}}</td>
-								<td>{{$connexion['type']}}</td>
-								<td>{{substr($connexion['updated_at'], 0, 10)}}</td>
 							</tr>
 							@endif
 							@endforeach
