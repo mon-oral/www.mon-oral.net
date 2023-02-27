@@ -45,7 +45,8 @@ Route::get('/donnees-personnelles', function () {
 })->name('donnees-personnelles');
 
 Route::any('/admin', 'AdminController@admin');
-Route::any('/stats', 'AdminController@stats');
+Route::any('/admin-stats', 'AdminController@stats');
+Route::any('/admin-connexions', 'AdminController@connexions');
 
 
 Route::get('telecharger-capsule/{filename}', function ($filename) {
