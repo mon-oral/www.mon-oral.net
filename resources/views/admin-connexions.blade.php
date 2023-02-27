@@ -96,6 +96,7 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 					<div class="col-md-12 small text-monospace">
 						<table>
 							@foreach ($connexions as $connexion)
+							if (!str_contains($connexion['email'], '@ac-'))
 							<tr>
 								<td>{{$connexion['name']}}</td>
 								<td>{{$connexion['email']}}</td>
@@ -103,6 +104,7 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 								<td>{{$connexion['type']}}</td>
 								<td>{{substr($connexion['updated_at'], 0, 10)}}</td>
 							</tr>
+							@endif
 							@endforeach
 						</table>
 						
