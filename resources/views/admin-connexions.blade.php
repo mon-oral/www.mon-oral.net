@@ -64,15 +64,15 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 				$nb_days = 30;			
 				$entrainements = App\Entrainement::where('entrainements.updated_at', '>', now()->subDays($nb_days)->endOfDay())
 					->join('users', 'users.id', '=', 'entrainements.user_id')
-					->get(['users.name', 'users.email', 'users.etablissement'])
+					->get(['users.name', 'users.email', 'users.etablissement', 'users.is_checked'])
 					->toArray();
 				$activites = App\Activite::where('activites.updated_at', '>', now()->subDays($nb_days)->endOfDay())
 					->join('users', 'users.id', '=', 'activites.user_id')
-					->get(['users.name', 'users.email', 'users.etablissement'])				
+					->get(['users.name', 'users.email', 'users.etablissement', 'users.is_checked'])				
 					->toArray();
 				$commentaires = App\Commentaire::where('commentaires.updated_at', '>', now()->subDays($nb_days)->endOfDay())
 					->join('users', 'users.id', '=', 'commentaires.user_id')
-					->get(['users.name', 'users.email', 'users.etablissement'])				
+					->get(['users.name', 'users.email', 'users.etablissement', 'users.is_checked'])				
 					->toArray();
 
 				$connexions = array_merge($entrainements, $activites, $commentaires);
@@ -85,12 +85,14 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 					<div class="col-md-12 small text-monospace">
 						<table>
 							@foreach ($connexions as $connexion)
-							@if (preg_match('(@ac|@aefe)', $connexion['email']) !== 1)
+							@if ($connexion['is_checked'] != 0)
+							@if (preg_match('(@ac|@aefe|@AEFE)', $connexion['email']) !== 1)
 							<tr>
 								<td>{{$connexion['name']}}</td>
 								<td>{{$connexion['email']}}</td>
 								<td>{{$connexion['etablissement']}}</td>
 							</tr>
+							@endif
 							@endif
 							@endforeach
 						</table>
