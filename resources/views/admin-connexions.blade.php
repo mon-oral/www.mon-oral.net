@@ -87,12 +87,14 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 							@foreach ($connexions as $connexion)
 							@if ($connexion['is_checked'] != 0)
 							@if (preg_match('(@ac-|@aefe|@AEFE)', $connexion['email']) !== 1)
+							@if (count(array_keys($connexions_merge, $connexion)) > 1)
 							<tr>
 								<td>{{count(array_keys($connexions_merge, $connexion))}}</td>
 								<td>{{$connexion['name']}}</td>
 								<td>{{$connexion['email']}}</td>
 								<td>{{$connexion['etablissement']}}</td>
 							</tr>
+							@endif
 							@endif
 							@endif
 							@endforeach
