@@ -60,8 +60,9 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 
 			<div class="container">
 
-				<?php 				
-				$entrainements = App\Entrainement::where('entrainements.updated_at', '>', now()->subDays(600)->endOfDay())
+				<?php 	
+				$nb_days = 30;			
+				$entrainements = App\Entrainement::where('entrainements.updated_at', '>', now()->subDays($nb_days)->endOfDay())
 					->join('users', 'users.id', '=', 'entrainements.user_id')
 					->get(['users.name', 'users.email', 'users.etablissement', 'entrainements.updated_at'])
 					->map(function ($item) {
@@ -69,7 +70,7 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 						return $item;
 				  	})
 					->toArray();
-				$activites = App\Activite::where('activites.updated_at', '>', now()->subDays(600)->endOfDay())
+				$activites = App\Activite::where('activites.updated_at', '>', now()->subDays($nb_days)->endOfDay())
 					->join('users', 'users.id', '=', 'activites.user_id')
 					->get(['users.name', 'users.email', 'users.etablissement', 'activites.updated_at'])
 					->map(function ($item) {
@@ -77,7 +78,7 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 						return $item;
 				  	})					
 					->toArray();
-				$commentaires = App\Commentaire::where('commentaires.updated_at', '>', now()->subDays(600)->endOfDay())
+				$commentaires = App\Commentaire::where('commentaires.updated_at', '>', now()->subDays($nb_days)->endOfDay())
 					->join('users', 'users.id', '=', 'commentaires.user_id')
 					->get(['users.name', 'users.email', 'users.etablissement', 'commentaires.updated_at'])
 					->map(function ($item) {
