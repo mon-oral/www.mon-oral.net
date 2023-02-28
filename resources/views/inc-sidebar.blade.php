@@ -2,7 +2,7 @@
 <table style="width:100%">
 	<tr>
 		<td style="width:100%"><a href="/console/activites" role="button" class="btn btn-light text-left text-dark" style="width:100%"><span class="small text-uppercase">activités</span></a></td>
-		<td><a href="/console/activite-creer" role="button" class="btn btn-light text-dark data-toggle="tooltip" data-placement="right" title="créer une activité orale pour les élèves (récitation, lecture expressive, description orale...)"><i class="fas fa-plus fa-xs"></i></a></td>
+		<td><a href="/console/activite-creer" role="button" class="btn btn-light text-dark" data-toggle="tooltip" data-placement="right" title="créer une activité orale pour les élèves (récitation, lecture expressive, description orale...)"><i class="fas fa-plus fa-xs"></i></a></td>
 	</tr>
 	<tr>
 		<td style="width:90%"><a href="/console/entrainements" role="button" class="btn btn-light text-left text-dark" style="width:100%"><span class="small text-uppercase">entraînements</span></a></td>
