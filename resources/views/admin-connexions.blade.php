@@ -107,6 +107,9 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 			</div><!-- /container -->
 			
 		</div><!-- /app -->
+
+		<br />
+		<br />
 		
 		@include('inc-bottom-js')
 		
