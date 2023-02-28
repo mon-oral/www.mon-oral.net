@@ -61,7 +61,7 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 			<div class="container">
 
 				<?php 	
-				$nb_days = 30;			
+				$nb_days = 7;			
 				$entrainements = App\Entrainement::where('entrainements.updated_at', '>', now()->subDays($nb_days)->endOfDay())
 					->join('users', 'users.id', '=', 'entrainements.user_id')
 					->get(['users.name', 'users.email', 'users.etablissement', 'users.is_checked', 'users.is_valid'])
