@@ -23,10 +23,14 @@ a:hover {
     text-decoration: none;
 }
 
+a.link_protected {
+    pointer-events: none;	
+	opacity:0.4;
+}
+
 .text-success {
     color: #5FB57D !important;
 }
-
 
 
 .table th, .table td {
