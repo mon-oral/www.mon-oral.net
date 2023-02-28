@@ -64,15 +64,15 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 				$nb_days = 30;			
 				$entrainements = App\Entrainement::where('entrainements.updated_at', '>', now()->subDays($nb_days)->endOfDay())
 					->join('users', 'users.id', '=', 'entrainements.user_id')
-					->get(['users.name', 'users.email', 'users.etablissement', 'users.is_checked'])
+					->get(['users.name', 'users.email', 'users.etablissement', 'users.is_checked', 'users.is_valid'])
 					->toArray();
 				$activites = App\Activite::where('activites.updated_at', '>', now()->subDays($nb_days)->endOfDay())
 					->join('users', 'users.id', '=', 'activites.user_id')
-					->get(['users.name', 'users.email', 'users.etablissement', 'users.is_checked'])				
+					->get(['users.name', 'users.email', 'users.etablissement', 'users.is_checked', 'users.is_valid'])				
 					->toArray();
 				$commentaires = App\Commentaire::where('commentaires.updated_at', '>', now()->subDays($nb_days)->endOfDay())
 					->join('users', 'users.id', '=', 'commentaires.user_id')
-					->get(['users.name', 'users.email', 'users.etablissement', 'users.is_checked'])				
+					->get(['users.name', 'users.email', 'users.etablissement', 'users.is_checked', 'users.is_valid'])				
 					->toArray();
 
 				$connexions_merge = array_merge($entrainements, $activites, $commentaires);
@@ -88,11 +88,12 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 							@if ($connexion['is_checked'] != 0)
 							@if (preg_match('(@ac-|@aefe|@AEFE)', $connexion['email']) !== 1)
 							@if (count(array_keys($connexions_merge, $connexion)) > 1)
-							<tr>
+							<tr @if ($connexion['is_valid'] !== NULL) class="text-danger" @endif>
 								<td>{{count(array_keys($connexions_merge, $connexion))}}</td>
 								<td>{{$connexion['name']}}</td>
 								<td>{{$connexion['email']}}</td>
 								<td>{{$connexion['etablissement']}}</td>
+								<td>{{$connexion['is_valid']}}</td>
 							</tr>
 							@endif
 							@endif
