@@ -2,17 +2,17 @@
 <table style="width:100%">
 	<tr>
 		<td style="width:100%"><a href="/console/activites" role="button" class="btn btn-light text-left text-dark" style="width:100%"><span class="small text-uppercase">activités</span></a></td>
-		<td><a href="/console/activite-creer" role="button" class="btn btn-light text-dark {{$link_protected}}" data-toggle="tooltip" data-placement="right" title="créer une activité orale pour les élèves (récitation, lecture expressive, description orale...)"><i class="fas fa-plus fa-xs"></i></a></td>
+		<td><a href="/console/activite-creer" role="button" class="btn btn-light text-dark {{ $link_protected ?? '' }}" data-toggle="tooltip" data-placement="right" title="créer une activité orale pour les élèves (récitation, lecture expressive, description orale...)"><i class="fas fa-plus fa-xs"></i></a></td>
 	</tr>
 	<tr>
 		<td style="width:90%"><a href="/console/entrainements" role="button" class="btn btn-light text-left text-dark" style="width:100%"><span class="small text-uppercase">entraînements</span></a></td>
-		<td><a href="/console/entrainement-creer" role="button" class="btn btn-light text-dark {{$link_protected}}" data-toggle="tooltip" data-placement="right" title="créer un entraînement de type examen (EAF, Grand Oral, langue, brevet...)"><i class="fas fa-plus fa-xs"></i></a></td>
+		<td><a href="/console/entrainement-creer" role="button" class="btn btn-light text-dark {{ $link_protected ?? '' }}" data-toggle="tooltip" data-placement="right" title="créer un entraînement de type examen (EAF, Grand Oral, langue, brevet...)"><i class="fas fa-plus fa-xs"></i></a></td>
 	</tr>
 </table>
 <div class="text-monospace pt-3" style="font-size:70%;color:#dae0e5;">enregistrements enseignants</div>
 <table style="width:100%">
 	<tr>
-		<td><a href="/console/commentaires" role="button" class="btn btn-light text-left text-dark {{$link_protected}}" style="width:100%"><span class="small text-uppercase">commentaires</span></a></td>
+		<td><a href="/console/commentaires" role="button" class="btn btn-light text-left text-dark {{ $link_protected ?? '' }}" style="width:100%"><span class="small text-uppercase">commentaires</span></a></td>
 	</tr>
 </table>
 
