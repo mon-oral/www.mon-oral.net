@@ -83,7 +83,7 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 					
 				<div class="row mt-4">
 					<div class="col-md-12 small text-monospace">
-						<table>
+						<table class="table table-bordered table-hover">
 							@foreach ($connexions as $connexion)
 							@if ($connexion['is_checked'] != 0)
 							@if (preg_match('(@ac-|@aefe|@AEFE)', $connexion['email']) !== 1)
