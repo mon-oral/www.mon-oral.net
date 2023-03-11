@@ -26,20 +26,30 @@
 		
 			<div class="container">
 									
-				<div class="row mt-5">
-				
-					<div class="col-md-6 offset-md-3 text-center">
-			
+				<div class="row mt-5 text-center">
+					<div class="col-md-6 offset-md-3">
+						<div class="mb-2 text-danger">Vérifiez votre enregistrement avant de l'envoyer</div>
 						<audio controls style="width:100%"><source src="/activite-etape-verifier-ecoute" type="audio/mpeg"></audio>
-						<p class="m-0 p-0 text-monospace text-center small" style="color:silver">attendez quelques secondes que le lecteur se charge</p>
-						<p class="mt-5">
-							<a class="btn btn-success" href="/activite-etape-sauvegarder" role="button" data-toggle="tooltip" data-placement="top" title="conserver cet enregistrement"><i class="fas fa-save align-middle"></i></a>
-							<a class="btn btn-light ml-2 mr-2" href="/activite-etape-refaire" role="button" data-toggle="tooltip" data-placement="top" title="refaire l'enregistrement"><i class="fas fa-sync-alt align-middle"></i></a>
-							<a class="btn btn-dark" href="/activite-etape-quitter" role="button" data-toggle="tooltip" data-placement="top" title="quitter"><i class="fas fa-times align-middle"></i></a>
-						</p>
-
+						<p class="m-0 p-0 text-monospace small" style="color:silver">attendez quelques secondes que le lecteur se charge</p>
 					</div>
+				</div>
 
+				<div class="row mt-4">
+					<div class="col-md-4 offset-md-4 text-center">
+						<div class="row">
+							<div class="col-md-12 p-2">
+								<a class="btn btn-success d-block" href="/activite-etape-sauvegarder" role="button"><i class="fas fa-check mr-1"></i> envoyer cet enregistrement à l'enseignant</a>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-8 p-2">
+								<a class="btn btn-light d-block" href="/activite-etape-refaire" role="button"><i class="fas fa-sync-alt align-middle mr-1"></i> refaire l'enregistrement</a>
+							</div>
+							<div class="col-md-4 p-2">
+								<a class="btn btn-dark d-block" href="/activite-etape-quitter" role="button"><i class="fas fa-times align-middle mr-1"></i> quitter</a>
+							</div>
+						</div>
+					</div>
 				</div>
 		
 			</div><!-- /container -->
