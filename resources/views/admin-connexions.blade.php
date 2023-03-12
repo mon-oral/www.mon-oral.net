@@ -93,7 +93,7 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 								<td>{{$connexion['name']}}</td>
 								<td>{{$connexion['email']}}</td>
 								<td>{{$connexion['etablissement']}}</td>
-								<td>{{$connexion['is_checked']}}</td>
+								<td @if ($connexion['is_checked'] == 3) class="text-danger" @endif>{{$connexion['is_checked']}}</td>
 								<td>{{$connexion['is_valid']}}</td>
 							</tr>
 							@endif
