@@ -88,6 +88,14 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 							@if ($connexion['is_checked'] != 0)
 							@if (preg_match('(@ac-|@aefe|@AEFE)', $connexion['email']) !== 1)
 							@if (count(array_keys($connexions_merge, $connexion)) > 1)
+							@if (!in_array($connexion['email'], [
+								'cyril.vinot@mlfmonde.org',
+								'laura.jambou@mfr.asso.fr',
+								'llemaitre@lfelsalvador.org',
+								'nicolas.ducasse@lyceemermozdakar.org',
+								'pierre.lanquetin@stanislas.qc.ca',
+								'samira.bouacheria@liad-alger.fr',
+							]))
 							<tr @if ($connexion['is_valid'] !== NULL OR $connexion['is_checked'] == 3) class="text-danger" @endif>
 								<td>{{count(array_keys($connexions_merge, $connexion))}}</td>
 								<td>{{$connexion['name']}}</td>
@@ -96,6 +104,7 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 								<td>{{$connexion['is_checked']}}</td>
 								<td>{{$connexion['is_valid']}}</td>
 							</tr>
+							@endif
 							@endif
 							@endif
 							@endif
