@@ -38,7 +38,6 @@
 					<div>
 						<div><a class="navbar-brand" href="{{ url('/') }}"><img src="{{ asset('img/mon-oral.png') }}" width="60" /></a></div>
 						<div class="text-monospace" style="font-size:60%;color:silver;margin-top:-6px;">mon-oral.net</div>
-						<div class="text-monospace small text-danger" style="padding-left:70px;margin-top:-70px;">bêta</div>
 					</div>
 					
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
