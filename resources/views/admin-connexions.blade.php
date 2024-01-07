@@ -95,6 +95,12 @@ if (Auth::user() and Auth::user()->is_admin == 0){
 								'nicolas.ducasse@lyceemermozdakar.org',
 								'pierre.lanquetin@stanislas.qc.ca',
 								'samira.bouacheria@liad-alger.fr',
+								'alequeux@lfitokyo.org',
+								'nathalie.saademoussa@clw.edu.lb',
+								'olivier.consul@etu.univ-tlse2.fr',
+								'mendez.begona@lyceealbertcamus-conakry.net',
+								'matthieu.monneau@educagri.fr',
+								'buzit.yann@efb.rs',
 							]))
 							<tr @if ($connexion['is_valid'] !== NULL OR $connexion['is_checked'] == 3) class="text-danger" @endif>
 								<td>{{count(array_keys($connexions_merge, $connexion))}}</td>
