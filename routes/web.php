@@ -48,7 +48,6 @@ Route::any('/admin', 'AdminController@admin');
 Route::any('/admin-stats', 'AdminController@stats');
 Route::any('/admin-connexions', 'AdminController@connexions');
 
-
 Route::get('telecharger-capsule/{filename}', function ($filename) {
     return Storage::disk('local')->download('/public/audio-capsules/sfokasnejd/'.$filename.'.mp3');
 });
@@ -553,6 +552,10 @@ Route::any('/console/lecteur-activite', 'ConsoleController@redirect');
 
 // Entrainement - ecoute
 Route::any('/entrainement/{code_audio}', 'ConsoleController@entrainementecoute')->name('entrainementecoute');
+
+// MAJ renseignements
+Route::any('/console/maj-renseignements', 'ConsoleController@redirect');
+Route::post('/console/maj-renseignements', 'ConsoleController@maj_renseignements')->name('maj-renseignements');
 
 
 // ==========================

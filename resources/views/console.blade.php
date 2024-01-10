@@ -10,6 +10,46 @@
 
 	@include('inc-nav-console-accueil')
 
+	@if (Auth::user()->etablissement_type == NULL)
+		<div class="container mb-5">
+			<div class="row">
+				<div class="col-md-8 offset-md-2">
+					DEMANDE D'INFORMATION COMPLÉMENTAIRE
+					<br />
+					<br />
+					<form method="POST" action="{{ route('maj-renseignements') }}">
+						@csrf
+						<div class="form-group row mb-0">
+							<label for="etablissement_type" class="col-md-6 col-form-label text-md-right mt-0 pt-0">Votre établissement est un établissement:</label>
+							<div class="col-md-6">
+								<div class="form-group">
+									<select name="etablissement_type" class="custom-select @error('etablissement_type') is-invalid @enderror">
+										<option></option>
+										<option value="public">public</option>
+										<option value="private">privé</option>
+									</select>
+								</div>
+								@error('etablissement_type')
+									<span class="invalid-feedback" role="alert">
+										<strong>{{ $message }}</strong>
+									</span>
+								@enderror
+							</div>
+						</div>                            
+						<div class="form-group row mb-0">
+							<div class="col-md-6 offset-md-6">
+								<button type="submit" id="inscription" class="btn btn-primary pl-4 pr-4"><i class="fas fa-check"></i></button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		@php
+		exit();
+		@endphp
+	@endif
+
 	<div class="container mb-5">
 		<div class="row">
 
