@@ -67,7 +67,7 @@
         if (!isNaN(quantity)) {
         quantitySelect.style.visibility = "visible";
         }
-        var orderDescription = 'Souteienir le projet';
+        var orderDescription = 'Soutenir le projet';
         if(orderDescription === '') {
         orderDescription = 'Item';
         }

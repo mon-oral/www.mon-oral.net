@@ -77,8 +77,21 @@
 					</div>
 				</div>
 
-				{!!$message_1!!}
-				{!!$message_2!!}
+				{!!$message_1 ?? ''!!}
+				{!!$message_2 ?? ''!!}
+
+				@if (Auth::user()->etablissement_type == 'private' AND strpos(Auth::user()->email, 'lfitokyo') === false AND strpos(Auth::user()->email, 'aefe') === false)
+					<div class="row mt-3 mb-3">
+						<div class="col-md-10 offset-md-1 text-muted text-justify text-monospace small" style="background-color:white;padding:15px;border:solid 1px silver;border-radius:4px;">
+							Développé et maintenu par des enseignants, ce site est ouvert à tous les professeurs et formateurs, que la structure soit publique ou privée.<br />
+							Si votre établissement ou votre département souhaite soutenir le projet, il est possible de le faire en cliquant sur le bouton ci-dessous.
+							<div class="text-center mt-1 mb-2">
+								<a class="btn btn-light btn-sm" href="https://www.mon-oral.net/soutien" role="button" target="_blank"><i class="text-danger fas fa-heart"></i> soutenir ce projet</a></a>
+							</div>
+							Le seul but est de couvrir les frais d'hébergement et de renouvellement du nom de domaine car le site ne bénéficie pas de financement extérieur. Cet encart sera retiré quand les coûts seront couverts.<br />Remarque: les dons d'enseignants ne sont pas acceptés car ce n'est pas à eux de financer un outil de travail
+						</div>
+					</div>
+				@endif
 
 				<div class="row mb-5">
 					<div class="col-md-10 offset-md-1 text-muted text-justify">
