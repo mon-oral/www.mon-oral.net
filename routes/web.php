@@ -29,7 +29,7 @@ Route::view('/soutien', 'soutien');
 Route::get('/bac-a-sable', function () {return view('bac-a-sable');});
 
 // Discussions
-Route::get('/discussions', function () {return view('discussions');})->middleware('auth');;
+Route::get('/discussions', function () {return view('discussions');})->middleware('auth');
 
 // Webinaire
 Route::get('/webinaire', function () {return view('webinaire');});
@@ -46,6 +46,8 @@ Route::get('/donnees-personnelles', function () {
 
 Route::any('/admin', 'AdminController@admin');
 Route::any('/admin-stats', 'AdminController@stats');
+Route::any('/admin-stats-month', 'AdminController@stats_month');
+Route::any('/admin-stats-year', 'AdminController@stats_year');
 Route::any('/admin-connexions', 'AdminController@connexions');
 
 Route::get('telecharger-capsule/{filename}', function ($filename) {
@@ -87,17 +89,35 @@ Route::get('/ndll-lfit/lecteur/{code}', function($code){
 // ==========================
 
 Route::get('/direct-inscription', function(){
-    Cookie::queue(Cookie::forget(strtolower(str_replace(['-','.'], ['_',''], config('app.name'))) . '_session'));
+    Auth::logout();
+    Cookie::queue(Cookie::forget(strtolower(str_replace(' ', '_', config('app.name'))) . '_session'));
+    Cookie::queue(Cookie::forget('remember_web'));
+	Cookie::queue(Cookie::forget('XSRF-TOKEN'));
+    Session::flush();
+    Session::invalidate();
+    Session::regenerateToken();
     return redirect('/inscription');
 });
 
 Route::get('/direct-connexion', function(){
-    Cookie::queue(Cookie::forget(strtolower(str_replace(['-','.'], ['_',''], config('app.name'))) . '_session'));
+	Auth::logout();
+    Cookie::queue(Cookie::forget(strtolower(str_replace(' ', '_', config('app.name'))) . '_session'));
+    Cookie::queue(Cookie::forget('remember_web'));
+	Cookie::queue(Cookie::forget('XSRF-TOKEN'));
+    Session::flush();
+    Session::invalidate();
+    Session::regenerateToken();
     return redirect('/connexion');
 });
 
 Route::get('/direct-welcome', function(){
-    Cookie::queue(Cookie::forget(strtolower(str_replace(['-','.'], ['_',''], config('app.name'))) . '_session'));
+	Auth::logout();
+    Cookie::queue(Cookie::forget(strtolower(str_replace(' ', '_', config('app.name'))) . '_session'));
+    Cookie::queue(Cookie::forget('remember_web'));
+	Cookie::queue(Cookie::forget('XSRF-TOKEN'));
+    Session::flush();
+    Session::invalidate();
+    Session::regenerateToken();
     return redirect('/');
 });
 

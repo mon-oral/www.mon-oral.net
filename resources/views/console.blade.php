@@ -80,6 +80,8 @@
 				{!!$message_1 ?? ''!!}
 				{!!$message_2 ?? ''!!}
 
+				<?php
+				/*
 				@if (Auth::user()->etablissement_type == 'private' AND strpos(Auth::user()->email, 'lfitokyo') === false AND strpos(Auth::user()->email, 'aefe') === false)
 					<div class="row mt-3 mb-3">
 						<div class="col-md-10 offset-md-1 text-muted text-justify text-monospace small" style="background-color:white;padding:15px;border:solid 1px silver;border-radius:4px;">
@@ -92,6 +94,8 @@
 						</div>
 					</div>
 				@endif
+				*/
+				?>
 
 				<div class="row mb-5">
 					<div class="col-md-10 offset-md-1 text-muted text-justify">
