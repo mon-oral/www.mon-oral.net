@@ -143,6 +143,8 @@
     							</div>
     						</div>
 
+                            <input type="hidden" name="loaded_at" value="{{ now() }}">
+
                             <div class="form-group row mb-0 pt-2">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" id="inscription" class="btn btn-primary pl-4 pr-4" disabled><i class="fas fa-check"></i></button>
