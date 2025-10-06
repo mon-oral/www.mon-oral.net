@@ -109,6 +109,7 @@
 							<ul>
 								<li>Chrome / Firefox + Windows</li>
 								<li>Chrome / Firefox / Safari + macOS</li>
+								<li>Firefox + GNU–Linux</li>
 								<li>Chromebook</li>
 								<li>Chrome + Android</li>
 								<li>Safari + iOS (le micro ne fonctionne pas avec d'autres navigateurs)</li>
